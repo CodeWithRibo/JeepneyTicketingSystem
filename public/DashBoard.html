@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="/src/input.css" />
     <link rel="stylesheet" href="/src/plugin.css">
     <script src="../js/index.js"></script>
+    <style>
+      @media (max-width: 400px) { 
+        .responsive_img { 
+          height: auto; 
+        } 
+      }
+    </style>
   </head>
   <body class="font-Ubuntu m-0 p-0 box-border bg-background">  
       <!--*Header section-->
@@ -66,14 +73,16 @@
           <div class="text-center my-20">
             <span class="text-3xl text-primary font-bold ">Terminals</span>
           </div>
-          <div class=" md:text-center lg:text-start ">
-            <span class="text-primary font-bold text-3xl  ">Divisoria To Sangandaan via MayPajo <span class="text-[#e6ce20] pl-5 hover:underline cursor-pointer">See All (5)</span></span>
+          <div class="md:text-center sm:text-center text-center lg:text-start text-base sm:text-[20px] md:text-[25px] lg:text-3xl font-semibold ">
+            <span class="text-primary">Divisoria To Sangandaan via MayPajo
+              <span class="text-[#e6ce20] pl-3 hover:underline cursor-pointer ">See All (5)</span>
+               </span>
           </div>
           <div class="gap-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  pt-10"> <!--grid layout-->
              <!-- Sangandaan Terminal -->
              <div class="w-full h-[420px]  rounded-md shadow-lg shadow-[#999c9aa5] overflow-hidden">
               <img 
-                  class="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover rounded-t-md" 
+                  class="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover rounded-t-md responsive_img" 
                   src="../image/temporary image.png" 
                   alt="SmSangandaan">
               <div class=" p-3 sm:p-4 md:p-5 xl:p-0 2xl:p-5 flex flex-col lg:flex-col 2xl:flex-row justify-between items-center rounded-b-3xl">
@@ -90,7 +99,7 @@
                <!-- MayPajo Terminal-->
                <div class="w-full h-[420px]  rounded-md shadow-lg shadow-[#999c9aa5] overflow-hidden">
                 <img 
-                    class="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover rounded-t-md" 
+                    class="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover rounded-t-md responsive_img" 
                     src="../image/temporary image.png" 
                     alt="Maypajo">
                 <div class="p-3 sm:p-4 md:p-5 xl:p-0 2xl:p-5 flex flex-col lg:flex-col 2xl:flex-row  justify-between items-center rounded-b-3xl">
@@ -103,7 +112,7 @@
                 <!-- Priitl Terminal-->
                 <div class="w-full h-[420px] md:col-span-2 lg:col-span-1 rounded-md shadow-lg shadow-[#999c9aa5] overflow-hidden">
                   <img 
-                      class="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover rounded-t-md" 
+                      class="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover rounded-t-md responsive_img"  
                       src="../image/temporary image.png" 
                       alt="Pritil">
                   <div class="p-3 sm:p-4 md:p-5 xl:p-0 2xl:p-5 flex flex-col lg:flex-col 2xl:flex-row  justify-between items-center rounded-b-3xl">
@@ -119,14 +128,14 @@
    </section>
     <!--*End Terminals section-->
     <!-- *About -->
-     <section class="main_container mb-32">
+     <section class="main_container mb-32 p-10">
               <div>
                    <div class="text-center m-20">
                       <span class="text-3xl text-primary font-bold ">About</span>
                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 border rounded-md shadow-lg shadow-[#999c9aa5] overflow-hidden ">
                       <div class="w-full  ">
-                        <img class="w-full h-[500px] xl:h-[600px] lg:h-[570px] object-cover" src="../image/about.png" alt="About">
+                        <img class="w-full h-[500px] xl:h-[600px] lg:h-[570px] object-cover responsive_img" src="../image/about.png" alt="About">
                     </div>
                     <div class="mx-10 2xl:text-xl xl:text-[18px] lg:text-[17px]">
                    <div class="w-full text-justify 2xl:mt-10 mt-5 md:mt-10  lg:mt-4 "> <!--^About Jeepney Ticketing System-->

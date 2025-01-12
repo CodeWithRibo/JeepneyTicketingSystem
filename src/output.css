@@ -818,8 +818,8 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.pl-5{
-  padding-left: 1.25rem;
+.pl-3{
+  padding-left: 0.75rem;
 }
 
 .pr-2{
@@ -858,6 +858,11 @@ video {
 .text-lg{
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .font-bold{
@@ -978,6 +983,10 @@ video {
     padding-bottom: 0.75rem;
   }
 
+  .sm\:text-center{
+    text-align: center;
+  }
+
   .sm\:text-\[17px\]{
     font-size: 17px;
   }
@@ -985,6 +994,19 @@ video {
   .sm\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .sm\:text-base{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .sm\:text-\[18px\]{
+    font-size: 18px;
+  }
+
+  .sm\:text-\[20px\]{
+    font-size: 20px;
   }
 }
 
@@ -1057,6 +1079,10 @@ video {
     line-height: 1.75rem;
   }
 
+  .md\:text-\[25px\]{
+    font-size: 25px;
+  }
+
   .md\:font-semibold{
     font-weight: 600;
   }
@@ -1126,6 +1152,16 @@ video {
   .lg\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .lg\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 
