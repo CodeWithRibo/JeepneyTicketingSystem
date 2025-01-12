@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "#478a38",
+        button: " #d5c812",
       },
       fontFamily: {
         Ubuntu: ["Ubuntu"], //font-family: poppins
