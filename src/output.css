@@ -567,13 +567,19 @@ video {
   --tw-text-opacity: 1;
   color: rgb(86 86 86 / var(--tw-text-opacity, 1));
   transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .text_wrap:hover{
+  --tw-text-opacity: 1;
+  color: rgb(230 206 32 / var(--tw-text-opacity, 1));
   text-decoration-line: underline;
+}
+
+.text_wrap:active{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
 @media (min-width: 768px){
@@ -602,6 +608,10 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
+.static{
+  position: static;
+}
+
 .absolute{
   position: absolute;
 }
@@ -614,16 +624,24 @@ video {
   bottom: 0px;
 }
 
+.left-0{
+  left: 0px;
+}
+
+.right-0{
+  right: 0px;
+}
+
+.top-0{
+  top: 0px;
+}
+
+.z-10{
+  z-index: 10;
+}
+
 .m-0{
   margin: 0px;
-}
-
-.m-10{
-  margin: 2.5rem;
-}
-
-.m-20{
-  margin: 5rem;
 }
 
 .mx-2{
@@ -1183,10 +1201,6 @@ video {
 }
 
 @media (min-width: 640px){
-  .sm\:m-10{
-    margin: 2.5rem;
-  }
-
   .sm\:mb-3\.5{
     margin-bottom: 0.875rem;
   }
@@ -1256,6 +1270,10 @@ video {
 }
 
 @media (min-width: 768px){
+  .md\:fixed{
+    position: fixed;
+  }
+
   .md\:col-span-2{
     grid-column: span 2 / span 2;
   }
@@ -1278,10 +1296,6 @@ video {
 
   .md\:m-0{
     margin: 0px;
-  }
-
-  .md\:m-10{
-    margin: 2.5rem;
   }
 
   .md\:mx-10{
@@ -1419,10 +1433,6 @@ video {
 @media (min-width: 1024px){
   .lg\:col-span-1{
     grid-column: span 1 / span 1;
-  }
-
-  .lg\:m-0{
-    margin: 0px;
   }
 
   .lg\:mb-0{

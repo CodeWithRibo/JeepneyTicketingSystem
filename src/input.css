@@ -8,7 +8,7 @@
     @apply mx-auto max-w-screen-2xl;
   }
   .text_wrap {
-    @apply  cursor-pointer text-textColor transition-all duration-300 ease-in hover:underline md:text-[18px]  lg:text-xl xl:text-[22px];
+    @apply  cursor-pointer text-textColor transition-all duration-300 ease-in-out hover:text-[#e6ce20] active:text-black  hover:underline md:text-[18px]  lg:text-xl xl:text-[22px];
   }
   .animation_wrap {
     @apply transition-all duration-300 ease-in;
