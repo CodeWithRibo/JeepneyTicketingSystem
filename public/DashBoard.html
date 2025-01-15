@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/src/output.css" />
     <link rel="stylesheet" href="/src/input.css" />
     <link rel="stylesheet" href="/src/plugin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../js/index.js"></script>
     <style>
       @media (max-width: 550px) {
@@ -265,56 +266,61 @@
     </section>
     <!--*End Terminals section-->
     <!-- *About Section -->
-    <section class="main_container p-10">
-      <div class="m-20 text-center">
-        <span class="text-3xl font-bold text-primary">About</span>
-      </div>
-      <div
-        class="grid grid-cols-1 overflow-hidden rounded-md border shadow-lg shadow-[#999c9aa5] md:grid-cols-1 lg:grid-cols-2"
-      >
-        <div class="w-full">
-          <img
-            class="responsive_img h-[500px] w-full object-cover lg:h-[570px] xl:h-[600px]"
-            src="../image/about_picture_temporary.png"
-            alt="About"
-          />
+    <section class="bg-[#e9e5e5]">
+      <main class="main_container px-10 py-16">
+        <div class="mb-10 text-center">
+          <span class="text-3xl font-bold text-primary">About</span>
         </div>
         <div
-          class="mx-4 text-justify text-[11.5px] sm:text-[14px] md:mx-10 md:text-[16px] xl:text-[18px] 2xl:text-xl"
+          class="grid grid-cols-1 overflow-hidden rounded-md border shadow-lg shadow-[#999c9aa5] md:grid-cols-1 lg:grid-cols-2"
         >
-          <div class="mt-5 w-full md:mt-10 lg:mt-5 2xl:mt-10">
-            <!--^About Jeepney Ticketing System-->
-            <span class="text-textColor"
-              >The Jeepney Ticketing System, inspired by the innovative
-              practices on Karuhatan Road in Valenzuela, the Jeepney Ticketing
-              System transforms the traditional way of purchasing jeepney
-              tickets. By introducing a digital ticketing system, it ensures a
-              convenient, secure, and efficient process for passengers. The
-              system not only mirrors the unique toy coin method but also brings
-              real-time updates, accessibility, and environmental benefits,
-              significantly enhancing the overall passenger experience.</span
-            >
+          <div class="w-full">
+            <img
+              class="responsive_img h-[500px] w-full object-cover lg:h-[570px] xl:h-[600px]"
+              src="../image/about_picture_temporary.png"
+              alt="About"
+            />
           </div>
-          <div class="mb-5 md:mb-10 lg:mb-0">
-            <!--^Buy Tickets Online-->
-            <h1
-              class="mb-3 mt-5 text-start text-[20px] font-semibold text-primary md:text-[25px] lg:text-2xl"
+          <div class="bg-white">
+            <div
+              class="mx-4 text-justify text-[11.5px] sm:text-[14px] md:mx-10 md:text-[16px] xl:text-[18px] 2xl:text-xl"
             >
-              Buy Ticket Online
-            </h1>
-            <span class="text-textColor"
-              >One of the standout features of the Jeepney Ticketing System is
-              the ability to purchase tickets online. Passengers can easily buy
-              tickets via the official website. This online platform offers a
-              range of payment options, making it convenient for users to secure
-              their tickets in advance. Once the transaction is completed,
-              passengers receive a digital ticket with a unique ticket number,
-              which can be shown to the conductor when boarding the
-              jeepney.</span
-            >
+              <div class="mt-5 w-full md:mt-10 lg:mt-5 2xl:mt-10">
+                <!--^About Jeepney Ticketing System-->
+                <span class="text-textColor"
+                  >The Jeepney Ticketing System, inspired by the innovative
+                  practices on Karuhatan Road in Valenzuela, the Jeepney
+                  Ticketing System transforms the traditional way of purchasing
+                  jeepney tickets. By introducing a digital ticketing system, it
+                  ensures a convenient, secure, and efficient process for
+                  passengers. The system not only mirrors the unique toy coin
+                  method but also brings real-time updates, accessibility, and
+                  environmental benefits, significantly enhancing the overall
+                  passenger experience.</span
+                >
+              </div>
+              <div class="mb-5 md:mb-10 lg:mb-0">
+                <!--^Buy Tickets Online-->
+                <h1
+                  class="mb-3 mt-5 text-start text-[20px] font-semibold text-primary md:text-[25px] lg:text-2xl"
+                >
+                  Buy Ticket Online
+                </h1>
+                <span class="text-textColor"
+                  >One of the standout features of the Jeepney Ticketing System
+                  is the ability to purchase tickets online. Passengers can
+                  easily buy tickets via the official website. This online
+                  platform offers a range of payment options, making it
+                  convenient for users to secure their tickets in advance. Once
+                  the transaction is completed, passengers receive a digital
+                  ticket with a unique ticket number, which can be shown to the
+                  conductor when boarding the jeepney.</span
+                >
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
     </section>
     <!-- *End About Section -->
     <!-- *Contact Section -->
@@ -361,7 +367,8 @@
                 <label
                   class="text-base text-textColor sm:mb-3.5 sm:text-xl"
                   for="LastName"
-                  >Last Name</label>
+                  >Last Name</label
+                >
                 <input
                   class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
                   type="text"
@@ -421,44 +428,64 @@
       </div>
     </section>
     <!-- *End Contact Section -->
-    <section class="border bg-primary p-20 shadow-2xl">
-      <div class="flex items-center xl:justify-evenly">
-        <div class="">
-          <img src="/image/temporary_logo.png" alt="temporaryLogo" />
-        </div>
-        <div class="grid lg:grid-cols-2 xl:grid-cols-3 xl:gap-16">
-          <div class="flex flex-col">
-            <h1 class="font-semibold text-white lg:text-[20px] xl:text-3xl">
-              CONTACT
+    <!-- *Footer Section -->
+    <section class="bg-[#e9e5e5]">
+      <main class="">
+        <div
+          class="main_container items-start mx-auto justify-evenly py-20 text-center md:grid md:grid-cols-3 md:gap-10  md:px-20 md:text-start xl:flex xl:gap-44 min-h-full "
+        >
+          <div class=" m-0 flex flex-col gap-2 md:col-start-1 md:m-0 md:gap-5 w-full mb-5">
+            <h1
+              class="animation_wrap font-semibold text-primary md:text-xl lg:text-2xl xl:text-[26px] 2xl:text-3xl"
+            >
+              QUICK LINKS
             </h1>
-            <span class="mt-3 cursor-pointer hover:underline">02000411496</span>
-            <span class="cursor-pointer hover:underline">jts@gmail.com</span>
+            <span class="text_wrap">Home</span>
+            <span class="text_wrap">Terminals</span>
+            <span class="text_wrap">Buy Ticket</span>
+            <span class="text_wrap">About</span>
           </div>
-          <div class="flex flex-col lg:row-start-2 xl:row-auto">
-            <h1 class="font-semibold text-white lg:text-[20px] xl:text-3xl">
+          <div
+            class=" m-0 flex flex-col gap-2 md:col-start-1 md:row-start-2 md:m-0 md:gap-5 w-full mb-5"
+          >
+            <h1
+              class="animation_wrap font-semibold text-primary md:text-xl lg:text-2xl xl:text-[26px] 2xl:text-3xl"
+            >
+              CONTACT INFO
+            </h1>
+            <span class="text_wrap">+63 917 987 6543</span>
+            <span class="text_wrap">(02) 8123 4567</span>
+            <span class="text_wrap">JeepneyTicketingSystem@gmail.com</span>
+            <span class="text_wrap"> STI Academic Center, 730 Samson Rd Caloocan, Metro Manila</span>
+          </div>
+          <div
+            class=" m-0 flex flex-col gap-2 md:col-start-2 md:row-start-1 md:m-0  md:ml-10 md:gap-5 w-full"
+          >
+            <h1
+              class="animation_wrap font-semibold text-primary md:text-xl lg:text-2xl xl:text-[26px] 2xl:text-3xl"
+            >
               FOLLOW US
             </h1>
-            <span class="mt-3 cursor-pointer hover:underline">Github</span>
-            <span class="cursor-pointer hover:underline">Discord</span>
-          </div>
-          <div class="flex flex-col">
-            <h1 class="font-semibold text-white lg:text-[20px] xl:text-3xl">
-              LEGAL
-            </h1>
-            <span class="mt-3 cursor-pointer hover:underline"
-              >Privacy Policy</span
-            >
-            <span class="cursor-pointer hover:underline"
-              >Terms & Condition</span
-            >
+            <span class="text_wrap"><i class="fa-brands fa-facebook pr-2"></i>Facebook</span>
+            <span class="text_wrap"><i class="fa-brands fa-twitter pr-2"></i>Twitter</span>
+            <span class="text_wrap"><i class="fa-brands fa-instagram pr-2"></i>Instagram</span>
+            <span class="text_wrap"><i class="fa-brands fa-github pr-2"></i>Github</span>
           </div>
         </div>
-      </div>
-      <div class="my-4 max-w-full border-b-2 border-black text-center"></div>
-      <div class="text-center">
-        <span>© 2025 JeepneyTicketingSystem™. All Rights Reserved.</span>
-      </div>
+        <!-- ^All Rights reserved -->
+        <div class="">
+          <div
+            class="max-w-full border-b-[1.5px] border-textColor text-center"
+          ></div>
+          <div
+            class="py-5 text-center text-base font-bold text-textColor md:text-[17px] xl:text-[19px]"
+          >
+            <span>© 2025 JeepneyTicketingSystem™. All Rights Reserved.</span>
+          </div>
+        </div>
+      </main>
     </section>
-    <!-- *Footer Section -->
+    <!-- *End Footer Section -->
+     
   </body>
 </html>
