@@ -1,14 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+/* Define Custom Font */
+@font-face {
+  font-family: "SansCalps";
+  src:
+    url("CalpsSans-Regular.woff2") format("woff2"),
+    url("CalpsSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 @layer components {
   .main_container {
     @apply mx-auto max-w-screen-2xl;
   }
   .text_wrap {
-    @apply  cursor-pointer text-textColor transition-all duration-300 ease-in-out hover:text-[#e6ce20] active:text-black  hover:underline md:text-[18px]  lg:text-xl xl:text-[22px];
+    @apply cursor-pointer text-textColor transition-all duration-300 ease-in-out hover:text-[#e6ce20] hover:underline active:text-black md:text-[18px] lg:text-xl xl:text-[22px];
   }
   .animation_wrap {
     @apply transition-all duration-300 ease-in;

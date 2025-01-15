@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
+/* Define Custom Font */
+
+@font-face {
+  font-family: "SansCalps";
+
+  src:
+    url("CalpsSans-Regular.woff2") format("woff2"),
+    url("CalpsSans-Regular.woff") format("woff");
+
+  font-weight: normal;
+
+  font-style: normal;
+}
+
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -108,9 +122,7 @@
   --tw-contain-style:  ;
 }
 
-/*
-! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
-*/
+/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -1026,6 +1038,10 @@ video {
 
 .font-Ubuntu{
   font-family: Ubuntu;
+}
+
+.font-sanscalp{
+  font-family: SansCalps, sans-serif;
 }
 
 .text-3xl{
