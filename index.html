@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,188 +6,486 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/src/output.css" />
     <link rel="stylesheet" href="/src/input.css" />
-    <link rel="stylesheet" href="/src/plugin.css">
+    <link rel="stylesheet" href="/src/plugin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../js/index.js"></script>
     <style>
-      @media (max-width: 550px) { 
-        .responsive_img { 
-          height: auto; 
-        } 
+      @media (max-width: 550px) {
+        .responsive_img {
+          height: auto;
+        }
       }
     </style>
   </head>
-  <body class="font-Ubuntu m-0 p-0 box-border bg-background">  
-      <!--*Header section-->
-        <header class=""> 
-            <!-- ?DESKTOP DESIGN -->
-            <!-- border-b-2  border-gray-300 shadow-md -->
-            <div class=" flex justify-between items-center sm:px-5 md:px-10 lg:px-20 h-20 ">
-              <div class="flex justify-center items-center w-full md:w-auto ">
-                <span class="mx-2">
-                  <img class="w-[230px] h-[70px] object-cover px-5" src="/image/temporary_logo.png" alt="JTS logo" />
-                </span>
-                <!-- ?MOBILE DESIGN HEADER ICON -->
-                 <span class="pr-2 text-primary font-bold md:hidden">Menu</span>
-                <span class="mx-2">
-                  <svg class="size-6 md:hidden cursor-pointer hover:text-[#e6ce20] transition-all ease-out duration-300" id="hamburger-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                  </svg>
-                </span>
-              </div>
-                    <div class="hidden md:block">
-                          <span class="flex gap-10 transition-all">
-                            <span class="md:text-sm lg:text-xl text-primary hover:text-[#e6ce20] ease-in duration-300"><a href="#">Home</a></span>
-                            <span class="md:text-sm lg:text-xl text-primary hover:text-[#e6ce20] ease-in duration-300"><a href="#">Buy Ticket</a></span>
-                            <span class="md:text-sm lg:text-xl text-primary hover:text-[#e6ce20] ease-in duration-300"><a href="#">About</a></span>
-                            <span class="md:text-sm lg:text-xl text-primary hover:text-[#e6ce20] ease-in duration-300"><a href="#">Contact Us</a></span>
-                            <span class="md:text-sm lg:text-xl text-primary hover:text-[#e6ce20] ease-in duration-300"><a href="#">Login</a></span>
-                        </span>
-                    </div>
-            </div>
-                      <!-- ?MOBILE DESIGN HEADER -->
-              <div class=" grid grid-rows-5 justify-center text-center gap-6 bg-white shadow-lg border-2 hidden md:hidden transition-all " id="mobile-menu">
-                      <span class="md:text-sm lg:text-xl text-primary hover:text-[#e6ce20] ease-in duration-300 md:font-semibold  pt-3"><a href="#">Home</a></span>
-                      <span class="md:text-sm lg:text-xl text-primary hover:text-[#e6ce20] ease-in duration-300 md:font-semibold "><a href="#">Buy Ticket</a></span>
-                      <span class="md:text-sm lg:text-xl text-primary hover:text-[#e6ce20] ease-in duration-300 md:font-semibold "><a href="#">About</a></span>
-                      <span class="md:text-sm lg:text-xl text-primary hover:text-[#e6ce20] ease-in duration-300 md:font-semibold "><a href="#">Contact Us</a></span>
-                      <span class="md:text-sm lg:text-xl text-primary hover:text-[#e6ce20] ease-in duration-300 md:font-semibold  pb-3"><a href="#">Login</a></span>
-              </div>
-        </header>
-     <!--*End Header section-->
-   <!--*Hero Banner section-->
-   <section>
-      <div class="img-plugin flex flex-col justify-center items-center text-center space-y-5 relative ">
-            <span class=" text-xl md:text-2xl lg:text-3xl text-white">Start your Journey </span>
-            <span class=" text-xl md:text-2xl lg:text-3xl text-white">With</span>
-            <span class=" text-xl md:text-2xl lg:text-3xl text-white">Confidence and Convenience</span>
-            <div class="absolute bottom-0 " style="margin-bottom: 30px;">
-              <span class=" text-xl md:text-2xl lg:text-3xl underline text-white hover:text-[#e6ce20] hover:font-semibold cursor-pointer transition-all ease-in duration-300">Explore more</span>
-            </div>
+  <body class="m-0 box-border bg-background p-0 font-Ubuntu">
+    <!--*Header section-->
+    <header class="">
+      <!-- ?DESKTOP DESIGN -->
+      <!-- border-b-2  border-gray-300 shadow-md -->
+      <div
+        class="flex h-20 items-center justify-between sm:px-5 md:px-10 lg:px-20"
+      >
+        <div class="flex w-full items-center justify-center md:w-auto">
+          <span class="mx-2">
+            <img
+              class="h-[70px] w-[230px] object-cover px-5"
+              src="/image/temporary_logo.png"
+              alt="JTS logo"
+            />
+          </span>
+          <!-- ?MOBILE DESIGN HEADER ICON -->
+          <span class="pr-2 font-bold text-primary md:hidden">Menu</span>
+          <span class="mx-2">
+            <svg
+              class="size-6 cursor-pointer transition-all duration-300 ease-out hover:text-[#e6ce20] md:hidden"
+              id="hamburger-menu"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="hidden md:block">
+          <span class="flex gap-10 transition-all">
+            <span
+              class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"
+              ><a href="#">Home</a></span
+            >
+            <span
+              class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"
+              ><a href="#">Buy Ticket</a></span
+            >
+            <span
+              class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"
+              ><a href="#">About</a></span
+            >
+            <span
+              class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"
+              ><a href="#">Contact Us</a></span
+            >
+            <span
+              class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"
+              ><a href="#">Login</a></span
+            >
+          </span>
+        </div>
       </div>
-   </section>
-      <!--*End Banner section-->
-      <!--* Card Terminals section-->
-      <!-- mx-auto max-w-screen-2xl -->
-   <section class="main_container">
-        <div class="p-10 ">
-          <div class="text-center my-20">
-            <span class="text-3xl text-primary font-bold ">Terminals</span>
-          </div>
-          <div class="md:text-center sm:text-center text-center lg:text-start text-[1.5rem]  md:text-[25px] lg:text-3xl font-semibold ">
-            <span class="text-primary">Divisoria To Sangandaan via MayPajo
-              <span class="text-[#e6ce20] pl-3 hover:underline cursor-pointer ">See All (5)</span>
-               </span>
-          </div>
-          <div class="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10 items-center justify-items-center"> <!--grid layout-->
-             <!-- Sangandaan Terminal -->
-             <div class="w-full h-[420px] rounded-md shadow-lg shadow-[#999c9aa5] overflow-hidden">
-              <img 
-                  class="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover rounded-t-md responsive_img" 
-                  src="../image/temporary image.png" 
-                  alt="SmSangandaan">
-              <div class=" p-3 sm:p-4 md:p-5 xl:p-0 2xl:p-5 flex flex-col lg:flex-col 2xl:flex-row justify-between items-center rounded-b-3xl">
-                <div>
-                  <span class="text-primary font-semibold text-lg sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px] ">Sm Sangandaan Terminal</span>
-                </div>
-                 <div class="">
-                  <a href="#" class=" flex flex-row-reverse items-center mt-4 sm:mt-0 bg-[#d5c812] text-white px-6 sm:px-8 md:px-7 lg:py-2 lg:px-5 py-1 sm:py-3 rounded-xl text-lg sm:text-xl md:text-xl hover:opacity-85 hover:bg-primary transition-all ease-in duration-300">Buy Ticket  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 mr-2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                  </svg></a>
-                </div>
+      <!-- ?MOBILE DESIGN HEADER -->
+      <div
+        class="grid hidden grid-rows-5 justify-center gap-6 border-2 bg-white text-center shadow-lg transition-all md:hidden"
+        id="mobile-menu"
+      >
+        <span
+          class="pt-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"
+          ><a href="#">Home</a></span
+        >
+        <span
+          class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"
+          ><a href="#">Buy Ticket</a></span
+        >
+        <span
+          class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"
+          ><a href="#">About</a></span
+        >
+        <span
+          class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"
+          ><a href="#">Contact Us</a></span
+        >
+        <span
+          class="pb-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"
+          ><a href="#">Login</a></span
+        >
+      </div>
+    </header>
+    <!--*End Header section-->
+    <!--*Hero Banner section-->
+    <section>
+      <div
+        class="img-plugin relative flex flex-col items-center justify-center space-y-5 text-center"
+      >
+        <span class="text-xl text-white md:text-2xl lg:text-3xl"
+          >Start your Journey
+        </span>
+        <span class="text-xl text-white md:text-2xl lg:text-3xl">With</span>
+        <span class="text-xl text-white md:text-2xl lg:text-3xl"
+          >Confidence and Convenience</span
+        >
+        <div class="absolute bottom-0" style="margin-bottom: 30px">
+          <span
+            class="cursor-pointer text-xl text-white underline transition-all duration-300 ease-in hover:font-semibold hover:text-[#e6ce20] md:text-2xl lg:text-3xl"
+            >Explore more</span
+          >
+        </div>
+      </div>
+    </section>
+    <!--*End Banner section-->
+    <!--* Card Terminals section-->
+    <!-- mx-auto max-w-screen-2xl -->
+    <section class="main_container">
+      <div class="p-10">
+        <div class="my-20 text-center">
+          <span class="text-3xl font-bold text-primary">Terminals</span>
+        </div>
+        <div
+          class="text-center text-[1.5rem] font-semibold sm:text-center md:text-center md:text-[25px] lg:text-start lg:text-3xl"
+        >
+          <span class="text-primary"
+            >Divisoria To Sangandaan via MayPajo
+            <span class="cursor-pointer pl-3 text-[#e6ce20] hover:underline"
+              >See All (5)</span
+            >
+          </span>
+        </div>
+        <div
+          class="grid grid-cols-1 items-center justify-items-center gap-10 pt-10 md:grid-cols-2 lg:grid-cols-3"
+        >
+          <!--grid layout-->
+          <!-- Sangandaan Terminal -->
+          <div
+            class="h-[420px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]"
+          >
+            <img
+              class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80"
+              src="../image/temporary image.png"
+              alt="SmSangandaan"
+            />
+            <div
+              class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5"
+            >
+              <div>
+                <span
+                  class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]"
+                  >Sm Sangandaan Terminal</span
+                >
               </div>
+              <div class="">
+                <a
+                  href="#"
+                  class="mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2"
+                  >Buy Ticket
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="mr-2 size-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z"
+                    /></svg
+                ></a>
+              </div>
+            </div>
           </div>
-               <!-- MayPajo Terminal-->
-               <div class="w-full h-[420px]  rounded-md shadow-lg shadow-[#999c9aa5] overflow-hidden">
-                <img 
-                    class="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover rounded-t-md responsive_img" 
-                    src="../image/temporary image.png" 
-                    alt="Maypajo">
-                <div class="p-3 sm:p-4 md:p-5 xl:p-0 2xl:p-5 flex flex-col lg:flex-col 2xl:flex-row  justify-between items-center rounded-b-3xl">
-                    <span class="text-primary font-semibold text-lg sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]">MayPajo Terminal</span>
-                    <a href="#" class=" flex flex-row-reverse items-center mt-4 sm:mt-0 bg-[#d5c812] text-white px-6 sm:px-8 md:px-7 lg:py-2 lg:px-5 py-1 sm:py-3 rounded-xl text-lg sm:text-xl md:text-xl hover:opacity-85 hover:bg-primary transition-all ease-in duration-300">Buy Ticket  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 mr-2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                    </svg></a>
-                  </div>
-            </div> 
-                <!-- Priitl Terminal-->
-                <!-- md:col-span-2 lg:col-span-1 -->
-                <div class="w-full h-[420px]  rounded-md shadow-lg shadow-[#999c9aa5] overflow-hidden">
-                  <img 
-                      class="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 object-cover rounded-t-md responsive_img"  
-                      src="../image/temporary image.png" 
-                      alt="Pritil">
-                  <div class="p-3 sm:p-4 md:p-5 xl:p-0 2xl:p-5 flex flex-col lg:flex-col 2xl:flex-row  justify-between items-center rounded-b-3xl">
-                      <span class="text-primary font-semibold text-lg sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]">Pritil Terminal</span>
-                      <a href="#" class=" flex flex-row-reverse items-center mt-4 sm:mt-0 bg-[#d5c812] text-white px-6 sm:px-8 md:px-7 lg:py-2 lg:px-5 py-1 sm:py-3 rounded-xl text-lg sm:text-xl md:text-xl hover:opacity-85 hover:bg-primary transition-all ease-in duration-300">Buy Ticket  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 mr-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                      </svg></a>
-                    </div>
-              </div> 
-              
+          <!-- MayPajo Terminal-->
+          <div
+            class="h-[420px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]"
+          >
+            <img
+              class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80"
+              src="../image/temporary image.png"
+              alt="Maypajo"
+            />
+            <div
+              class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5"
+            >
+              <span
+                class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]"
+                >MayPajo Terminal</span
+              >
+              <a
+                href="#"
+                class="mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2"
+                >Buy Ticket
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="mr-2 size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+          <!-- Priitl Terminal-->
+          <!-- md:col-span-2 lg:col-span-1 -->
+          <div
+            class="h-[420px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]"
+          >
+            <img
+              class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80"
+              src="../image/temporary image.png"
+              alt="Pritil"
+            />
+            <div
+              class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5"
+            >
+              <span
+                class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]"
+                >Pritil Terminal</span
+              >
+              <a
+                href="#"
+                class="mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2"
+                >Buy Ticket
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="mr-2 size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z"
+                  /></svg
+              ></a>
+            </div>
           </div>
         </div>
-   </section>
+      </div>
+    </section>
     <!--*End Terminals section-->
     <!-- *About Section -->
-     <section class="main_container  p-10">
-                   <div class="text-center m-20">
-                      <span class="text-3xl text-primary font-bold ">About</span>
-                   </div>
-                    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 border rounded-md shadow-lg shadow-[#999c9aa5] overflow-hidden ">
-                      <div class="w-full  ">
-                        <img class="w-full h-[500px] xl:h-[600px] lg:h-[570px] object-cover responsive_img" src="../image/about_picture_temporary.png" alt="About">
-                    </div>
-                    <div class=" mx-4 md:mx-10 2xl:text-xl xl:text-[18px] sm:text-[14px] md:text-[16px] text-[11.5px] text-justify">
-                   <div class="w-full 2xl:mt-10 mt-5 md:mt-10  lg:mt-5 "> <!--^About Jeepney Ticketing System-->
-                      <span class="text-textColor  ">The Jeepney Ticketing System, inspired by the innovative practices on Karuhatan Road in Valenzuela, the Jeepney Ticketing System transforms the traditional way of purchasing jeepney tickets. By introducing a digital ticketing system, it ensures a convenient, secure, and efficient process for passengers. The system not only mirrors the unique toy coin method but also brings real-time updates, accessibility, and environmental benefits, significantly enhancing the overall passenger experience.</span>
-                   </div> 
-                        <div class=" mb-5 md:mb-10 lg:mb-0 "> <!--^Buy Tickets Online-->
-                            <h1 class="text-start text-[20px] md:text-[25px] lg:text-2xl text-primary font-semibold mt-5 mb-3  ">Buy Ticket Online</h1>
-                            <span class = "text-textColor ">One of the standout features of the Jeepney Ticketing System is the ability to purchase tickets online. Passengers can easily buy tickets via the official website. This online platform offers a range of payment options, making it convenient for users to secure their tickets in advance. Once the transaction is completed, passengers receive a digital ticket with a unique ticket number, which can be shown to the conductor when boarding the jeepney.</span>
-                        </div>
-                      </div>  
-                    </div>
-         </section>
-         <!-- *End About Section -->
-              <!-- *Contact Section -->
-               <section class="main_container sm:py-32 sm:px-10">
-                      <div class="flex flex-col xl:flex-row  md:flex-col md:items-center items-center lg:px-0 px-5">
-                           <div class="space-y-5 xl:flex-1 lg:flex-none relative">
-                              <div class="space-y-5 xl:text-start md:text-center text-center xl:py-0 pt-20 ">
-                                <h1 class=" text-[30px] text-3xl xl:text-5xl text-primary font-bold">Contact Us</h1>
-                                <span class="text-textColor text-[15.5px] md:text-[18px] xl:text-justify xl:text-xl max-w-[30rem] block leading-relaxed">We value your input! Share your ideas or suggestions on how we can improve our Jeepney Ticketing System.</span>
-                             </div>
-                              </div>
-                           <div class=" w-full lg:w-1/2 xl:w-1/2 xl:mt-0 mt-10 ">
-                            <form action="#" class=" xl:space-y-7 space-y-7 border p-10 shadow-lg bg-[#f4f4f4ca] xl:rounded-md rounded-lg   ">
-                              <div class="flex items-center xl:flex-row lg:flex-col flex-col space-y-5 xl:space-y-0 xl:space-x-5  ">
-                                <span class="flex  flex-col w-full ">
-                                  <label class=" sm:mb-3.5 text-textColor text-base sm:text-xl" for="FirstName">First Name</label>
-                                  <input class=" pl-2 text-[#222422] text-[15px] xl:text-[18px]  hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ease-in duration-100 rounded-[5px] border border-[#949494] py-[4.5px] sm:py-2 " type="text" name="firstname" id="firtName">
-                             </span>
-                             <span class=" flex flex-col w-full ">
-                              <label class=" sm:mb-3.5 text-textColor text-base sm:text-xl" for="LastName">Last Name</label>
-                              <input class=" pl-2 text-[#222422] text-[15px] xl:text-[18px] hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ease-in duration-100 rounded-[5px] border border-[#949494] py-[4.5px] sm:py-2" type="text" name="lastname" id="lastName">
-                             </span>
-                              </div>
-                                <div class="flex flex-col">
-                                  <label class=" sm:mb-3.5 text-textColor text-base sm:text-xl" for="email">Email Address</label>
-                                  <input class=" pl-2 text-[#222422]  text-[15px] xl:text-[18px]  hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ease-in duration-100  rounded-[5px] border border-[#949494] py-[4.5px] sm:py-2  " type="email" name="email" id="email">
-                                </div>
-                                  <div class="flex flex-col">
-                                    <label class=" sm:mb-3.5 text-textColor text-base sm:text-xl" for="subject">Subject</label>
-                                    <input class=" pl-2 text-[#222422]  text-[15px] xl:text-[18px]  hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ease-in duration-100  rounded-[5px] border border-[#949494] py-[4.5px] sm:py-2  " type="text" name="subject" id="subject">
-                                  </div>
-                                  <div class="flex flex-col">
-                                    <label class=" sm:mb-3.5 text-textColor text-base sm:text-xl" for="message">Message</label>
-                                    <textarea class="  hover:border-blue-500 text-[#222422]  text-[15px] xl:text-[18px]  focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ease-in duration-100 rounded-[5px] border border-[#949494] resize-none w-full sm:w-auto " name="message" id="message" rows="8" ></textarea>
-                                  </div>
-                                  <div class="text-center">
-                                    <input class="bg-button text-base sm:text-xl text-white px-10 py-2 rounded-[5px] hover:bg-primary hover:opacity-85 transition-all ease-in duration-300 cursor-pointer"type="submit" value="Submit">
-                                  </div>
-                        </form> 
-                           </div>
-                      </div>
-               </section>
-               <!-- *End Contact Section -->
+    <section class="bg-[#e9e5e5]">
+      <main class="main_container px-10 py-16">
+        <div class="mb-10 text-center">
+          <span class="text-3xl font-bold text-primary">About</span>
+        </div>
+        <div
+          class="grid grid-cols-1 overflow-hidden rounded-md border shadow-lg shadow-[#999c9aa5] md:grid-cols-1 lg:grid-cols-2"
+        >
+          <div class="w-full">
+            <img
+              class="responsive_img h-[500px] w-full object-cover lg:h-[570px] xl:h-[600px]"
+              src="../image/about_picture_temporary.png"
+              alt="About"
+            />
+          </div>
+          <div class="bg-white">
+            <div
+              class="mx-4 text-justify text-[11.5px] sm:text-[14px] md:mx-10 md:text-[16px] xl:text-[18px] 2xl:text-xl"
+            >
+              <div class="mt-5 w-full md:mt-10 lg:mt-5 2xl:mt-10">
+                <!--^About Jeepney Ticketing System-->
+                <span class="text-textColor"
+                  >The Jeepney Ticketing System, inspired by the innovative
+                  practices on Karuhatan Road in Valenzuela, the Jeepney
+                  Ticketing System transforms the traditional way of purchasing
+                  jeepney tickets. By introducing a digital ticketing system, it
+                  ensures a convenient, secure, and efficient process for
+                  passengers. The system not only mirrors the unique toy coin
+                  method but also brings real-time updates, accessibility, and
+                  environmental benefits, significantly enhancing the overall
+                  passenger experience.</span
+                >
+              </div>
+              <div class="mb-5 md:mb-10 lg:mb-0">
+                <!--^Buy Tickets Online-->
+                <h1
+                  class="mb-3 mt-5 text-start text-[20px] font-semibold text-primary md:text-[25px] lg:text-2xl"
+                >
+                  Buy Ticket Online
+                </h1>
+                <span class="text-textColor"
+                  >One of the standout features of the Jeepney Ticketing System
+                  is the ability to purchase tickets online. Passengers can
+                  easily buy tickets via the official website. This online
+                  platform offers a range of payment options, making it
+                  convenient for users to secure their tickets in advance. Once
+                  the transaction is completed, passengers receive a digital
+                  ticket with a unique ticket number, which can be shown to the
+                  conductor when boarding the jeepney.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+    <!-- *End About Section -->
+    <!-- *Contact Section -->
+    <section class="main_container sm:px-10 sm:py-32">
+      <div
+        class="flex flex-col items-center px-5 md:flex-col md:items-center lg:px-0 xl:flex-row"
+      >
+        <div class="relative space-y-5 lg:flex-none xl:flex-1">
+          <div
+            class="space-y-5 pt-20 text-center md:text-center xl:py-0 xl:text-start"
+          >
+            <h1 class="text-3xl text-[30px] font-bold text-primary xl:text-5xl">
+              Contact Us
+            </h1>
+            <span
+              class="block max-w-[30rem] text-[15.5px] leading-relaxed text-textColor md:text-[18px] xl:text-justify xl:text-xl"
+              >We value your input! Share your ideas or suggestions on how we
+              can improve our Jeepney Ticketing System.</span
+            >
+          </div>
+        </div>
+        <div class="mt-10 w-full lg:w-1/2 xl:mt-0 xl:w-1/2">
+          <form
+            action="#"
+            class="space-y-7 rounded-lg border bg-[#f4f4f4ca] p-10 shadow-lg xl:space-y-7 xl:rounded-md"
+          >
+            <div
+              class="flex flex-col items-center space-y-5 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0"
+            >
+              <span class="flex w-full flex-col">
+                <label
+                  class="text-base text-textColor sm:mb-3.5 sm:text-xl"
+                  for="FirstName"
+                  >First Name</label
+                >
+                <input
+                  class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
+                  type="text"
+                  name="firstname"
+                  id="firtName"
+                />
+              </span>
+              <span class="flex w-full flex-col">
+                <label
+                  class="text-base text-textColor sm:mb-3.5 sm:text-xl"
+                  for="LastName"
+                  >Last Name</label
+                >
+                <input
+                  class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
+                  type="text"
+                  name="lastname"
+                  id="lastName"
+                />
+              </span>
+            </div>
+            <div class="flex flex-col">
+              <label
+                class="text-base text-textColor sm:mb-3.5 sm:text-xl"
+                for="email"
+                >Email Address</label
+              >
+              <input
+                class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
+                type="email"
+                name="email"
+                id="email"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label
+                class="text-base text-textColor sm:mb-3.5 sm:text-xl"
+                for="subject"
+                >Subject</label
+              >
+              <input
+                class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
+                type="text"
+                name="subject"
+                id="subject"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label
+                class="text-base text-textColor sm:mb-3.5 sm:text-xl"
+                for="message"
+                >Message</label
+              >
+              <textarea
+                class="w-full resize-none rounded-[5px] border border-[#949494] text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:w-auto xl:text-[18px]"
+                name="message"
+                id="message"
+                rows="8"
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <input
+                class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl"
+                type="submit"
+                value="Submit"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- *End Contact Section -->
+    <!-- *Footer Section -->
+    <section class="bg-[#e9e5e5]">
+      <main class="">
+        <div
+          class="main_container items-start mx-auto justify-evenly py-20 text-center md:grid md:grid-cols-3 md:gap-10  md:px-20 md:text-start xl:flex xl:gap-44 min-h-full "
+        >
+          <div class=" m-0 flex flex-col gap-2 md:col-start-1 md:m-0 md:gap-5 w-full mb-5">
+            <h1
+              class="animation_wrap font-semibold text-primary md:text-xl lg:text-2xl xl:text-[26px] 2xl:text-3xl"
+            >
+              QUICK LINKS
+            </h1>
+            <span class="text_wrap">Home</span>
+            <span class="text_wrap">Terminals</span>
+            <span class="text_wrap">Buy Ticket</span>
+            <span class="text_wrap">About</span>
+          </div>
+          <div
+            class=" m-0 flex flex-col gap-2 md:col-start-1 md:row-start-2 md:m-0 md:gap-5 w-full mb-5"
+          >
+            <h1
+              class="animation_wrap font-semibold text-primary md:text-xl lg:text-2xl xl:text-[26px] 2xl:text-3xl"
+            >
+              CONTACT INFO
+            </h1>
+            <span class="text_wrap">+63 917 987 6543</span>
+            <span class="text_wrap">(02) 8123 4567</span>
+            <span class="text_wrap">JeepneyTicketingSystem@gmail.com</span>
+            <span class="text_wrap"> STI Academic Center, 730 Samson Rd Caloocan, Metro Manila</span>
+          </div>
+          <div
+            class=" m-0 flex flex-col gap-2 md:col-start-2 md:row-start-1 md:m-0  md:ml-10 md:gap-5 w-full"
+          >
+            <h1
+              class="animation_wrap font-semibold text-primary md:text-xl lg:text-2xl xl:text-[26px] 2xl:text-3xl"
+            >
+              FOLLOW US
+            </h1>
+            <span class="text_wrap"><i class="fa-brands fa-facebook pr-2"></i>Facebook</span>
+            <span class="text_wrap"><i class="fa-brands fa-twitter pr-2"></i>Twitter</span>
+            <span class="text_wrap"><i class="fa-brands fa-instagram pr-2"></i>Instagram</span>
+            <span class="text_wrap"><i class="fa-brands fa-github pr-2"></i>Github</span>
+          </div>
+        </div>
+        <!-- ^All Rights reserved -->
+        <div class="">
+          <div
+            class="max-w-full border-b-[1.5px] border-textColor text-center"
+          ></div>
+          <div
+            class="py-5 text-center text-base font-bold text-textColor md:text-[17px] xl:text-[19px]"
+          >
+            <span>© 2025 JeepneyTicketingSystem™. All Rights Reserved.</span>
+          </div>
+        </div>
+      </main>
+    </section>
+    <!-- *End Footer Section -->
+     
+  </body>
 </html>
