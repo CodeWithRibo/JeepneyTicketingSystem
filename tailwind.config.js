@@ -14,7 +14,10 @@ module.exports = {
       fontFamily: {
         Ubuntu: ["Ubuntu"], //font-family: poppins
       },
+      gridTemplateColumns: {
+
+      },
     },
   },
   plugins: [],
-};
+}
