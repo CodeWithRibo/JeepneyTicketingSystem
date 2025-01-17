@@ -13,7 +13,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
   .main_container {
     @apply mx-auto max-w-screen-2xl;
@@ -23,5 +22,8 @@
   }
   .animation_wrap {
     @apply transition-all duration-300 ease-in;
+  }
+  .input_plugin {
+    @apply mx-auto max-w-screen-md;
   }
 }
