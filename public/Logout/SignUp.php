@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signup</title>
-    <link rel="stylesheet" href="/src/output.css" />
-    <link rel="stylesheet" href="/src/input.css" />
-    <link rel="stylesheet" href="/src/plugin.css" />
+    <link rel="stylesheet" href="/jts/src/output.css" />
+    <link rel="stylesheet" href="/jts/src/input.css" />
+    <link rel="stylesheet" href="/jts/src/plugin.css" />
+    <link rel="stylesheet" href="/jts/custom.css">
+    <script src="/jts/public/js/DateAndTime.js"></script>
+    <script src="/jts/public/js/index.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -14,7 +17,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="../js/index.js"></script>
     <style>
       @media (max-width: 550px) {
         .responsive_img {
@@ -141,17 +143,11 @@
             />
           </div>
           <div class="text-center">
-            <input
-              class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl"
-              type="submit"
-              value="Submit"
-            />
+            <button class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base  text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl"  type="submit">Submit</button>
           </div>
         </form>
         </div>
       </div>
     </section>
-    
-    
   </body>
 </html>
