@@ -90,7 +90,7 @@
               <!-- Destinations -->
      <section class="main_container">
       <div class="flex flex-col items-center px-10 pt-32 md:items-start md:px-0">
-        <div class="relative md:left-[40%]">
+      <div class="relative md:left-[40%]">
           <ul class="steps steps-vertical md:steps-horizontal">
             <li class="step step-success ">Select Terminal</li>
             <li class="step step-success ">Buy Ticket</li>
@@ -177,8 +177,8 @@
         </div>
       </div>
     </section>
-
     <!-- End Passenger Details-->
      </form>
+     <?php include '../components/footer.php'; ?>
   </body>
 </html>
