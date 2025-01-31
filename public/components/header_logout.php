@@ -32,7 +32,7 @@
       <div class="static left-0 right-0 top-0 z-10 flex h-20 items-center justify-between bg-white shadow-lg sm:px-5 md:fixed md:px-10 lg:px-20">
         <div class="flex w-full items-center justify-center md:w-auto">
           <span class="mx-2">
-            <img class="h-[70px] w-[230px] object-cover px-5" src="https://i.im.ge/2025/01/16/zGaEtp.temporary-logo.png" alt="JTS logo" />
+            <img class="h-[70px] w-[230px] object-cover px-5" src="/jts/image/main_logo.png " alt="JTS logo" />
           </span>
           <!-- MOBILE DESIGN HEADER ICON -->
           <span class="pr-2 font-bold text-primary md:hidden">Menu</span>

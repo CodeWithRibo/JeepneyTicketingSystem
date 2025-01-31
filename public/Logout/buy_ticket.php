@@ -22,6 +22,15 @@
           height: auto;
         }
       }
+      .img-plugin {
+    background-image: url(/image/Banner.png);
+    width: 100%;
+    height: 480px;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+}
+
     </style>
   </head>
   <body class="m-0 box-border p-0 font-sanscalp" id="buyTicket">
@@ -62,7 +71,7 @@
         <div class="grid grid-cols-1 items-center justify-items-center gap-10 pt-10 md:grid-cols-2 lg:grid-cols-3">
           <!-- Monumento Terminal -->
           <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="https://i.im.ge/2025/01/16/zGa8or.temporary-image.png" alt="Monumento Terminal" />
+            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Monumento Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]">Monumento Terminal</span>
             <div>
@@ -77,7 +86,7 @@
           </div>
           <!-- Sangandaan Terminal -->
           <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="https://i.im.ge/2025/01/16/zGa8or.temporary-image.png" alt="Sm Sangandaan Terminal" />
+            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Sm Sangandaan Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]">Sm Sangandaan Terminal</span>
               <a href="#" class="mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">
@@ -90,7 +99,7 @@
           </div>
           <!-- May Pajo Terminal -->
           <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="https://i.im.ge/2025/01/16/zGa8or.temporary-image.png" alt="Maypajo Terminal" />
+            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Maypajo Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]">Maypajo Terminal</span>
               <a href="#" class="mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">
@@ -108,7 +117,7 @@
         </div>
         <div class="grid grid-cols-1 items-center justify-items-center gap-10 pt-10 md:grid-cols-2 lg:grid-cols-3 pb-14">
           <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="https://i.im.ge/2025/01/16/zGa8or.temporary-image.png" alt="Recto Terminal" />
+            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Recto Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]">Recto Terminal</span>
               <a href="#" class="mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">
@@ -120,7 +129,7 @@
             </div>
           </div>
           <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="https://i.im.ge/2025/01/16/zGa8or.temporary-image.png" alt="Divisoria Terminal" />
+            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Divisoria Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]">Divisoria Terminal</span>
               <a href="#" class="mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">
@@ -132,7 +141,7 @@
             </div>
           </div>
           <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="https://i.im.ge/2025/01/16/zGa8or.temporary-image.png" alt="Divisoria Terminal" />
+            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Divisoria Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]">Divisoria Terminal</span>
               <a href="#" class="mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">

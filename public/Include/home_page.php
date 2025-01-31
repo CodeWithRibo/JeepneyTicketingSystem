@@ -6,7 +6,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/jts/src/output.css" />
     <link rel="stylesheet" href="/jts/src/input.css" />
-    <link rel="stylesheet" href="/jts/src/plugin.css" />
+    <link rel="stylesheet" href="/jts/image/plugin.css">
     <link rel="stylesheet" href="/jts/custom.css">
     <script src="/jts/public/js/AdjustRow.js"></script>
     <link
@@ -16,21 +16,30 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
     <style>
       @media (max-width: 550px) {
         .responsive_img {
           height: auto;
         }
       }
+      .img-plugin {
+    background-image: url(/image/Banner.png);
+    width: 100%;
+    height: 480px;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+}
+
     </style>
   </head>
   <body class="m-0 box-border bg-background p-0 font-sanscalp">
       <!-- Header Section -->
-      <?php include '../components/header.php'; ?>
+      <?php include '../components/header_login.php'; ?>
+      
     <!--*Hero Banner section-->
     <section id="home">
-      <div class="img-plugin relative flex flex-col items-center justify-center space-y-5 text-center">
+      <div class=" img-plugin relative flex flex-col items-center justify-center space-y-5 text-center">
       <span class="text-xl text-white md:text-2xl lg:text-3xl">Start your Journey</span>
       <span class="text-xl text-white md:text-2xl lg:text-3xl">With</span>
       <span class="text-xl text-white md:text-2xl lg:text-3xl">Confidence and Convenience</span>
@@ -45,7 +54,7 @@
       </div>
       <div class="grid grid-cols-1 overflow-hidden rounded-md border shadow-lg shadow-[#999c9aa5] lg:grid-cols-2">
         <div class="w-full">
-        <img class="responsive_img h-[500px] w-full object-cover lg:h-[570px] xl:h-[600px]" src="https://i.im.ge/2025/01/16/zGaRUW.about-picture-temporary.png" alt="About" />
+        <img class="responsive_img h-[500px] w-full object-cover lg:h-[570px] xl:h-[600px]" src="/jts/image/about_image_logo.png" alt="About" />
         </div>
         <div class="bg-white">
         <div class="mx-4 text-justify text-[11.5px] sm:text-[14px] md:mx-10 md:text-[16px] xl:text-[18px] 2xl:text-xl">

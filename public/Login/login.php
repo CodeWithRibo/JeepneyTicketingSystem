@@ -1,3 +1,10 @@
+
+<?php 
+
+// include '../handler/errors_handler.php';
+include '../Login/login_process.php';
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -41,7 +48,8 @@
         </div>
         <div class="w-full max-w-2xl">
           <form
-            action="#"
+            action="login.php"
+            method="POST"
             class="space-y-4 md:space-y-7 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg xl:space-y-7 xl:rounded-l-lg"
           >
             <div>
@@ -49,7 +57,7 @@
               <span class="text-lg">
                 Doesn’t have an account yet?
                 <a
-                  href="SignUp.php"
+                  href="../Signup/signup.php"
                   class="underline text-textColor font-semibold hover:text-button transition-all ease-linear duration-150"
                   >Signup</a
                 >
@@ -61,12 +69,14 @@
                 for="username"
                 >Username</label
               >
+              <!-- USERNAME -->
               <input
                 class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
                 type="text"
-                name="username"
+                name="userName"
                 id="username"
               />
+              <div class=" text-red-500"><?php echo $loginErrors['userName']; ?></div>
             </div>
             <div class="flex flex-col">
               <label
@@ -74,17 +84,20 @@
                 for="password"
                 >Password</label
               >
+              <!-- PASSWORD -->
               <input
                 class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
                 type="password"
                 name="password"
                 id="password"
               />
+              <div class=" text-red-500"><?php echo $loginErrors['password']; ?></div>
             </div>
+            <div class=" text-red-500 text-center"><?php echo $loginErrors['userName']; echo $loginErrors['password'];?></div>
             <div class="text-center">
               <button
                 class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl"
-                type="submit"
+                type="submit" value="submit" name="submit"
               >
                 Submit
               </button>
