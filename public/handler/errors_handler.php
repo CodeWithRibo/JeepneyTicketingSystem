@@ -1,8 +1,13 @@
 <?php 
- //value handler
+ //signup form value
  $firstName = $lastName = $userName = $email = $phoneNumber = $password = $confirmPassword = "";
- // error handler
+//contact form value
+// $firstName = $lastName = $email = $subject = $message = "";
+
+ //  signup errors
  $errors = ["firstName" => "", "lastName" => "", "userName" => "", "email" => "", "phoneNumber" => "", "password" => "", "confirmPassword" => ""];
-// Error handler
-$loginErrors = [ "userName" => "", "password" => ""];
+
+ // contact errors
+//  $contactErrors = ["firstName" => "", "lastName" => "", "email" => "", "subject" => "", "message" => ""];
+
 ?>
