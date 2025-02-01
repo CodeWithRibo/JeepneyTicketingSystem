@@ -9,8 +9,7 @@
 <body>
     
 <?php 
-include_once '../Database/dbconfig.php';
-include_once '../handler/errors_handler.php';
+include '../Database/dbconfig.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -19,7 +18,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $subject = $_POST['subject'];
     $message = $_POST['message'];
-
 
     if(empty($firstName) || empty($lastName) || empty($email) || empty($subject) || empty($message)){
        ?> 
@@ -38,9 +36,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validation
+    // include '../handler/contact_logic_handler.php';
+    
+    // if no errors proceed to the db
+    $sqlContact = "INSERT INTO contact (firstName, lastName, email, subject, message) VALUES (?,?,?,?,?)";
+    $insertContact = $connection -> prepare($sqlContact);
+    $insertContact -> bind_param("sssss", $firstName,$lastName, $email,$subject,$message);
 
-
-
+    if($insertContact -> execute()) {
+        header('Location: ../include/home_page.php');
+        exit();
+    } 
+    $insertContact -> close();
+    $connection -> close();
 }
 ?>
 
