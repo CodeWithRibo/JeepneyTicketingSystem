@@ -1,8 +1,8 @@
 
 <?php 
 
-include '../handler/errors_handler.php'; 
-include 'signup_process.php';
+include_once '../handler/errors_handler.php'; 
+include_once 'signup_process.php';
 ?>
 
 <!doctype html>

@@ -8,28 +8,23 @@
 </head>
 <body>
 <?php
-include '../Database/dbconfig.php';
-include '../handler/errors_handler.php';
+include_once '../Database/dbconfig.php';
+
 
     // check if the form has been submitted
     if($_SERVER["REQUEST_METHOD"] == "POST") {
       
-            // call the logic Handler
-            include '../handler/function_handler.php';
+            //validation and sanitization
+            include '../handler/logic_handler.php';
 
-            if(array_filter($errors)) {
-                // something shit
-            } 
-              
-            else {
-                // check if there are no errors proceed to the database
-                require '../handler/function_handler.php';
+            if(!array_filter($errors)) {
+                include '../handler/function_handler.php';
                 echo existEmail();
                 echo existUserName();
                 echo existPhoneNumber();
 
+         // check if there are no errors proceed to the database
         // insert data to the database
-     
         $sqlUsers = "INSERT INTO jts_users (firstName, lastName, userName, email, phoneNumber, password, confirmPassword) VALUES ( ? , ? , ? , ? , ? , ? , ? )"; 
         $insertUsers = $connection -> prepare($sqlUsers);
         $insertUsers -> bind_param("sssssss",$firstName, $lastName, $userName, $email, $phoneNumber, $password, $confirmPassword);   
@@ -44,8 +39,7 @@ include '../handler/errors_handler.php';
         $userNameStmt -> close();
         $phoneNumberStmt -> close();
         $insertUsers -> close();
-
-        }
+            }
     }
     
   
