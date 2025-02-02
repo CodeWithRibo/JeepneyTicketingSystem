@@ -1,5 +1,8 @@
 <?php
 
+$firstName = $lastName = $email = $subject = "";
+$contactErrors = ["firstName" => "", "lastName" => "", "email" => "", "subject" => "", "message" => ""];
+
 // contact form validation
 $firstName = trim($_POST['firstName']);
 $lastName = trim($_POST['lastName']);
@@ -10,25 +13,25 @@ $message = trim($_POST['message']);
 
 // 
 if(empty($firstName)) {
-    $errors['firstName'] = "First Name is required";
+    $contactErrors['firstName'] = "First Name is required";
 } else if(!preg_match("/^[a-z ,.'-]+$/i", $firstName)) {
-    $errors['firstName'] = ' First Name must be letters only';
+    $contactErrors['firstName'] = ' First Name must be letters only';
 } else {
     $firstName = htmlspecialchars($firstName);
 } 
 
 if(empty($lastName)) {
-    $errors['lastName'] = "Last Name is required";
+    $contactErrors['lastName'] = "Last Name is required";
 } else if(!preg_match("/^[a-z ,.'-]+$/i", $lastName)) {
-    $errors['lastName'] = 'Last Name must be letters only';
+    $contactErrors['lastName'] = 'Last Name must be letters only';
 } else {
     $lastName = htmlspecialchars($lastName);
 }
 
 if(empty($email)) {
-    $errors['email'] = "Email is required";
+    $contactErrors['email'] = "Email is required";
 } else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors['email'] = 'Email is invalid';
+    $contactErrors['email'] = 'Email is invalid';
 }  else {
     $email = htmlspecialchars($email);
 }
@@ -44,10 +47,8 @@ if(empty($subject)) {
 
 if(empty($message)) {
     $contactErrors['message'] ="Message is required";
-} else if (!preg_match("/^[a-zA-Z0-9 \(\)\n]*$/",$name)) {
+} else if (!preg_match("/^[a-zA-Z0-9 \(\)\n]*$/",$message)) {
     $contactErrors['message'] = 'Message must be letters and numbers only';
-} else {
-    $message = htmlspecialchars($message);
-}
+} 
 
 ?>
