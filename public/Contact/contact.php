@@ -1,8 +1,27 @@
-  <?php
-
-  // include 'contact_form_process.php';
-
+<?php 
+$isLogin = isset($_SESSION['user_id']); //check if user is logged in
+if(!$isLogin) { 
   ?>
+<script>
+  document.addEventListener('DOMContentLoaded', () => { 
+    const btn = document.getElementById('btn_contact_submit');
+    btn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the form from being submitted
+        Swal.fire({
+            title: "Submit Failed",
+            text: "You need to login before submitting",
+            icon: "error"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = '../Login/login.php';
+            }
+        });
+    });
+  });
+</script>  
+  <?php
+}
+?>
 
 <!DOCTYPE html>
  <html lang="en">
@@ -22,7 +41,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
       @media (max-width: 550px) {
         .responsive_img {
@@ -83,10 +102,11 @@
         </textarea>
         </div>
         <div class="text-center">
-          <button class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl"
+          <button id="btn_contact_submit" class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl"
            type="submit"
            name="submit">Submit</button>
         </div>
+      
         </form>
       </div>
       </div>

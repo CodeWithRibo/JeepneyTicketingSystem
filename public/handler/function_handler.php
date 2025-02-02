@@ -1,36 +1,35 @@
 <?php
-    include '../Database/dbconfig.php';
-    include '../handler/logic_handler.php';
+    include_once '../Database/dbconfig.php';
+    include_once '../handler/logic_handler.php';
     
 // Email
 
-    function existEmail() {
-        global $connection;
-        global $email;
+function existEmail() {
+    global $connection;
+    global $email;
 
-        $sqlEmail = "SELECT * FROM jts_users WHERE email = ?";
-        $checkEmailStatement = $connection -> prepare($sqlEmail);
-        $checkEmailStatement -> bind_param("s", $email);
-        $checkEmailStatement -> execute();
-        $checkEmailStatement -> store_result();
+    $sqlEmail = "SELECT * FROM jts_users WHERE email = ?";
+    $checkEmailStatement = $connection -> prepare($sqlEmail);
+    $checkEmailStatement -> bind_param("s", $email);
+    $checkEmailStatement -> execute();
+    $checkEmailStatement -> store_result();
 
- if($checkEmailStatement -> num_rows > 0) {
-   ?> 
-   <script>
-     Swal.fire({
-             title: "Email is already Registered",
-             text: "This email is already in use. Try different email or log in.",
-             icon: "info"
-      }).then((result) => {
-                 if (result.isConfirmed) {
-                     window.location = 'signup.php';
-                 }
-             });
-   </script>
-   <?php
-     exit();
- }
-
+if($checkEmailStatement -> num_rows > 0) {
+?> 
+<script>
+ Swal.fire({
+         title: "Email is already Registered",
+         text: "This email is already in use. Try different email or log in.",
+         icon: "info"
+  }).then((result) => {
+             if (result.isConfirmed) {
+                 window.location = 'signup.php';
+             }
+         });
+</script>
+<?php
+ exit();
+}
 }
 // Username
 function existUserName() {
@@ -78,7 +77,7 @@ function existPhoneNumber() {
         <script>
           Swal.fire({
                   title: "Phone Number is already Registered",
-                  text: "Try different phone number or log in.",
+                  text: "Try different phone number.",
                   icon: "info"
            }).then((result) => {
                       if (result.isConfirmed) {
@@ -93,4 +92,3 @@ function existPhoneNumber() {
 }
 
 ?>
-

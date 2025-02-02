@@ -3,6 +3,12 @@
 
 include_once '../handler/errors_handler.php'; 
 include_once 'signup_process.php';
+
+if(isset($_SESSION["user_id"])) {
+  header("Location: ../Include/home_page.php");
+  exit();
+}
+
 ?>
 
 <!doctype html>

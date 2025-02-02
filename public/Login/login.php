@@ -1,8 +1,11 @@
 
 <?php 
 
-// include '../handler/errors_handler.php';
 include '../Login/login_process.php';
+if (isset($_SESSION["user_id"])) {
+    header("Location: ../include/home_page.php");
+    exit();
+}
 ?>
 
 <!doctype html>
@@ -76,7 +79,6 @@ include '../Login/login_process.php';
                 name="userName"
                 id="username"
               />
-              <div class=" text-red-500"><?php echo $loginErrors['userName']; ?></div>
             </div>
             <div class="flex flex-col">
               <label
@@ -91,9 +93,7 @@ include '../Login/login_process.php';
                 name="password"
                 id="password"
               />
-              <div class=" text-red-500"><?php echo $loginErrors['password']; ?></div>
             </div>
-            <div class=" text-red-500 text-center"><?php echo $loginErrors['userName']; echo $loginErrors['password'];?></div>
             <div class="text-center">
               <button
                 class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl"

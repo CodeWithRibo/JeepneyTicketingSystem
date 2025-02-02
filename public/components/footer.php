@@ -47,7 +47,7 @@
             <h1 class="animation_wrap font-semibold text-primary md:text-xl lg:text-2xl xl:text-[26px] 2xl:text-3xl">FOLLOW US</h1>
           <a href="https://www.facebook.com/carljohn2818"><span class="text_wrap"><i class="fa-brands fa-facebook pr-2"></i>Facebook</span></a>
             <span class="text_wrap"><i class="fa-brands fa-twitter pr-2"></i>Twitter</span>
-         <a href="https://www.facebook.com/carljohn2818"><span class="text_wrap"><i class="fa-brands fa-instagram pr-2"></i>Instagram</span></a>
+         <a href="https://www.instagram.com/carljohn_16"><span class="text_wrap"><i class="fa-brands fa-instagram pr-2"></i>Instagram</span></a>
             <a href="https://github.com/CodeWithRibo" target="_blank"><span class="text_wrap"><i class="fa-brands fa-github pr-2"></i>Github</span></a>
           </div>
         </div>

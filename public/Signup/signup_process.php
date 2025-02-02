@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Process</title>
+    <title>Signup</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@ include_once '../Database/dbconfig.php';
     if($_SERVER["REQUEST_METHOD"] == "POST") {
       
             //validation and sanitization
-            include '../handler/logic_handler.php';
+            include '../handler/signup_logic_handler.php';
 
             if(!array_filter($errors)) {
                 include '../handler/function_handler.php';

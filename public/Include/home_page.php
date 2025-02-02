@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["user_id"])) {  //if the user's not loggin in, redirect to home-page logout page
+      header('Location: ../Logout/home_page.php');
+      exit();
+    }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,6 +16,7 @@
     <link rel="stylesheet" href="/jts/image/plugin.css">
     <link rel="stylesheet" href="/jts/custom.css">
     <script src="/jts/public/js/AdjustRow.js"></script>
+    <script src="/jts/public/js/ImagePlugin.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -22,21 +30,11 @@
           height: auto;
         }
       }
-      .img-plugin {
-    background-image: url(/image/Banner.png);
-    width: 100%;
-    height: 480px;
-    background-size: cover;
-    background-position: center;
-    object-fit: cover;
-}
-
     </style>
   </head>
   <body class="m-0 box-border bg-background p-0 font-sanscalp">
       <!-- Header Section -->
-      <?php include '../components/header_login.php'; ?>
-      
+      <?php include '../Components/header.php'; ?>
     <!--*Hero Banner section-->
     <section id="home">
       <div class=" img-plugin relative flex flex-col items-center justify-center space-y-5 text-center">
@@ -76,7 +74,7 @@
     </section>
     <!-- *End About Section -->
     <!-- *Contact Section -->
-    <?php include '../components/contact.php'; ?>
+    <?php include '../Contact/contact.php'; ?>
     <!-- *End Contact Section -->
       <!-- Footer Section -->
       <?php include '../components/footer.php'; ?>

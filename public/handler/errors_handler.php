@@ -8,6 +8,6 @@
  $errors = ["firstName" => "", "lastName" => "", "userName" => "", "email" => "", "phoneNumber" => "", "password" => "", "confirmPassword" => ""];
 
  // contact errors
-//  $contactErrors = ["firstName" => "", "lastName" => "", "email" => "", "subject" => "", "message" => ""];
+ $contactErrors = ["firstName" => "", "lastName" => "", "email" => "", "subject" => "", "message" => ""];
 
 ?>

@@ -34,7 +34,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>
        <?php
     }
-
     // Validation
     // include '../handler/contact_logic_handler.php';
     

@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if(isset($_SESSION["user_id"])) { //if the users alrady loggin they can't access the login home page
+  header('Location: ../Include/home_page.php');
+  exit();
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,9 +13,10 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/jts/src/output.css" />
     <link rel="stylesheet" href="/jts/src/input.css" />
-    <link rel="stylesheet" href="/jts/image/plugin.css">
+    <link rel="stylesheet" href="/jts/src/plugin.css">
     <link rel="stylesheet" href="/jts/custom.css">
     <script src="/jts/public/js/AdjustRow.js"></script>
+    <script src="/jts/public/js/ImagePlugin.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -16,29 +24,48 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <style>
-      @media (max-width: 550px) {
-        .responsive_img {
-          height: auto;
-        }
-      }
-      .img-plugin {
-    background-image: url(/image/Banner.png);
-    width: 100%;
-    height: 480px;
-    background-size: cover;
-    background-position: center;
-    object-fit: cover;
-}
-
-    </style>
   </head>
   <body class="m-0 box-border bg-background p-0 font-sanscalp">
       <!-- Header Section -->
-      <?php include '../components/header.php'; ?>
+           <!--Logout header-->
+ <header>
+      <!--DESKTOP DESIGN -->
+      <div class="static left-0 right-0 top-0 z-10 flex h-20 items-center justify-between bg-white shadow-lg sm:px-5 md:fixed md:px-10 lg:px-20">
+        <div class="flex w-full items-center justify-center md:w-auto">
+          <span class="mx-2">
+            <img class="h-[70px] w-[230px] object-cover px-5" src="/jts/image/main_logo.png " alt="JTS logo" />
+          </span>
+          <!-- MOBILE DESIGN HEADER ICON -->
+          <span class="pr-2 font-bold text-primary md:hidden">Menu</span>
+          <span class="mx-2">
+            <svg class="size-6 cursor-pointer transition-all duration-300 ease-out hover:text-[#e6ce20] md:hidden" id="hamburger-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </span>
+        </div>
+        <div class="hidden md:block">
+          <span class="flex gap-10 transition-all">
+            <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="#home">Home</a>
+            <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="BuyTicket.php">Buy Ticket</a>
+            <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="#about">About</a>
+            <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="#contact">Contact Us</a>
+            <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="../Login/login.php">Login</a>
+          </span>
+        </div>
+      </div>
+      <!-- MOBILE DESIGN HEADER -->
+      <div class="grid hidden grid-rows-5 justify-center gap-6 border-2 bg-white text-center shadow-lg transition-all md:hidden" id="mobile-menu">
+        <a class="pt-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="#home">Home</a>
+        <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="BuyTicket.php">Buy Ticket</a>
+        <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="#about">About</a>
+        <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="#contact">Contact Us</a>
+        <a class="pb-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="Login.php">Login</a>
+      </div>
+    </header>
+    <!--*End Header section-->
     <!--*Hero Banner section-->
     <section id="home">
-      <div class=" img-plugin relative flex flex-col items-center justify-center space-y-5 text-center">
+      <div class="img-plugin relative flex flex-col items-center justify-center space-y-5 text-center" id="img_plugin">
       <span class="text-xl text-white md:text-2xl lg:text-3xl">Start your Journey</span>
       <span class="text-xl text-white md:text-2xl lg:text-3xl">With</span>
       <span class="text-xl text-white md:text-2xl lg:text-3xl">Confidence and Convenience</span>
@@ -75,7 +102,7 @@
     </section>
     <!-- *End About Section -->
     <!-- *Contact Section -->
-    <?php include '../components/contact.php'; ?>
+    <?php include '../Contact/contact.php'; ?>
     <!-- *End Contact Section -->
       <!-- Footer Section -->
       <?php include '../components/footer.php'; ?>
