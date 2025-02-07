@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { // When the page is loaded
   const img_plugin = document.getElementById('img_plugin');
   img_plugin.style.backgroundImage = 'url(/jts/image/Banner.webp)';
   img_plugin.style.width = '100$';
