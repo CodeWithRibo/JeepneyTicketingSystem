@@ -1,0 +1,8 @@
+/* custom.css */
+body,
+input,
+select,
+textarea {
+  background-color: #ffffff !important; /* Your desired background color */
+  color: #222422; /* Ensure text color is readable */
+}
