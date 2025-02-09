@@ -9,8 +9,6 @@
 <body>
 <?php
 include_once '../Database/dbconfig.php';
-
-
     // check if the form has been submitted
     if($_SERVER["REQUEST_METHOD"] == "POST") {
       
@@ -39,8 +37,8 @@ include_once '../Database/dbconfig.php';
         $userNameStmt -> close();
         $phoneNumberStmt -> close();
         $insertUsers -> close();
-            }
-    }
+    } 
+}
     
   
 ?>

@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,7 +15,6 @@
           height: auto;
         }
       }
-
     </style>
   </head>
   <body class="bg-white font-sanscalp">
@@ -89,7 +86,7 @@
     <!-- End Header section -->
     <!-- Main section -->
      <form action="#" class="mb-14">
-              <!-- Destinations -->
+     <!-- Destinations -->
      <section class="main_container">
       <div class="flex flex-col items-center px-10 pt-32 md:items-start md:px-0">
       <div class="relative md:left-[40%]">

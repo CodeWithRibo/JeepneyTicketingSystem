@@ -11,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/jts/src/output.css" />
+     <link rel="stylesheet" href="/jts/src/output.css">
     <link rel="stylesheet" href="/jts/src/input.css" />
     <link rel="stylesheet" href="/jts/image/plugin.css">
     <link rel="stylesheet" href="/jts/custom.css">
@@ -37,7 +37,7 @@
       <?php include '../Components/header.php'; ?>
     <!--*Hero Banner section-->
     <section id="home">
-      <div class=" img-plugin relative flex flex-col items-center justify-center space-y-5 text-center">
+      <div class="relative flex flex-col items-center justify-center space-y-5 text-center" id = "img_plugin">
       <span class="text-xl text-white md:text-2xl lg:text-3xl">Start your Journey</span>
       <span class="text-xl text-white md:text-2xl lg:text-3xl">With</span>
       <span class="text-xl text-white md:text-2xl lg:text-3xl">Confidence and Convenience</span>

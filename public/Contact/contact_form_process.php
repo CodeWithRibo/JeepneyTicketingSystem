@@ -10,7 +10,7 @@
 <?php 
 include '../Database/dbconfig.php';
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-     
+ 
     include '../handler/contact_logic_handler.php';
     ob_start();
    // Validation 
@@ -19,20 +19,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
          $sqlContact = "INSERT INTO contact (firstName, lastName, email, subject, message) VALUES (?,?,?,?,?)";
          $insertContact = $connection -> prepare($sqlContact);
          $insertContact -> bind_param("sssss", $firstName,$lastName, $email,$subject,$message);
-     
+
          if($insertContact -> execute()) {
-       
             ?> <script> 
             Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: "Your message have been submit",
+                title: "Your message has been submitted",
                 showConfirmButton: false,
                 timer: 1500
-                }).then((result) => {
-                    if (result.dismiss === Swal.DismissReason.timer) {
-                        window.location = '../include/home_page.php';
-                    }
+                }).then(() => {
+                    window.location = '../include/home_page.php';
                 });
             </script> <?php
              exit();
@@ -42,7 +39,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     ob_end_flush();
 }
-
 ?>
 </body>
 </html>

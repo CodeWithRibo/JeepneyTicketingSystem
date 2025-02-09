@@ -11,7 +11,7 @@ $isLogin = isset($_SESSION["user_id"]);
     <link rel="stylesheet" href="/jts/src/output.css" />
     <link rel="stylesheet" href="/jts/src/input.css" />
     <link rel="stylesheet" href="/jts/src/plugin.css" />
-    <link rel="stylesheet" href="/jts/custom.css">
+    <link rel="stylesheet" href="/jts/src/custom.css">
     <script src="/jts/public/js/index.js"></script>
     <link
       rel="stylesheet"

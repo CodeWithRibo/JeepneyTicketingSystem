@@ -1,21 +1,9 @@
 {
-  "name": "jeepneyticketingsystem",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
-    "prettier": "^3.4.2",
-    "prettier-plugin-tailwindcss": "^0.6.9",
+    "daisyui": "^4.12.23",
     "tailwindcss": "^3.4.17"
   },
-  "dependencies": {
-    "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/typography": "^0.5.16"
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   }
 }

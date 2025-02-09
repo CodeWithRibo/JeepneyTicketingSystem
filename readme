@@ -1,0 +1,38 @@
+ <section class="border bg-primary p-20 shadow-2xl">
+      <div class="flex items-center xl:justify-evenly">
+        <div class="">
+          <img src="/image/temporary_logo.png" alt="temporaryLogo" />
+        </div>
+        <div class="grid lg:grid-cols-2 xl:grid-cols-3 xl:gap-16">
+          <div class="flex flex-col">
+            <h1 class="font-semibold text-white lg:text-[20px] xl:text-3xl">
+              CONTACT
+            </h1>
+            <span class="mt-3 cursor-pointer hover:underline">02000411496</span>
+            <span class="cursor-pointer hover:underline">jts@gmail.com</span>
+          </div>
+          <div class="flex flex-col lg:row-start-2 xl:row-auto">
+            <h1 class="font-semibold text-white lg:text-[20px] xl:text-3xl">
+              FOLLOW US
+            </h1>
+            <span class="mt-3 cursor-pointer hover:underline">Github</span>
+            <span class="cursor-pointer hover:underline">Discord</span>
+          </div>
+          <div class="flex flex-col">
+            <h1 class="font-semibold text-white lg:text-[20px] xl:text-3xl">
+              LEGAL
+            </h1>
+            <span class="mt-3 cursor-pointer hover:underline"
+              >Privacy Policy</span
+            >
+            <span class="cursor-pointer hover:underline"
+              >Terms & Condition</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="my-4 max-w-full border-b-2 border-black text-center"></div>
+      <div class="text-center">
+        <span>© 2025 JeepneyTicketingSystem™. All Rights Reserved.</span>
+      </div>
+    </section>

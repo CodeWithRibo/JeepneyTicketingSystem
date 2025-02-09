@@ -47,7 +47,6 @@ session_start();
        // store the user id in the session
         $_SESSION["user_id"] = $user['id'];
         $_SESSION["user_name"] = $user['userName'];
-        // header("Location: ../include/home_page.php");
     } 
     else {
         // authentication failed

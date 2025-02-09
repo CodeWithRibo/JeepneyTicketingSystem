@@ -1,34 +1,17 @@
 <?php 
-$isLogin = isset($_SESSION['user_id']); //check if user is logged in
-if(!$isLogin) { 
-  ?>
-<script>
-  document.addEventListener('DOMContentLoaded', () => { 
-    const btn = document.getElementById('btn_contact_submit');
-    btn.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the form from being submitted
-        Swal.fire({
-            title: "Submit Failed",
-            text: "You need to login before submitting",
-            icon: "error"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location = '../Login/login.php';
-            }
-        });
-    });
-  });
-</script>  
-  <?php
-}
-?>
+ 
+ include_once '../handler/contact_errors_handler.php';
+ include_once 'contact_form_process.php';
 
+$isLogin = isset($_SESSION['user_id']); //check if user is logged in
+
+?>
 <!DOCTYPE html>
  <html lang="en">
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="/jts/src/output.css" />
     <link rel="stylesheet" href="/jts/src/input.css" />
     <link rel="stylesheet" href="/jts/src/plugin.css" />
@@ -62,21 +45,26 @@ if(!$isLogin) {
         </div>
       </div>
       <div class="mt-10 w-full lg:w-1/2 xl:mt-0 xl:w-1/2">
-        <form action="../Contact/contact_form_process.php" method="POST" class="space-y-7 rounded-lg border bg-[#f4f4f4ca] p-10 shadow-lg xl:space-y-7 xl:rounded-md">
+       <!-- form -->
+        <form action="../include/home_page.php #contact" method="POST" class="space-y-7 rounded-lg border bg-[#f4f4f4ca] p-10 shadow-lg xl:space-y-7 xl:rounded-md">
         <div class="flex flex-col items-center space-y-5 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0">
           <span class="flex w-full flex-col">
           <label class="text-base text-textColor sm:mb-3.5 sm:text-xl" for="FirstName">First Name</label>
           <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" 
           type="text" 
           name="firstName"
-           id="firstName" />
+          id="firstName"
+          value="<?php echo htmlspecialchars($firstName) ?>"/>
+          <div class="text-red-500"><?php  echo $contactErrors['firstName'] ?></div>
           </span>
           <span class="flex w-full flex-col">
           <label class="text-base text-textColor sm:mb-3.5 sm:text-xl" for="LastName">Last Name</label>
           <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" 
           type="text"
            name="lastName" 
-           id="lastName" />
+           id="lastName"
+           value="<?php echo htmlspecialchars($lastName) ?>"/>
+           <div class="text-red-500"><?php  echo $contactErrors['lastName'] ?></div>
           </span>
         </div>
         <div class="flex flex-col">
@@ -84,30 +72,54 @@ if(!$isLogin) {
           <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
            type="email"
             name="email"
-             id="email" />
+             id="email"
+             value="<?php echo htmlspecialchars($email) ?>"/>
+             <div class="text-red-500"><?php  echo $contactErrors['email'] ?></div>
         </div>
         <div class="flex flex-col">
           <label class="text-base text-textColor sm:mb-3.5 sm:text-xl" for="subject">Subject</label>
           <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" 
           type="text"
            name="subject" 
-           id="subject" />
+           id="subject"
+           value="<?php echo htmlspecialchars($subject) ?>"/>
+           <div class="text-red-500"><?php  echo $contactErrors['subject'] ?></div>
         </div>
         <div class="flex flex-col">
           <label class="text-base text-textColor sm:mb-3.5 sm:text-xl" for="message">Message</label>
-          <textarea class="w-full resize-none rounded-[5px] border border-[#949494] text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:w-auto xl:text-[18px]" 
-          name="message"
-          id="message" 
-           rows="8">
+          <textarea class="w-full resize-none rounded-[5px] border border-[#949494] text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:w-auto xl:text-[18px]"name="message" id="message" rows="8" aria-valuetext="<?php echo htmlspecialchars($message) ?>">
         </textarea>
+        <div class="text-red-500"><?php  echo $contactErrors['message'] ?></div>
         </div>
         <div class="text-center">
           <button id="btn_contact_submit" class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl"
            type="submit"
            name="submit">Submit</button>
         </div>
-      
         </form>
+ <?php       
+      if(!$isLogin) { 
+  ?>
+<script>
+  document.addEventListener('DOMContentLoaded', () => { 
+    const btn = document.getElementById('btn_contact_submit');
+    btn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the form from being submitted
+        Swal.fire({
+            title: "Submit Failed",
+            text: "You need to login before submitting",
+            icon: "error"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = '../Login/login.php';
+            }
+        });
+    });
+  });
+</script>  
+  <?php
+}
+?>
       </div>
       </div>
     </section>
