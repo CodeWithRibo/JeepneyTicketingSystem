@@ -2,7 +2,6 @@
 
 include_once '../handler/errors_handler.php';
 
-
 // signup form validation
 $firstName = trim($_POST['firstName']);
 $lastName = trim($_POST['lastName']);

@@ -10,7 +10,6 @@ $email = trim($_POST['email']);
 $subject = trim($_POST['subject']);
 $message = trim($_POST['message']);
 
-
 // 
 if(empty($firstName)) {
     $contactErrors['firstName'] = "First Name is required";
