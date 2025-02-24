@@ -1,4 +1,5 @@
 <?php
+
 ob_start(); // Start output buffering
 $isLogin = isset($_SESSION["user_id"]);
 ?>

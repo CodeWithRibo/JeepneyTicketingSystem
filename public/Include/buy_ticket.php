@@ -1,48 +1,26 @@
 <?php 
-include '../Database/dbconfig.php';
-session_start();
-$isLogin = isset($_SESSION['user_id']);
-
-if($isLogin) {
-  $isLogin = $_SESSION['user_id'];
+include '../handler/buyticket_error_handler.php';
+include '../handler/buyticket_process.php';
+function randomTicketNumber() {
+  function generateRandomString($length = 2) {
+    return substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),2,$length);
+  }
+  $ticketNumber = rand(20000, 30000);
+  $customerRfId = generateRandomString(). $ticketNumber;
+  echo $customerRfId;
 }
-$sql = "SELECT userName FROM jts_users WHERE id = ?";
-$userNameStmt = $connection -> prepare($sql);
-$userNameStmt -> bind_param("i", $isLogin);
-$userNameStmt -> execute();
-$result = $userNameStmt -> get_result();
-
-
-if($result -> num_rows > 0) {
-  //each row based on the query select
-  $row = $result -> fetch_assoc();
-  $userName = $row['userName'];
-  $_SESSION['userName'] = $userName;
-} else {
-  $_SESSION['userName'] = "Guest";
-}
-
 ?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Process Buy Ticket</title>
     <link rel="stylesheet" href="/jts/src/output.css" />
     <link rel="stylesheet" href="/jts/src/input.css" />
     <link rel="stylesheet" href="/jts/src/plugin.css" />
-    <link rel="stylesheet" href="/jts/custom.css">
-    <script src="/jts/public/js/index.js"></script>
-    <script src="/jts/public/js/ImagePlugin.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/jts/src/custom.css">
+    <script src="/jts/public/js/DateAndTime.js"></script>
     <style>
       @media (max-width: 550px) {
         .responsive_img {
@@ -51,183 +29,187 @@ if($result -> num_rows > 0) {
       }
     </style>
   </head>
-  <body class="m-0 box-border p-0 font-sanscalp" id="buyTicket">
-    <!--*Header section-->
-    <?php include '../components/header.php'; ?>
-    <!--*Banner section-->
-    <section class=" transition-all ease-in duration-150 border border-primary shadow-lg" id="img_plugin">
-        <div class=" main_container  flex flex-col items-center sm:pt-32 pt-16  sm:px-0 px-10 ">
-            <div class="pb-14 space-y-5 md:text-start text-center">
-                <div class="pt-10 ">
-                    <span class="xl:text-3xl md:text-[27px] text-[22px] text-white">Hello, <span class=" text-button font-bold "><?php echo $_SESSION['userName']; ?></span></span>
-                </div>
-                <div>
-                    <span class="xl:text-4xl md:text-[33px] text-[28px] text-white">Get Your Ticket Now! Don't Miss Out on the Excitement Ride!</span>
-                </div>
+  <body class="bg-white font-sanscalp">
+    <!-- Header section -->
+    <header>
+      <!-- Desktop Design -->
+      <div class="static left-0 right-0 top-0 z-10 flex h-20 items-center justify-between bg-white shadow-lg sm:px-5 md:fixed md:px-10 lg:px-20">
+        <div class="flex w-full items-center justify-center md:w-auto">
+          <span class="mx-2">
+            <img class="h-[70px] w-[230px] object-cover px-5" src="/jts/image/main_logo.png" alt="JTS logo" />
+          </span>
+          </span>
+        </div>
+        <div class="navbar items-center justify-between ">
+          <div class=" md:flex-none lg:flex-1"></div>
+          <div class="flex-none gap-2">
+            <div class="hidden md:block px-5">
+              <span class="flex gap-10 transition-all">
+                <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="home_page.php">Home</a></span>
+                <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="#">Transaction History</a></span>
+                <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="home_page.php #about">About</a></span>
+                <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="home_page.php #contact">Contact Us</a></span>
+              </span>
             </div>
-            <div class="pb-10 w-full sm:w-full sm:px-10">
-                <div class="relative w-full">
-                    <div class="relative w-full input_plugin md:px-10 lg:px-0">
-                        <i class="fa-solid fa-magnifying-glass absolute left-[1.3rem] sm:left-[1rem] md:left-[3.5rem] lg:left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
-                        <input type="text" name="searchBar" id="searchBar" placeholder="Search Terminals" class=" transition-all duration-150 ease-in-out  pl-10 py-4 border rounded-full w-full sm:w-full lg:w-full placeholder:xl:text-2xl placeholder:md:text-xl placeholder:text-xl text-xl">
-                      </div>
-                  </div>
-            </div>
-        </div>
-    </section>
-    <!--*End Banner section-->
-    <!--* Card Terminals section-->
-    <section class="main_container" id="terminals">
-      <div class="p-10">
-        <div class="my-20 text-center">
-          <span class="text-4xl font-bold text-primary">Terminals</span>
-        </div>
-        <div class="text-center text-[1.5rem] font-semibold lg:text-start lg:text-3xl">
-          <span class="text-primary">Caloocan</span>
-        </div>
-        <div class="grid grid-cols-1 items-center justify-items-center gap-10 pt-10 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Monumento Terminal -->
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Monumento Terminal" />
-            <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
-              <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]">Monumento Terminal</span>
-            <div>
-            <a href="" id="" class="mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">
-                    Buy Ticket
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                    </svg>
+            <div class="dropdown dropdown-end flex items-center justify-center">
+              <div class="pr-5">      <!-- Mobile Design Header Icon -->
+                <span class="mx-2">
+                  <svg class="size-6 cursor-pointer transition-all duration-300 ease-out hover:text-[#e6ce20] md:hidden" id="hamburger-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </svg>
+                </div>
+              <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                <div class="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="/jts/image/navbar_pfp.JPG" />
+                </div>
+              </div>
+              <div>
+                <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow-lg bg-white">
+                <li>
+                  <a class="justify-between">
+                    Profile
+                    <span class="badge">New</span>
                   </a>
+                </li>
+                <li><a>Settings</a></li>
+                <li><a href="../Logout/logout_destroy.php">Logout</a></li>
+              </ul>
+              </div>
             </div>
-            </div>
-          </div>
-          <!-- Sangandaan Terminal -->
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Sm Sangandaan Terminal" />
-            <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
-              <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]" id="sm_sangandaan_terminal" >Sm Sangandaan Terminal</span>
-              <a href="" id="lugar_terminal" class="under_construction mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">
-                Buy Ticket
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-          <!-- May Pajo Terminal -->
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Maypajo Terminal" />
-            <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
-              <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]" id="maypajo_terminal" >Maypajo Terminal</span>
-              <a href="" id="lugar_terminal" class=" under_construction mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">
-                Buy Ticket
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                </svg>
-              </a>
+            
+            <div>
             </div>
           </div>
         </div>
-        <!-- ! MANILA TERMINAL -->
-        <div class="text-center text-[1.5rem] font-semibold lg:text-start lg:text-3xl pt-10">
-          <span class="text-primary">Manila</span>
+      </div>
+      <!-- Mobile Design Header -->
+      <div class="grid hidden grid-rows-5 justify-center gap-6 border-2 bg-white text-center shadow-lg transition-all md:hidden" id="mobile-menu">
+        <span class="pt-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"><a href="home_page.php">Home</a></span>
+        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"><a href="buy_ticket.php">Buy Ticket</a></span>
+        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"><a href="home_page.php #about">About</a></span>
+        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"><a href="home_page.php #contact">Contact Us</a></span>
+        <span class="pb-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl block md:hidden "><a href="../Logout/logout_destroy.php">Logout</a></span>
+      </div>
+    </header>
+    <!-- End Header section -->
+    <!-- Main section -->
+     <form action="buy_ticket.php" method="POST" class="mb-14" id="ticketForm">
+     <!-- Destinations -->
+     <section class="main_container">
+      <div class="flex flex-col items-center px-10 pt-32 md:items-start md:px-0">
+      <div class="relative md:left-[40%]">
+          <ul class="steps steps-vertical md:steps-horizontal">
+            <li class="step step-success ">Select Terminal</li>
+            <li class="step step-success ">Buy Ticket</li>
+            <li class="step">Transaction</li>
+          </ul>
         </div>
-        <div class="grid grid-cols-1 items-center justify-items-center gap-10 pt-10 md:grid-cols-2 lg:grid-cols-3 pb-14">
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Recto Terminal" />
-            <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
-              <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]" id="recto_terminal" >Recto Terminal</span>
-              <a href="" id="lugar_terminal" class="under_construction mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">
-                Buy Ticket
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                </svg>
-              </a>
-            </div>
+        <div class="flex justify-center py-14">
+          <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Destinations</h1>
+        </div>
+        <div class="w-full">
+          <div class="space-y-4 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg">
+              <div class="flex flex-col items-center justify-between space-y-4 md:space-y-7 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0">
+                    <div>
+                      <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Origin">Origin</label>
+                      <select name="optionOrigin" id="optionOrigin" class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]">
+                        <option value="Monumento">Monumento Terminal</option>
+                        </select>
+                        <div class="text-red-500"><?php echo $buyticketErrors['optionOrigin']; ?></div>
+                    </div>
+                    <div>
+                      <!-- ORIGIN AND DESTINATIONS -->
+                      <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Destinations">Destinations</label>
+                      <select name="optionDestinations" id="optionDestinations" aria-valuetext="<?php echo $optionDestinations ?>" class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]">
+                       <option value="" disabled selected>Select Destinations</option>
+                        <option value="BaclaranTerminal">Baclaran Terminal</option>
+                        <option value="RectoTerminal">Recto Terminal</option>
+                        <option value="SanJuanGreenHills">SanJuan GreenHills Terminal</option>
+                        </select>
+                        <div class="text-red-500"><?php echo $buyticketErrors['optionDestinations']; ?></div>
+                    </div>
+                  <div>
+                    <!-- RANDOM TICKET NUMBER -->
+                    <span class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl">Generated Ticket Number: </span>
+                      <span class="text-red-400 text-base font-semibold" id="ticketNumberSpan" ><?php randomTicketNumber() ?></span>
+                         <input type="hidden" id="randomTicketNumber" name="randomTicketNumber">
+                        <script>
+                                document.getElementById('ticketForm').addEventListener('submit', function(){
+                                const ticketNumber = document.getElementById('ticketNumberSpan').textContent;
+                                document.getElementById('randomTicketNumber').value = ticketNumber;
+                            });
+                  </script>
+                    </div>
+              </div>
           </div>
-          <!-- DIVISORIA -->
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Divisoria Terminal" />
-            <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
-              <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]" id="divisoria_terminal" >Divisoria Terminal</span>
-              <a href="" id="lugar_terminal" class="under_construction mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">
-                Buy Ticket
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-          <!--LEGARDA -->
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Divisoria Terminal" />
-            <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
-              <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]" id="legarda_terminal" >Legarda Terminal</span>
-              <a href="" id="lugar_terminal" class="under_construction mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-3 sm:text-xl md:px-7 md:text-xl lg:px-5 lg:py-2">
-                Buy Ticket
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-          </div>
-          </div>
+        </div>
+      </div>
     </section>
- <?php 
- if(!$isLogin) {
-  ?>  
-      <script>
-       const terminal = document.querySelectorAll("#lugar_terminal");
-
-        //loop through each element
-          terminal.forEach((element) => {
-            element.addEventListener('click', (e) => {
-              e.preventDefault();
-              Swal.fire({
-              title: "Login Required",
-              text: "You need to login before submitting",
-              icon: "error"
-          }).then((result) => {
-            if(result.isConfirmed) {
-              window.location.href = "../Login/login.php";
-            }
-          });
-        });
-      })
-      </script>
-  <?php
- } else {
- ?>
-    <script>
-      const under_construction = document.querySelectorAll("#lugar_terminal");
-      const sm_sangandaan_terminal = document.getElementById("sm_sangandaan_terminal")
-      const maypajo_terminal = document.getElementById("maypajo_terminal")
-      const recto_terminal = document.getElementById("recto_terminal")
-      const divisoria_terminal = document.getElementById("divisoria_terminal")
-      const legarda_terminal = document.getElementById("legarda_terminal")
-
-      under_construction.forEach((element) => {
-        element.addEventListener('click', (e) => {
-          e.preventDefault();
-            const terminalName = element.previousElementSibling.textContent;
-            Swal.fire({
-            title: "Under Construction",
-            text: terminalName + " is under construction",
-            icon: "info"
-          });
-        });
-      })
-
-    </script>
- <?php
- }
- ?>
-
-    <!--*End Terminals section-->
-       <!-- *Footer Section -->
-   <?php include '../components/footer.php'; ?>
-    <!-- *End Footer Section -->
+      <!-- End Destinations -->
+    <!-- Passenger Details -->
+    <section class="main_container">
+      <div class="flex flex-col items-center px-10 pt-16 md:items-start md:px-0">
+        <div class="flex justify-center py-14">
+          <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Passenger Details</h1>
+        </div>
+        <div class="w-full">
+          <div class="space-y-4 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg">
+            <div class="flex flex-col items-center space-y-4 md:space-y-7 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0">
+              <span class="flex w-full flex-col">
+                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="FirstName">First Name</label>
+                <div class="text-red-500"><?php echo $buyticketErrors['firstName']; ?></div>
+                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="firstName" id="firstName" value="<?php echo $firstName ?>"/>
+              </span>
+              <span class="flex w-full flex-col">
+                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="LastName">Last Name</label>
+                <div class="text-red-500"><?php echo $buyticketErrors['lastName']; ?></div>
+                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="lastName" id="lastName" value="<?php echo $lastName ?>" />
+              </span>
+            </div>
+            <div class="flex flex-col items-center space-y-4 md:space-y-7 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0">
+              <span class="flex w-full flex-col">
+                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="EmailAddress">Email Address</label>
+                <div class="text-red-500"><?php echo $buyticketErrors['email']; ?></div>
+                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="email" id="emailAddress" value="<?php echo $email ?>" />
+              </span>
+              <span class="flex w-full flex-col">
+                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="PhoneNumber">Phone Number</label>
+                <div class="text-red-500"><?php echo $buyticketErrors['phoneNumber']; ?></div>
+                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="phoneNumber" id="phoneNumber" value="<?php echo $phoneNumber ?>" />
+              </span>
+              <span class="flex w-full flex-col">
+                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="DateAndTime">Date and Time</label>
+                <div class="text-red-500"><?php echo $buyticketErrors['dateAndTime']; ?></div>
+                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" 
+                type="datetime-local"  name="dateAndTime" value="<?php echo $dateAndTime ?>"/>
+                <!-- id="DateAndTime" -->
+                </span>
+            </div>
+            <div class="flex flex-col items-center space-y-4 md:space-y-7 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0">
+              <span class="flex w-full flex-col">
+                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="PassengersWithOutDiscount">How many Passenger are their?</label>
+                <div class="text-red-500"><?php echo $buyticketErrors['passengersCount']; ?></div>
+                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="passengersCount" id="passengersCount" value="<?php echo $passengersCount ?>"/>
+              </span>
+              <span class="flex w-full flex-col">
+                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="PassengersWithDiscount">How many Passenger's Discount are Their?</label>
+                <div class="text-red-500"><?php echo $buyticketErrors['PassengersWithDiscount']; ?></div>
+                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="PassengersWithDiscount" id="PassengersWithDiscount" value=" <?php echo $PassengersWithDiscount ?>" />
+              </span>
+            </div>
+            <div class="text-center">
+              <button class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base  text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl" value="submit" type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Passenger Details-->
+     </form>
+     <?php include '../components/footer.php'; ?>
   </body>
 </html>
-
