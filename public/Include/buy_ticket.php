@@ -153,8 +153,8 @@ function randomTicketNumber() {
           <div class=" flex flex-col items-center px-10 pt-16  md:items-start md:px-0">
               <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Price Fare</h1>
         </div>
-          <div class=" flex flex-row justify-center items-center space-y-4 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg">
-                  <div class="  font-semibold lg:text-3xl md:text-2xl text-xl ">
+          <div class=" flex flex-row justify-center items-center space-y-4 border-2 bg-[#f4f4f4ca] px-0 sm:px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg">
+                  <div class="font-semibold lg:text-3xl md:text-2xl sm:text-2xl ">
                   <span class="text-textColor">Monumento Terminal <span class=" text-green-950 ">---------------------- </span></span>
                   <span class="text-textColor" id="selectDestinations">Select Destinations</span>
                   <input type="hidden" name="selectDestinations" id="inputSelectDestinations">
