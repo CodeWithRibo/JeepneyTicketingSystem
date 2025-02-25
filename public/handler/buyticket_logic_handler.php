@@ -10,7 +10,10 @@ $phoneNumber = trim($_POST['phoneNumber']);
 $dateAndTime = trim($_POST['dateAndTime']);
 $passengersCount = trim($_POST['passengersCount']);
 $PassengersWithDiscount = trim($_POST['PassengersWithDiscount']);
-    
+$optionDestinations = trim($_POST['optionDestinations']);
+$farePrice = trim($_POST['farePrice']);
+
+
 // DESTINATIONS
 $optionOrigin = trim($_POST['optionOrigin']);
 $ticketNumber = trim($_POST['randomTicketNumber']);

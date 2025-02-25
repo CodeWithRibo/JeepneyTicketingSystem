@@ -20,10 +20,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           echo 'ticket number already exist';
          } else {
           // INSERT PASSENGER DETAILS INTO DATABASE
-          $sql = "INSERT INTO process_buyticket (firstName, lastName, email, phoneNumber, dateAndTime, passengersCount, PassengersWithDiscount, optionOrigin, optionDestinations, ticketNumber) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+          $sql = "INSERT INTO process_buyticket (firstName, lastName, email, phoneNumber, dateAndTime, passengersCount, PassengersWithDiscount, optionOrigin, optionDestinations, ticketNumber, farePrice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
           $insertData = $connection -> prepare($sql);
-          $insertData -> bind_param("ssssssssss", $firstName, $lastName, $email, $phoneNumber, $dateAndTime, $passengersCount, $PassengersWithDiscount, $optionOrigin, $optionDestinations, $ticketNumber);
+          $insertData -> bind_param("sssssssssss", $firstName, $lastName, $email, $phoneNumber, $dateAndTime, $passengersCount, $PassengersWithDiscount, $optionOrigin, $optionDestinations, $ticketNumber, $farePrice);
           
          if($insertData -> execute()) {
           header('Location: ../include/buy_ticket.php');
