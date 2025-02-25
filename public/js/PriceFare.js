@@ -2,14 +2,17 @@ const baclaranTerminal = document.getElementById('baclaranTerminal');
 const rectoTerminal = document.getElementById('rectoTerminal');
 const sanjuanTerminal = document.getElementById('sanjuanTerminal');
 const selectDestinations = document.getElementById('selectDestinations');
-const pricefare = document.getElementById('pricefare'); 
+const pricefare = document.getElementById('pricefare');
+const farePriceText = document.getElementById('farePriceText'); 
 
 //Baclaran Terminal
 baclaranTerminal.addEventListener('click', (e) =>{
     e.preventDefault();
     selectDestinations.textContent = 'Baclaran Terminal';
-    pricefare.textContent = 'Fare Price : ₱70';
+    farePriceText.textContent= "Fare Price:"
+    pricefare.textContent = '₱70';
     pricefare.style.color = 'red';
+    farePriceText.style.color = 'red';
     pricefare.style.fontWeight = 'bold';
 })
 
@@ -17,8 +20,10 @@ baclaranTerminal.addEventListener('click', (e) =>{
 rectoTerminal.addEventListener('click', (e) => {
     e.preventDefault();
     selectDestinations.textContent = 'Recto Terminal';
-    pricefare.textContent = 'Fare Price : ₱40';
+    farePriceText.textContent= "Fare Price:"
+    pricefare.textContent = '₱40';
     pricefare.style.color = 'red';
+    farePriceText.style.color = 'red';
     pricefare.style.fontWeight = 'bold';
 })
 
@@ -26,8 +31,10 @@ rectoTerminal.addEventListener('click', (e) => {
 sanjuanTerminal.addEventListener('click', (e) => {
     e.preventDefault();
     selectDestinations.textContent = 'SanJuan GreenHills Terminal';
-    pricefare.textContent = 'Fare Price : ₱55';
+    farePriceText.textContent= "Fare Price:"
+    pricefare.textContent = '₱55';
     pricefare.style.color = 'red';
+    farePriceText.style.color = 'red';
     pricefare.style.fontWeight = 'bold';
 })
 
