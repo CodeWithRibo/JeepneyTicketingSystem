@@ -161,7 +161,7 @@ function randomTicketNumber() {
                   <div class="flex flex-row justify-center">
                   <span id="farePriceText" class="mr-2"></span>
                     <span class="text-red-500" id="pricefare"></span>
-                    <input type="hidden" name="farePirce" id="inputSelectDestinations">
+                    <input type="hidden" name="farePrice" id="farePrice">
                   </div>
                   </div>
                   <script src="../Js/PriceFare.js"></script>
