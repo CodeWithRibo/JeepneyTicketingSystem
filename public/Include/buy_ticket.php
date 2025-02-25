@@ -10,6 +10,7 @@ function randomTicketNumber() {
   echo $customerRfId;
 }
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -113,6 +114,7 @@ function randomTicketNumber() {
         </div>
         <div class="w-full">
           <div class="space-y-4 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg">
+            <!-- DESTINATIONS -->
               <div class="flex flex-col items-center justify-between space-y-4 md:space-y-7 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0">
                     <div>
                       <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Origin">Origin</label>
@@ -124,31 +126,48 @@ function randomTicketNumber() {
                     <div>
                       <!-- ORIGIN AND DESTINATIONS -->
                       <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Destinations">Destinations</label>
-                      <select name="optionDestinations" id="optionDestinations" aria-valuetext="<?php echo $optionDestinations ?>" class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]">
+                      <select name="optionDestinations" id="optionDestinations" aria-valuetext="<?php echo $optionDestinations ?>" class="optionDestinations rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]">
                        <option value="" disabled selected>Select Destinations</option>
-                        <option value="BaclaranTerminal">Baclaran Terminal</option>
-                        <option value="RectoTerminal">Recto Terminal</option>
-                        <option value="SanJuanGreenHills">SanJuan GreenHills Terminal</option>
+                        <option value="BaclaranTerminal" id="baclaranTerminal">Baclaran Terminal</option>
+                        <option value="RectoTerminal" id="rectoTerminal">Recto Terminal</option>
+                        <option value="SanJuanGreenHills" id="sanjuanTerminal">SanJuan GreenHills Terminal</option>
                         </select>
                         <div class="text-red-500"><?php echo $buyticketErrors['optionDestinations']; ?></div>
                     </div>
                   <div>
+                 
                     <!-- RANDOM TICKET NUMBER -->
                     <span class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl">Generated Ticket Number: </span>
                       <span class="text-red-400 text-base font-semibold" id="ticketNumberSpan" ><?php randomTicketNumber() ?></span>
                          <input type="hidden" id="randomTicketNumber" name="randomTicketNumber">
-                        <script>
-                                document.getElementById('ticketForm').addEventListener('submit', function(){
-                                const ticketNumber = document.getElementById('ticketNumberSpan').textContent;
-                                document.getElementById('randomTicketNumber').value = ticketNumber;
-                            });
-                  </script>
+                        <script src="../Js/RandomTicket.js"></script>
                     </div>
               </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- PRICE FARE -->
+     <section class="main_container">
+              <div class=" space-y-4 md:space-y-7">
+          <div class=" flex flex-col items-center px-10 pt-16  md:items-start md:px-0">
+              <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Price Fare</h1>
+        </div>
+          <div class=" flex flex-row justify-center items-center space-y-4 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg">
+                  <div class="  font-semibold lg:text-3xl md:text-2xl text-xl ">
+                  <span class="text-textColor">Monumento Terminal <span class=" text-green-950 ">---------------------- </span></span>
+                  <span class="text-textColor" id="selectDestinations">Select Destinations</span>
+                  <input type="hidden" name="selectDestinations" id="inputSelectDestinations">
+                  <div class="flex flex-row justify-center">
+                  <span id="farePriceText" class="mr-2"></span>
+                    <span class="text-red-500" id="pricefare"></span>
+                    <input type="hidden" name="farePirce" id="inputSelectDestinations">
+                  </div>
+                  </div>
+                  <script src="../Js/PriceFare.js"></script>
+          </div>
+        </div>
+     </section>
       <!-- End Destinations -->
     <!-- Passenger Details -->
     <section class="main_container">
@@ -165,7 +184,7 @@ function randomTicketNumber() {
                 <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="firstName" id="firstName" value="<?php echo $firstName ?>"/>
               </span>
               <span class="flex w-full flex-col">
-                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="LastName">Last Namee</label>
+                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="LastName">Last Name</label>
                 <div class="text-red-500"><?php echo $buyticketErrors['lastName']; ?></div>
                 <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="lastName" id="lastName" value="<?php echo $lastName ?>" />
               </span>
