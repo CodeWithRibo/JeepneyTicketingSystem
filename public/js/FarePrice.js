@@ -8,8 +8,9 @@
         const selectDestinations = document.getElementById('selectDestinations');
         const PriceFare = document.getElementById('PriceFare');
         const farePriceText = document.getElementById('farePriceText'); 
-        
-        
+        const iframe = document.getElementById('monumentoToBaclaran');
+        const optionDestinations = document.getElementById('optionDestinations');
+
         //Store price fare
         const farePriceData = {baclaranTerminal : 70, rectoTerminal : 40, sanjuanTerminal : 55};
         const locations = {baclaranTerminal : 'Baclaran Terminal', rectoTerminal : 'Recto Terminal', sanjuanTerminal : 'SanJuan GreenHills Terminal'};
@@ -52,5 +53,14 @@
              document.getElementById('inputSelectDestinations').value = selectDestinations.textContent;
              document.getElementById('farePrice').value = PriceFare.textContent;
         });
+
+
+        // MAPS
+        optionDestinations.addEventListener('click',() => {
+            const selectedValue = optionDestinations.value;
+            iframe.src = selectedValue;
+
+        });
+
 
     });
