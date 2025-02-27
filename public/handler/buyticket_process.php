@@ -1,7 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Ticket Process</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
 <?php 
 
 include '../Database/dbconfig.php';
-
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -26,7 +34,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           $insertData -> bind_param("sssssssssss", $firstName, $lastName, $email, $phoneNumber, $dateAndTime, $passengersCount, $PassengersWithDiscount, $optionOrigin, $optionDestinations, $ticketNumber, $farePrice);
           
          if($insertData -> execute()) {
-          header('Location: ../include/buy_ticket.php');
+          ?>
+<script> 
+        Swal.fire({
+            title: "Success Buy Ticket!",
+            text: "Your ticket has been successfully booked. Click Ok to proceed to payment.",
+            icon: "success",
+            showConfirmButton: true,
+          }).then(() => {
+                   window.location.href = "../include/buy_ticket.php";
+                  });
+    </script>
+          <?php
           exit();
          }
 
@@ -37,6 +56,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  } 
   
 }
-
-
 ?>
+</body>
+</html>

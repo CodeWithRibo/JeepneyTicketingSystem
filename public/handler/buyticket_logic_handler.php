@@ -19,7 +19,6 @@ $optionOrigin = trim($_POST['optionOrigin']);
 $ticketNumber = trim($_POST['randomTicketNumber']);
 if(isset($_POST['optionDestinations'])) {
     $optionDestinations = trim($_POST['optionDestinations']);
-    echo '$optionDestinations . "Selectected"'; 
 }
 
 //VALIDATIONS PROCESS
