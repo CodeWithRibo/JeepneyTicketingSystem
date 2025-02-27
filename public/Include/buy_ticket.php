@@ -10,7 +10,6 @@ function randomTicketNumber() {
   echo $customerRfId;
 }
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,7 +20,7 @@ function randomTicketNumber() {
     <link rel="stylesheet" href="/jts/src/input.css" />
     <link rel="stylesheet" href="/jts/src/plugin.css" />
     <link rel="stylesheet" href="/jts/src/custom.css">
-    <script src="/jts/public/js/DateAndTime.js"></script>
+    <script src="/jts/public/Js/DateAndTime.js"></script>
     <style>
       @media (max-width: 550px) {
         .responsive_img {
@@ -135,12 +134,11 @@ function randomTicketNumber() {
                         <div class="text-red-500"><?php echo $buyticketErrors['optionDestinations']; ?></div>
                     </div>
                   <div>
-                 
                     <!-- RANDOM TICKET NUMBER -->
                     <span class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl">Generated Ticket Number: </span>
                       <span class="text-red-400 text-base font-semibold" id="ticketNumberSpan" ><?php randomTicketNumber() ?></span>
                          <input type="hidden" id="randomTicketNumber" name="randomTicketNumber">
-                        <script src="../Js/RandomTicket.js"></script>
+                         <script src="../Js/RandomTicket.js"></script>
                     </div>
               </div>
           </div>
@@ -159,12 +157,12 @@ function randomTicketNumber() {
                   <span class="text-textColor" id="selectDestinations">Select Destinations</span>
                   <input type="hidden" name="selectDestinations" id="inputSelectDestinations">
                   <div class="flex flex-row justify-center">
-                  <span id="farePriceText" class="mr-2"></span>
-                    <span class="text-red-500" id="pricefare"></span>
+                     <span id="farePriceText" class="mr-2"></span>
+                    <span id="PriceFare"></span>
                     <input type="hidden" name="farePrice" id="farePrice">
                   </div>
                   </div>
-                  <script src="../Js/PriceFare.js"></script>
+                  <script src="../js/FarePrice.js"></script>
           </div>
         </div>
      </section>
