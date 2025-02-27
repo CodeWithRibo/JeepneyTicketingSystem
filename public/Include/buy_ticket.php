@@ -33,7 +33,7 @@ function randomTicketNumber() {
     <!-- Header section -->
     <header>
       <!-- Desktop Design -->
-      <div class="static left-0 right-0 top-0 z-10 flex h-20 items-center justify-between bg-white shadow-lg sm:px-5 md:fixed md:px-10 lg:px-20">
+      <div class="static left-0 right-0 top-0 z-10 flex h-20  items-center justify-between bg-white shadow-lg sm:px-5 md:fixed md:px-10 lg:px-20">
         <div class="flex w-full items-center justify-center md:w-auto">
           <span class="mx-2">
             <img class="h-[70px] w-[230px] object-cover px-5" src="/jts/image/main_logo.png" alt="JTS logo" />
@@ -43,18 +43,19 @@ function randomTicketNumber() {
         <div class="navbar items-center justify-between ">
           <div class=" md:flex-none lg:flex-1"></div>
           <div class="flex-none gap-2">
-            <div class="hidden md:block px-5">
+            <div class="hidden lg:block px-5">
               <span class="flex gap-10 transition-all">
                 <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="home_page.php">Home</a></span>
                 <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="#">Transaction History</a></span>
+                <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="#">Transaction Payment</a></span>
                 <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="home_page.php #about">About</a></span>
                 <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="home_page.php #contact">Contact Us</a></span>
               </span>
             </div>
             <div class="dropdown dropdown-end flex items-center justify-center">
-              <div class="pr-5">      <!-- Mobile Design Header Icon -->
+              <div>      <!-- Mobile Design Header Icon -->
                 <span class="mx-2">
-                  <svg class="size-6 cursor-pointer transition-all duration-300 ease-out hover:text-[#e6ce20] md:hidden" id="hamburger-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <svg class="size-6 cursor-pointer transition-all duration-300 ease-out hover:text-[#e6ce20] lg:hidden" id="hamburger-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                   </svg>
                 </div>
@@ -80,20 +81,21 @@ function randomTicketNumber() {
               </ul>
               </div>
             </div>
-            
             <div>
             </div>
           </div>
         </div>
       </div>
       <!-- Mobile Design Header -->
-      <div class="grid hidden grid-rows-5 justify-center gap-6 border-2 bg-white text-center shadow-lg transition-all md:hidden" id="mobile-menu">
-        <span class="pt-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"><a href="home_page.php">Home</a></span>
-        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"><a href="buy_ticket.php">Buy Ticket</a></span>
-        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"><a href="home_page.php #about">About</a></span>
-        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl"><a href="home_page.php #contact">Contact Us</a></span>
-        <span class="pb-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl block md:hidden "><a href="../Logout/logout_destroy.php">Logout</a></span>
+       <div class="pt-0 md:pt-20">
+       <div class="grid hidden grid-rows-5 justify-center gap-6 border-2 bg-white text-center shadow-lg transition-all lg:hidden " id="mobile-menu">
+        <span class="pt-3 text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="home_page.php">Home</a></span>
+        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="#">Transaction History</a></span>
+        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="#">Transaction Payment</a></span>
+        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="home_page.php #about">About</a></span>
+        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="home_page.php #contact">Contact Us</a></span>
       </div>
+       </div>    
     </header>
     <!-- End Header section -->
     <!-- Main section -->
@@ -108,7 +110,7 @@ function randomTicketNumber() {
             <li class="step">Payment</li>
           </ul>
         </div>
-        <div class="flex justify-center py-14">
+        <div class="flex justify-center py-12">
           <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Destinations</h1>
         </div>
         <div class="w-full">
@@ -127,9 +129,9 @@ function randomTicketNumber() {
                       <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Destinations">Destinations</label>
                       <select name="optionDestinations" id="optionDestinations" aria-valuetext="<?php echo $optionDestinations ?>" class="optionDestinations rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]">
                        <option value="" disabled selected>Select Destinations</option>
-                        <option value="BaclaranTerminal" id="baclaranTerminal">Baclaran Terminal</option>
-                        <option value="RectoTerminal" id="rectoTerminal">Recto Terminal</option>
-                        <option value="SanJuanGreenHills" id="sanjuanTerminal">SanJuan GreenHills Terminal</option>
+                        <option value="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d50470.14676383324!2d120.96168426417933!3d14.591376752856915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3397b42bc4212a1b%3A0xbcff4f1d14dc500c!2s1400%2C%201695%20Rizal%20Ave%20Ext%2C%20Grace%20Park%20West%2C%20Caloocan%2C%201400%20Metro%20Manila!3m2!1d14.6558973!2d120.9837994!4m5!1s0x3397c9515d3b485b%3A0xe28d786a0ffecaf8!2sNational%20Shrine%20of%20Our%20Mother%20of%20Perpetual%20Help%2C%20Redemptorist%20Road%2C%20Para%C3%B1aque%2C%20Metro%20Manila!3m2!1d14.531427899999999!2d120.9949515!5e0!3m2!1sen!2sph!4v1740650727281!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="baclaranTerminal">Baclaran Terminal</option>
+                        <option value="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d20612.388429359777!2d120.97421406127077!3d14.629760075822833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3397b42bc4212a1b%3A0xbcff4f1d14dc500c!2s1400%2C%201695%20Rizal%20Ave%20Ext%2C%20Grace%20Park%20West%2C%20Caloocan%2C%201400%20Metro%20Manila!3m2!1d14.6558973!2d120.9837994!4m5!1s0x3397ca03aeb1fa9b%3A0xa38eba87dcd932f2!2sIsetann%2C%20Recto%2C%20Recto%20Avenue%2C%20Quiapo%2C%20Manila%2C%20Metro%20Manila!3m2!1d14.603123499999999!2d120.98466119999999!5e0!3m2!1sen!2sph!4v1740650896835!5m2!1sen!2sph" id="rectoTerminal">Recto Terminal</option>
+                        <option value="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d25230.91158241863!2d121.00174112893555!3d14.62763147417203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3397b42bc4212a1b%3A0xbcff4f1d14dc500c!2s1400%2C%201695%20Rizal%20Ave%20Ext%2C%20Grace%20Park%20West%2C%20Caloocan%2C%201400%20Metro%20Manila!3m2!1d14.6558973!2d120.9837994!4m5!1s0x3397b7d813f101cb%3A0x8871d46b1caf4be7!2sGreenhills%2C%20San%20Juan%2C%20Metro%20Manila!3m2!1d14.602373199999999!2d121.04641009999999!5e0!3m2!1sen!2sph!4v1740650960418!5m2!1sen!2sph" id="sanjuanTerminal">SanJuan GreenHills Terminal</option>
                         </select>
                         <div class="text-red-500"><?php echo $buyticketErrors['optionDestinations']; ?></div>
                     </div>
@@ -148,7 +150,7 @@ function randomTicketNumber() {
     <!-- PRICE FARE -->
      <section class="main_container">
               <div class="">
-          <div class=" flex flex-col items-center px-10 pt-16  md:items-start md:px-0">
+          <div class=" flex flex-col items-center px-10 md:items-start md:px-0 py-12">
               <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Price Fare</h1>
         </div>
           <div class=" relative flex flex-row justify-center items-center border-2 bg-[#f4f4f4ca] px-0 sm:px-10 py-9   shadow-lg xl:rounded-l-lg">
@@ -165,6 +167,16 @@ function randomTicketNumber() {
                   </div>
                   <script src="../js/FarePrice.js"></script>
           </div>
+        </div>
+     </section>
+     <!-- MAPS -->
+     <section class="main_container">
+              <div class="flex flex-col px-10 md:px-0 md:text-start">
+              <h1 class="md:text-start text-center text-2xl font-semibold text-textColor md:text-3xl py-14">Location</h1>
+          <div class=" flex flex-col items-center md:items-center">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12983.875552004802!2d120.97567882784813!3d14.648591930698114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1740650408823!5m2!1sen!2sph" class="w-full sm:w-full md:w-[700px] lg:w-[1100px] 2xl:w-[1525px]" height="450" style="border:1px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="monumentoToBaclaran"></iframe>
+              <input type="hidden" id="locationInput">  
+        </div>
         </div>
      </section>
       <!-- End Destinations -->
