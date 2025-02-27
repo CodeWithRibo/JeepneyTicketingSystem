@@ -105,7 +105,7 @@ function randomTicketNumber() {
           <ul class="steps steps-vertical md:steps-horizontal">
             <li class="step step-success ">Select Terminal</li>
             <li class="step step-success ">Buy Ticket</li>
-            <li class="step">Transaction</li>
+            <li class="step">Payment</li>
           </ul>
         </div>
         <div class="flex justify-center py-14">
@@ -147,12 +147,13 @@ function randomTicketNumber() {
     </section>
     <!-- PRICE FARE -->
      <section class="main_container">
-              <div class=" space-y-4 md:space-y-7">
+              <div class="">
           <div class=" flex flex-col items-center px-10 pt-16  md:items-start md:px-0">
               <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Price Fare</h1>
         </div>
-          <div class=" flex flex-row justify-center items-center space-y-4 border-2 bg-[#f4f4f4ca] px-0 sm:px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg">
+          <div class=" relative flex flex-row justify-center items-center border-2 bg-[#f4f4f4ca] px-0 sm:px-10 py-9   shadow-lg xl:rounded-l-lg">
                   <div class="font-semibold lg:text-3xl md:text-2xl sm:text-2xl ">
+                  <div class="absolute top-0 left-[42%]  "><img src="/jts/image/jeep.png" class="w-[5rem] " alt=""></div>
                   <span class="text-textColor">Monumento Terminal <span class=" text-green-950 ">---------------------- </span></span>
                   <span class="text-textColor" id="selectDestinations">Select Destinations</span>
                   <input type="hidden" name="selectDestinations" id="inputSelectDestinations">
