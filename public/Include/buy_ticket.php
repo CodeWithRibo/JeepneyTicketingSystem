@@ -4,6 +4,7 @@ include '../handler/buyticket_process.php';
 function randomTicketNumber() {
   function generateRandomString($length = 2) {
     return substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),2,$length);
+
   }
   $ticketNumber = rand(20000, 30000);
   $customerRfId = generateRandomString(). $ticketNumber;
@@ -110,24 +111,24 @@ function randomTicketNumber() {
             <li class="step">Payment</li>
           </ul>
         </div>
-        <div class="flex justify-center py-12">
+        <div class="flex justify-center py-12 ml-5 2xl:ml-0">
           <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Destinations</h1>
         </div>
         <div class="w-full">
-          <div class="space-y-4 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg">
+          <div class="space-y-4 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg mt-0">
             <!-- DESTINATIONS -->
-              <div class="flex flex-col items-center justify-between space-y-4 md:space-y-7 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0">
+              <div class="flex flex-col items-center justify-between space-y-4 md:space-y-0 md:flex-col lg:flex-row xl:space-x-5 xl:space-y-0">
                     <div>
                       <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Origin">Origin</label>
-                      <select name="optionOrigin" id="optionOrigin" class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]">
+                      <select name="optionOrigin" id="optionOrigin" class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 text-lg">
                         <option value="Monumento">Monumento Terminal</option>
                         </select>
                         <div class="text-red-500"><?php echo $buyticketErrors['optionOrigin']; ?></div>
                     </div>
-                    <div>
+                    <div class="">
                       <!-- ORIGIN AND DESTINATIONS -->
                       <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Destinations">Destinations</label>
-                      <select name="optionDestinations" id="optionDestinations" aria-valuetext="<?php echo $optionDestinations ?>" class="optionDestinations rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]">
+                      <select name="optionDestinations" id="optionDestinations" aria-valuetext="<?php echo $optionDestinations ?>" class="optionDestinations rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 text-lg">
                        <option value="" disabled selected>Select Destinations</option>
                         <option value="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d50470.14676383324!2d120.96168426417933!3d14.591376752856915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3397b42bc4212a1b%3A0xbcff4f1d14dc500c!2s1400%2C%201695%20Rizal%20Ave%20Ext%2C%20Grace%20Park%20West%2C%20Caloocan%2C%201400%20Metro%20Manila!3m2!1d14.6558973!2d120.9837994!4m5!1s0x3397c9515d3b485b%3A0xe28d786a0ffecaf8!2sNational%20Shrine%20of%20Our%20Mother%20of%20Perpetual%20Help%2C%20Redemptorist%20Road%2C%20Para%C3%B1aque%2C%20Metro%20Manila!3m2!1d14.531427899999999!2d120.9949515!5e0!3m2!1sen!2sph!4v1740650727281!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="baclaranTerminal">Baclaran Terminal</option>
                         <option value="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d20612.388429359777!2d120.97421406127077!3d14.629760075822833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3397b42bc4212a1b%3A0xbcff4f1d14dc500c!2s1400%2C%201695%20Rizal%20Ave%20Ext%2C%20Grace%20Park%20West%2C%20Caloocan%2C%201400%20Metro%20Manila!3m2!1d14.6558973!2d120.9837994!4m5!1s0x3397ca03aeb1fa9b%3A0xa38eba87dcd932f2!2sIsetann%2C%20Recto%2C%20Recto%20Avenue%2C%20Quiapo%2C%20Manila%2C%20Metro%20Manila!3m2!1d14.603123499999999!2d120.98466119999999!5e0!3m2!1sen!2sph!4v1740650896835!5m2!1sen!2sph" id="rectoTerminal">Recto Terminal</option>
@@ -149,8 +150,8 @@ function randomTicketNumber() {
     </section>
     <!-- PRICE FARE -->
      <section class="main_container">
-              <div class="">
-          <div class=" flex flex-col items-center px-10 md:items-start md:px-0 py-12">
+              <div class="px-10 md:px-0">
+          <div class=" flex flex-col items-center px-10 md:items-start md:px-0 py-12 ml-5 2xl:ml-0">
               <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Price Fare</h1>
         </div>
           <div class=" relative flex flex-row justify-center items-center border-2 bg-[#f4f4f4ca] px-0 sm:px-10 py-9   shadow-lg xl:rounded-l-lg">
@@ -172,7 +173,7 @@ function randomTicketNumber() {
      <!-- MAPS -->
      <section class="main_container">
               <div class="flex flex-col px-10 md:px-0 md:text-start">
-              <h1 class="md:text-start text-center text-2xl font-semibold text-textColor md:text-3xl py-14">Location</h1>
+              <h1 class="md:text-start text-center text-2xl font-semibold text-textColor md:text-3xl py-14 ml-5 2xl:ml-0">Location</h1>
           <div class=" flex flex-col items-center md:items-center">
               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12983.875552004802!2d120.97567882784813!3d14.648591930698114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1740650408823!5m2!1sen!2sph" class="w-full sm:w-full md:w-[700px] lg:w-[1100px] 2xl:w-[1525px]" height="450" style="border:1px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="monumentoToBaclaran"></iframe>
               <input type="hidden" id="locationInput">  
@@ -183,7 +184,7 @@ function randomTicketNumber() {
     <!-- Passenger Details -->
     <section class="main_container">
       <div class="flex flex-col items-center px-10 pt-16 md:items-start md:px-0">
-        <div class="flex justify-center py-14">
+        <div class="flex justify-center py-14 ml-5 2xl:ml-0">
           <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Passenger Details</h1>
         </div>
         <div class="w-full">
