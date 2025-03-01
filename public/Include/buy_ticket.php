@@ -48,7 +48,7 @@ function randomTicketNumber() {
               <span class="flex gap-10 transition-all">
                 <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="home_page.php">Home</a></span>
                 <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="#">Transaction History</a></span>
-                <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="#">Transaction Payment</a></span>
+                <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="transaction_payment.php">Transaction Payment</a></span>
                 <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="home_page.php #about">About</a></span>
                 <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="home_page.php #contact">Contact Us</a></span>
               </span>
@@ -92,7 +92,7 @@ function randomTicketNumber() {
        <div class="grid hidden grid-rows-5 justify-center gap-6 border-2 bg-white text-center shadow-lg transition-all lg:hidden " id="mobile-menu">
         <span class="pt-3 text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="home_page.php">Home</a></span>
         <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="#">Transaction History</a></span>
-        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="#">Transaction Payment</a></span>
+        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="transaction_payment.php">Transaction Payment</a></span>
         <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="home_page.php #about">About</a></span>
         <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] text-base md:font-semibold "><a href="home_page.php #contact">Contact Us</a></span>
       </div>
@@ -117,7 +117,7 @@ function randomTicketNumber() {
         <div class="w-full">
           <div class="space-y-4 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg mt-0">
             <!-- DESTINATIONS -->
-              <div class="flex flex-col items-center justify-between space-y-4 md:space-y-0 md:flex-col lg:flex-row xl:space-x-5 xl:space-y-0">
+              <div class="flex flex-col sm:flex-row  items-start md:items-center justify-between space-y-4 md:space-y-0  lg:flex-row  xl:space-x-5 xl:space-y-0">
                     <div>
                       <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Origin">Origin</label>
                       <select name="optionOrigin" id="optionOrigin" class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 text-lg">
@@ -175,7 +175,7 @@ function randomTicketNumber() {
               <div class="flex flex-col px-10 md:px-0 md:text-start">
               <h1 class="md:text-start text-center text-2xl font-semibold text-textColor md:text-3xl py-14 ml-5 2xl:ml-0">Location</h1>
           <div class=" flex flex-col items-center md:items-center">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12983.875552004802!2d120.97567882784813!3d14.648591930698114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1740650408823!5m2!1sen!2sph" class="w-full sm:w-full md:w-[700px] lg:w-[1100px] 2xl:w-[1525px]" height="450" style="border:1px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="monumentoToBaclaran"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12983.875552004802!2d120.97567882784813!3d14.648591930698114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1740650408823!5m2!1sen!2sph" class="w-full sm:w-full md:w-[760px] lg:w-[1070px] 2xl:w-[1525px]" height="450" style="border:1px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="monumentoToBaclaran"></iframe>
               <input type="hidden" id="locationInput">  
         </div>
         </div>
