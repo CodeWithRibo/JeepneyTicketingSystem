@@ -57,9 +57,15 @@
 
         // MAPS
         optionDestinations.addEventListener('click',() => {
-            const selectedValue = optionDestinations.value;
-            iframe.src = selectedValue;
+            // const selectedValue = optionDestinations.value;
+            // iframe.src = selectedValue;
 
+                const selectedValue = this.value;
+                const iframeSrc = '';
+                if(selectedValue === 'Baclaran Terminal') {
+                    iframeSrc = 'https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d50470.14676383324!2d120.96168426417933!3d14.591376752856915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3397b42bc4212a1b%3A0xbcff4f1d14dc500c!2s1400%2C%201695%20Rizal%20Ave%20Ext%2C%20Grace%20Park%20West%2C%20Caloocan%2C%201400%20Metro%20Manila!3m2!1d14.6558973!2d120.9837994!4m5!1s0x3397c9515d3b485b%3A0xe28d786a0ffecaf8!2sNational%20Shrine%20of%20Our%20Mother%20of%20Perpetual%20Help%2C%20Redemptorist%20Road%2C%20Para%C3%B1aque%2C%20Metro%20Manila!3m2!1d14.531427899999999!2d120.9949515!5e0!3m2!1sen!2sph!4v1740650727281!5m2!1sen!2sph';
+                }
+                iframe.src = iframeSrc;
         });
 
 
