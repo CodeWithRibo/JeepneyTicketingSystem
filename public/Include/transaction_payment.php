@@ -82,6 +82,7 @@ include '../handler/transaction_payment_process.php';
       </div>
        </div>    
     </header>
+    <script src="../js/index.js"></script>
     <!-- End Header section -->
      <!-- TRANSACTION PAYMENT -->
       <section class="main_container">
@@ -102,27 +103,29 @@ include '../handler/transaction_payment_process.php';
                     </tr>
                  <?php 
                  foreach($rows as $row) {
+                  // Convert date and time to Philippines timezone
+                  $dateAndTime = new DateTime($row['dateAndTime']);
+                  $dateAndTime = date_default_timezone_set('Asia/Manila');
+                  $formattedDateAndTime = date('F j, Y g:i:a');
                     echo "<tr class='border-2 border-gray-400'>
                         <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'>{$row['firstName']} {$row['lastName']}</td>
                       <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'>{$row['optionOrigin']} - {$row['optionDestinations']}</td>
-                      <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'>{$row['dateAndTime']}</td>
+                      <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'>{$formattedDateAndTime}</td>
                       <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'>{$row['ticketNumber']}</td>
                         <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'>{$row['farePrice']}</td>
                       <td class='border-2 border-gray-400'>
                         <button class='py-1 px-3 md:text-base lg:text-lg text-white bg-yellow-500 rounded-lg cursor-default'>Pending</button>
                       </td>
-                      <td class='py-3 flex flex-col justify-center sm:flex-col md:flex-row'>
+                      <td class='py-3 flex flex-col justify-center sm:flex-col md:flex-col lg:flex-row'>
                         <form action='transaction_payment.php' method='POST'>
                       <input type='hidden' name='id_to_delete' value='{$row['id']} ?>'>
-                    <button type='submit' name='delete' value='delete' class='md:text-base lg:text-lg py-1 md:px-3 lg:px-5 bg-red-500 hover:bg-red-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg'>Delete</button>
+                    <button type='submit' name='delete' value='delete' class='md:text-base lg:text-lg py-1 px-2 md:px-3 lg:px-5 bg-red-500 hover:bg-red-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg'>Delete</button>
                     </form>
-                        <button class='md:text-base lg:text-lg py-1 md:px-3 lg:px-5 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Pay Now</button>
-                     
+                        <button class='md:text-base lg:text-lg py-1 md:px-3 lg:px-4 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Pay Now</button>
                         </td>
                     </tr>";
                    };
                  ?>
-                  
                 </table>
                 <?php 
                 if(empty($rows)) {
