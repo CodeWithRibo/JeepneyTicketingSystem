@@ -13,13 +13,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  
     include '../handler/contact_logic_handler.php';
     ob_start();
-   // Validation 
+   // Validation
     if(!array_filter($contactErrors))  {
          // if no errors proceed to the db
          $sqlContact = "INSERT INTO contact (firstName, lastName, email, subject, message) VALUES (?,?,?,?,?)";
          $insertContact = $connection -> prepare($sqlContact);
-         $insertContact -> bind_param("sssss", $firstName,$lastName, $email,$subject,$message);
-
+         $insertContact -> bind_param("sssss", $firstName,$lastName, $email,$subject,$message);              
          if($insertContact -> execute()) {
             ?> <script> 
             Swal.fire({
