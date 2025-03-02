@@ -15,14 +15,15 @@
         const farePriceData = {baclaranTerminal : 70, rectoTerminal : 40, sanjuanTerminal : 55};
         const locations = {baclaranTerminal : 'Baclaran Terminal', rectoTerminal : 'Recto Terminal', sanjuanTerminal : 'SanJuan GreenHills Terminal'};
         
+        
         //Baclaran Terminal
         baclaranTerminal.addEventListener('click', (e) =>{
             e.preventDefault();
             selectDestinations.textContent = locations.baclaranTerminal;
             farePriceText.textContent= "Fare Price:";
             PriceFare.textContent = "₱" + (farePriceData.baclaranTerminal);
-            PriceFare.style.color = 'red';
-            farePriceText.style.color = 'red';
+            PriceFare.className = 'text-red-400';
+            farePriceText.className = 'text-red-400';
             PriceFare.style.fontWeight = 'bold';
         })
         
@@ -32,8 +33,8 @@
             selectDestinations.textContent = locations.rectoTerminal;
             farePriceText.textContent= "Fare Price:"
             PriceFare.textContent = "₱" + (farePriceData.rectoTerminal);
-            PriceFare.style.color = 'red';
-            farePriceText.style.color = 'red';
+            PriceFare.className = 'text-red-400';
+            farePriceText.className = 'text-red-400';
             PriceFare.style.fontWeight = 'bold';
         })
         
@@ -43,8 +44,8 @@
             selectDestinations.textContent = locations.sanjuanTerminal;
             farePriceText.textContent= "Fare Price:"
             PriceFare.textContent = "₱" + (farePriceData.sanjuanTerminal);
-            PriceFare.style.color = 'red';
-            farePriceText.style.color = 'red';
+            PriceFare.className = 'text-red-400';
+            farePriceText.className = 'text-red-400';
             PriceFare.style.fontWeight = 'bold';
             
         })
