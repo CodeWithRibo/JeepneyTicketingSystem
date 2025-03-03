@@ -11,45 +11,43 @@ $subject = trim($_POST['subject']);
 $message = trim($_POST['message']);
 
 // 
-if(empty($firstName)) {
+if (empty($firstName)) {
     $contactErrors['firstName'] = "First Name is required";
-} else if(!preg_match("/^[a-z ,.'-]+$/i", $firstName)) {
+} else if (!preg_match("/^[a-z ,.'-]+$/i", $firstName)) {
     $contactErrors['firstName'] = ' First Name must be letters only';
 } else {
     $firstName = htmlspecialchars($firstName);
-} 
+}
 
-if(empty($lastName)) {
+if (empty($lastName)) {
     $contactErrors['lastName'] = "Last Name is required";
-} else if(!preg_match("/^[a-z ,.'-]+$/i", $lastName)) {
+} else if (!preg_match("/^[a-z ,.'-]+$/i", $lastName)) {
     $contactErrors['lastName'] = 'Last Name must be letters only';
 } else {
     $lastName = htmlspecialchars($lastName);
 }
 
-if(empty($email)) {
+if (empty($email)) {
     $contactErrors['email'] = "Email is required";
-} else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+} else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $contactErrors['email'] = 'Email is invalid';
-}  else {
+} else {
     $email = htmlspecialchars($email);
 }
 
 
-if(empty($subject)) {
+if (empty($subject)) {
     $contactErrors['subject'] = "Subject is required";
-} else if(!preg_match("/^[a-z\d_ ]{2,20}$/i", $subject)) {
+} else if (!preg_match("/^[a-z\d_ ]{2,20}$/i", $subject)) {
     $contactErrors['subject'] = 'Subject must be 2-20 characters long';
 } else {
     $subject = htmlspecialchars($subject);
 }
 
-if(empty($message)) {
-    $contactErrors['message'] ="Message is required";
-} else if (!preg_match("/^[a-zA-Z0-9 \(\)\n]*$/",$message)) {
+if (empty($message)) {
+    $contactErrors['message'] = "Message is required";
+} else if (!preg_match("/^[a-zA-Z0-9 \(\)\n]*$/", $message)) {
     $contactErrors['message'] = 'Message must be letters and numbers only';
 } else {
     $message = htmlspecialchars($message);
-} 
-
-?>
+}

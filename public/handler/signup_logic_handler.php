@@ -12,60 +12,58 @@ $password = trim($_POST['password']);
 $confirmPassword = trim($_POST['confirmPassword']);
 
 // 
-if(empty($firstName)) {
+if (empty($firstName)) {
     $errors['firstName'] = "First Name is required";
-} else if(!preg_match("/^[a-z ,.'-]+$/i", $firstName)) {
+} else if (!preg_match("/^[a-z ,.'-]+$/i", $firstName)) {
     $errors['firstName'] = ' First Name must be letters only';
 } else {
     $firstName = htmlspecialchars($firstName);
-} 
+}
 
-if(empty($lastName)) {
+if (empty($lastName)) {
     $errors['lastName'] = "Last Name is required";
-} else if(!preg_match("/^[a-z ,.'-]+$/i", $lastName)) {
+} else if (!preg_match("/^[a-z ,.'-]+$/i", $lastName)) {
     $errors['lastName'] = 'Last Name must be letters only';
 } else {
     $lastName = htmlspecialchars($lastName);
 }
 
-if(empty($userName)) {
+if (empty($userName)) {
     $errors['userName'] = "Username is required";
-} else if(!preg_match("/^[a-z\d_]{2,20}$/i", $userName)) {
+} else if (!preg_match("/^[a-z\d_]{2,20}$/i", $userName)) {
     $errors['userName'] = 'Username must be 2-20 characters long';
 } else {
     $userName = htmlspecialchars($userName);
 }
 
-if(empty($email)) {
+if (empty($email)) {
     $errors['email'] = "Email is required";
-} else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+} else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors['email'] = 'Email is invalid';
-}  else {
+} else {
     $email = htmlspecialchars($email);
 }
 
-if(empty($phoneNumber)) {
+if (empty($phoneNumber)) {
     $errors['phoneNumber'] = "Phone number is required";
-} else if(!preg_match("/^09\d{9}$/", $phoneNumber)) {
+} else if (!preg_match("/^09\d{9}$/", $phoneNumber)) {
     $errors['phoneNumber'] = 'Phone number must start with 09 and be followed by 9 digits';
 } else {
     $phoneNumber = htmlspecialchars($phoneNumber);
 }
 
-if(empty($password)) {
+if (empty($password)) {
     $errors['password'] = "Password is required";
-} else if(!preg_match("/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/",$password)) {
+} else if (!preg_match("/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/", $password)) {
     $errors['password'] = 'Password must be 8-12 characters long and contain at least one number and one letter';
-} else  {
+} else {
     $password = htmlspecialchars($password);
-} 
+}
 
-if(empty($confirmPassword)) {
+if (empty($confirmPassword)) {
     $errors['confirmPassword'] = "Confirm Password is required";
-} else if($password != $confirmPassword) {
+} else if ($password != $confirmPassword) {
     $errors['confirmPassword'] = 'Password and Confirm Password do not match';
 } else {
     $confirmPassword = htmlspecialchars($confirmPassword);
 }
-
-?>
