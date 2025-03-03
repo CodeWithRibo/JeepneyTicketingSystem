@@ -56,7 +56,6 @@ if ($result->num_rows > 0) {
     }
   </style>
 </head>
-
 <body class="m-0 box-border p-0 font-sanscalp" id="buyTicket">
   <!--*Header section-->
   <?php include '../components/header.php'; ?>
@@ -181,38 +180,11 @@ if ($result->num_rows > 0) {
     </div>
   </section>
   <?php
-  if (!$isLogin) {
-  ?>
-    <script>
-      const terminal = document.querySelectorAll("#lugar_terminal");
-
-      //loop through each element
-      terminal.forEach((element) => {
-        element.addEventListener('click', (e) => {
-          e.preventDefault();
-          Swal.fire({
-            title: "Login Required",
-            text: "You need to login before submitting",
-            icon: "error"
-          }).then((result) => {
-            if (result.isConfirmed) {
-              window.location.href = "../Login/login.php";
-            }
-          });
-        });
-      })
-    </script>
-  <?php
-  } else {
+  if ($isLogin) {
   ?>
     <script>
       const under_construction = document.querySelectorAll("#lugar_terminal");
-      const sm_sangandaan_terminal = document.getElementById("sm_sangandaan_terminal")
-      const maypajo_terminal = document.getElementById("maypajo_terminal")
-      const recto_terminal = document.getElementById("recto_terminal")
-      const divisoria_terminal = document.getElementById("divisoria_terminal")
-      const legarda_terminal = document.getElementById("legarda_terminal")
-
+    
       under_construction.forEach((element) => {
         element.addEventListener('click', (e) => {
           e.preventDefault();
