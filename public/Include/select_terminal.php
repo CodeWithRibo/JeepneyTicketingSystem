@@ -92,8 +92,8 @@ if($result -> num_rows > 0) {
         </div>
         <div class="grid grid-cols-1 items-center justify-items-center gap-10 pt-10 md:grid-cols-2 lg:grid-cols-3">
           <!-- Monumento Terminal -->
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
-            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Monumento Terminal" />
+          <div class="h-[250px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
+            <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/monumento_landmark.jpg" alt="Monumento Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]">Monumento Terminal</span>
             <div>
@@ -107,7 +107,7 @@ if($result -> num_rows > 0) {
             </div>
           </div>
           <!-- Sangandaan Terminal -->
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
+          <div class="h-[250px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
             <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Sm Sangandaan Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]" id="sm_sangandaan_terminal" >Sm Sangandaan Terminal</span>
@@ -120,7 +120,7 @@ if($result -> num_rows > 0) {
             </div>
           </div>
           <!-- May Pajo Terminal -->
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
+          <div class="h-[250px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
             <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Maypajo Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]" id="maypajo_terminal" >Maypajo Terminal</span>
@@ -138,7 +138,7 @@ if($result -> num_rows > 0) {
           <span class="text-primary">Manila</span>
         </div>
         <div class="grid grid-cols-1 items-center justify-items-center gap-10 pt-10 md:grid-cols-2 lg:grid-cols-3 pb-14">
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
+          <div class="h-[250px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
             <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Recto Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]" id="recto_terminal" >Recto Terminal</span>
@@ -151,7 +151,7 @@ if($result -> num_rows > 0) {
             </div>
           </div>
           <!-- DIVISORIA -->
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
+          <div class="h-[250px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
             <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Divisoria Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]" id="divisoria_terminal" >Divisoria Terminal</span>
@@ -164,7 +164,7 @@ if($result -> num_rows > 0) {
             </div>
           </div>
           <!--LEGARDA -->
-          <div class="h-[310px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
+          <div class="h-[250px] sm:h-[390px] md:h-[410px] w-full overflow-hidden rounded-md shadow-lg shadow-[#999c9aa5]">
             <img class="responsive_img h-48 w-full rounded-t-md object-cover sm:h-56 md:h-64 lg:h-72 xl:h-80" src="/jts/image/404_temporary_image.png" alt="Divisoria Terminal" />
             <div class="flex flex-col items-center justify-between rounded-b-3xl p-3 sm:p-4 md:p-5 lg:flex-col xl:p-0 2xl:flex-row 2xl:p-5">
               <span class="text-lg font-semibold text-primary sm:text-[17px] md:text-[20px] lg:text-base 2xl:text-[19px]" id="legarda_terminal" >Legarda Terminal</span>
