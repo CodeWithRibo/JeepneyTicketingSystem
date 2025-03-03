@@ -22,7 +22,8 @@ include '../handler/transaction_payment_process.php';
     <div class="static left-0 right-0 top-0 z-10 flex h-20  items-center justify-between bg-white shadow-lg sm:px-5 md:fixed md:px-10 lg:px-20">
       <div class="flex w-full items-center justify-center md:w-auto">
         <span class="mx-2">
-          <img class="h-[70px] w-[230px] object-cover px-5" src="/jts/image/main_logo.png" alt="JTS logo" />
+          <a href="home_page.php"> <img class="h-[70px] w-[230px] object-cover px-5" src="/jts/image/main_logo.png" alt="JTS logo" />
+          </a>
         </span>
         </span>
       </div>
