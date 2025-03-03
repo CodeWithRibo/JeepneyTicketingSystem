@@ -5,6 +5,7 @@ $isLogin = isset($_SESSION["user_id"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,25 +16,25 @@ $isLogin = isset($_SESSION["user_id"]);
     <link rel="stylesheet" href="/jts/src/custom.css">
     <script src="/jts/public/js/index.js"></script>
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <style>
-      @media (max-width: 550px) {
-        .responsive_img {
-          height: auto;
+        @media (max-width: 550px) {
+            .responsive_img {
+                height: auto;
+            }
         }
-      }
     </style>
 </head>
+
 <body>
-<?php
-if (!$isLogin) {
-    // Logout
-  echo '<header>
+    <?php
+    if (!$isLogin) {
+        // Logout
+        echo '<header>
     <!--DESKTOP DESIGN -->
     <div class="static left-0 right-0 top-0 z-10 flex h-20 items-center justify-between bg-white shadow-lg sm:px-5 md:fixed md:px-10 lg:px-20">
         <div class="flex w-full items-center justify-center md:w-auto">
@@ -67,9 +68,9 @@ if (!$isLogin) {
         <a class="pb-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="../login/login.php">Login</a>
     </div>
 </header>';
-} else {
-    // Login
-echo '<header>
+    } else {
+        // Login
+        echo '<header>
     <!--DESKTOP DESIGN -->
     <div class="static left-0 right-0 top-0 z-10 flex h-20 items-center justify-between bg-white shadow-lg sm:px-5 md:fixed md:px-10 lg:px-20">
         <div class="flex w-full items-center justify-center md:w-auto">
@@ -133,7 +134,8 @@ echo '<header>
         <a class="pb-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="../Logout/logout_destroy.php">Logout</a>
     </div>
 </header>';
-}
-?>
+    }
+    ?>
 </body>
+
 </html>
