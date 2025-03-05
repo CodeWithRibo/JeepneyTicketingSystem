@@ -213,7 +213,7 @@ function randomTicketNumber()
                 <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="phoneNumber" id="phoneNumber" value="<?php echo $phoneNumber ?>" />
               </span>
               <span class="flex w-full flex-col">
-                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="DateAndTime">Date and Time</label>
+                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="DateAndTime">Book Date and Time</label>
                 <div class="text-red-500"><?php echo $buyticketErrors['dateAndTime']; ?></div>
                 <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
                   type="datetime-local" id="DateAndTime" name="dateAndTime" value="<?php echo $dateAndTime ?>" />
