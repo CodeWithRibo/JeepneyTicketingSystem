@@ -100,6 +100,7 @@ function randomTicketNumber()
   </header>
   <!-- End Header section -->
   <!-- Main section -->
+  <span class="text-5xl" id="storeTotalFarePrice"></span> <!--FIXING TOMORROW-->
   <form action="buy_ticket.php" method="POST" class="mb-14" id="ticketForm">
     <!-- Destinations -->
     <section class="main_container">
@@ -163,7 +164,10 @@ function randomTicketNumber()
             <div class="flex flex-row justify-center">
               <span id="farePriceText" class="mr-2"></span>
               <span id="PriceFare"></span>
+              <!--FIXING TOMORROW-->
               <input type="hidden" name="farePrice" id="farePrice">
+              <input type="hidden" name="totalFarePrice" id="totalFarePrice">
+
             </div>
           </div>
           <script src="../js/FarePrice.js"></script>
