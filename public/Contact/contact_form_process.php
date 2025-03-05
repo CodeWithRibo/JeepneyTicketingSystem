@@ -12,19 +12,13 @@
     <?php
     include '../Database/dbconfig.php';
 
-        if(!isset($_SESSION['user_id'])) {
-            header ('Location: ../Logout/home_page.php');
-            exit();
-        }
-
-        $userId = $_SESSION['user_id'];
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         include '../handler/contact_logic_handler.php';
         ob_start();
         // Validation
         if (!array_filter($contactErrors)) {
+            $userId = $_SESSION['user_id'];
             // if no errors proceed to the db
             $sqlContact = "INSERT INTO contact (firstName, lastName, email, subject, message, user_id) VALUES (?, ? , ? , ? , ? , ? )";
             $insertContact = $connection->prepare($sqlContact);
