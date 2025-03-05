@@ -3,7 +3,6 @@ include '../Database/dbconfig.php';
 session_start();
 $isLogin = isset($_SESSION['user_id']);
 
-
 if (!isset($_SESSION["user_id"])) {
   header('Location: ../Logout/home_page.php');
 }
@@ -29,6 +28,7 @@ if ($result->num_rows > 0) {
 
 ?>
 <!doctype html>
+
 <html lang="en">
 
 <head>
