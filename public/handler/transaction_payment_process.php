@@ -40,7 +40,7 @@
         $id_to_delete = $_POST['id_to_delete'];
         $deleteID = "DELETE FROM process_buyticket WHERE id = ? AND user_id = ?";
         $stmt = $connection->prepare($deleteID);
-        $stmt->bind_param('ii', $id_to_delete, $userId);
+        $stmt->bind_param('ii',  $id_to_delete,$userId);
         $stmt->execute();
 
         if ($stmt->execute()) {
