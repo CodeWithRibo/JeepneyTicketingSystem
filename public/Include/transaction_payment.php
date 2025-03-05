@@ -127,7 +127,20 @@ include '../handler/transaction_payment_process.php';
                       <input type='hidden' name='id_to_delete' value='{$row['id']} ?>'>
                     <button type='submit' name='delete' value='delete' class='md:text-base lg:text-lg py-1 px-2 md:px-3 lg:px-5 bg-red-500 hover:bg-red-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Delete</button>
                     </form>
-                        <button onclick='myFunction()' id='paymentButton' class='md:text-base lg:text-lg py-1 md:px-3 lg:px-4 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Paynow</button>
+                    <form action='payment.php' method='POST'>
+                        <input type='hidden' id='id_to_pay' value='{$row['id']}'>
+                        <input type='hidden' name='passengerNameFirstname' value='{$row['firstName']}'>
+                        <input type='hidden' name='passengerNameLastname' value='{$row['lastName']}'>
+                        <input type='hidden' name='passengerEmail' value='{$row['email']}'>
+                        <input type='hidden' name='passengerPhonenumber' value='{$row['phoneNumber']}'>
+                        <input type='hidden' name='passengerOrigin' value='{$row['optionOrigin']}'>
+                        <input type='hidden' name='passengerDestination' value='{$row['optionDestinations']}'>
+                        <input type='hidden' name='passengerDateAndTime' value='{$row['dateAndTime']}'>
+                        <input type='hidden' name='numberPassenger' value='{$row['passengersCount']}'>
+                        <input type='hidden' name='numberPassengerDiscount' value='{$row['PassengersWithDiscount']}'>
+                        <input type='hidden' name='passengerTicketNumber' value='{$row['ticketNumber']}'>
+                      <button onclick='myFunction()' type='submit' id='paymentButton' name='paynow' value='paynow' class='md:text-base lg:text-lg py-1 md:px-3 lg:px-4 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Paynow</button>
+                  </form>
                         </td>
                     </tr>";
           };
@@ -149,6 +162,7 @@ include '../handler/transaction_payment_process.php';
         ?>
       </div>
     </div>
+
   </section>
 </body>
 
