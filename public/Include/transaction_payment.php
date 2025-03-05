@@ -101,7 +101,7 @@ include '../handler/transaction_payment_process.php';
           <tr class="border-gray-400">
             <th class="py-3  md:text-base lg:text-xl bg-gray-100 text-gray-800">PASSENGER NAME</th>
             <th class="py-3  md:text-base lg:text-xl bg-blue-100 text-blue-800">ORIGIN & DESTINATION</th>
-            <th class="py-3  md:text-base lg:text-xl bg-green-100 text-green-800">DATE & TIME</th>
+            <th class="py-3  md:text-base lg:text-xl bg-green-100 text-green-800">BOOK DATE & TIME</th>
             <th class="py-3  md:text-base lg:text-xl bg-yellow-100 text-yellow-800">TICKET NUMBER</th>
             <th class="py-3  md:text-base lg:text-xl bg-emerald-100 text-emerald-500">FARE PRICE</th>
             <th class="py-3  md:text-base lg:text-xl bg-purple-100 text-purple-800">STATUS</th>
@@ -120,19 +120,24 @@ include '../handler/transaction_payment_process.php';
                       <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'>{$row['ticketNumber']}</td>
                         <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'>{$row['farePrice']}</td>
                       <td class='border-2 border-gray-400'>
-                        <button class='py-1 px-3 md:text-base lg:text-lg text-white bg-yellow-500 rounded-lg cursor-default'>Pending</button>
+                        <button class='py-1 px-3 md:text-base lg:text-lg text-white bg-yellow-500 rounded-lg cursor-default'>NOT PAID</button>
                       </td>
                       <td class='py-3 flex flex-col justify-center sm:flex-col md:flex-col lg:flex-row'>
                         <form action='transaction_payment.php' method='POST'>
                       <input type='hidden' name='id_to_delete' value='{$row['id']} ?>'>
                     <button type='submit' name='delete' value='delete' class='md:text-base lg:text-lg py-1 px-2 md:px-3 lg:px-5 bg-red-500 hover:bg-red-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Delete</button>
                     </form>
-                        <button class='md:text-base lg:text-lg py-1 md:px-3 lg:px-4 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Pay Now</button>
+                        <button onclick='myFunction()' id='paymentButton' class='md:text-base lg:text-lg py-1 md:px-3 lg:px-4 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Paynow</button>
                         </td>
                     </tr>";
           };
           ?>
         </table>
+        <script>
+          function myFunction() {
+            window.location.href = "payment.php";
+          }
+        </script>
         <?php
         if (empty($rows)) {
         ?>
