@@ -12,8 +12,9 @@ $passengersCount = trim($_POST['passengersCount']);
 $PassengersWithDiscount = trim($_POST['PassengersWithDiscount']);
 $optionDestinations = trim($_POST['optionDestinations']);
 $farePrice = trim($_POST['farePrice']);
+$regularPrice = trim($_POST['regularPrice']);
+$discountedPrice = trim($_POST['discountedPrice']);
 $totalFarePrice = trim($_POST['totalFarePrice']);
-
 
 // DESTINATIONS
 $optionOrigin = trim($_POST['optionOrigin']);
