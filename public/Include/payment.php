@@ -99,17 +99,16 @@ include '../handler/payment_process.php';
                             <span class="text-gray-600">Passenger's Origin: <span class="text-red-500"><?php echo $_SESSION['passengerOrigin']; ?></span></span>
                             <span class="text-gray-600">Passenger's Destinations: <span class="text-red-500"><?php echo $_SESSION['passengerDestination']; ?></span></span>
                             <span class="text-gray-600">Book Date and Time: <span class="text-red-500"><?php echo $_SESSION['passengerDateAndTime']; ?></span></span>
+                            <span class="text-gray-600">Passenger's Ticket Number: <span class="text-red-500"><?php echo $_SESSION['passengerTicketNumber']; ?></span></span>
                             <span class="text-gray-600">No. Passengers: <span class="text-red-500"><?php echo $_SESSION['numberPassenger']; ?></span></span>
                             <span class="text-gray-600">No. of Passengers with Discount: <span class="text-red-500"><?php echo $_SESSION['numberPassengerDiscount']; ?></span></span>
-                            <span class="text-gray-600">Passenger's Ticket Number: <span class="text-red-500"><?php echo $_SESSION['passengerTicketNumber']; ?></span></span>
                             <span class="text-gray-600">Fare Price: <span class="text-red-500"><?php echo $_SESSION['farePrice']; ?></span></span>
-
-
                         </div>
                         <hr class="my-5 border-gray-300">
                         <div class="flex flex-col text-2xl pt-5">
-                            <span class="text-gray-600">Total No. Passenger: <span class="text-red-500">3</span></span>
-                            <span class="text-gray-600">Total Fare Price: <span class="text-red-500">100</span></span>
+                            <span class="text-gray-600">Total Passenger's No discount: <span class="text-red-500"><?php echo '₱' . $_SESSION['regularPrice']; ?></span></span>
+                            <span class="text-gray-600">Total Passenger's With discount: <span class="text-red-500"><?php echo '₱' . $_SESSION['discountedPrice']; ?></span></span>
+                            <span class="text-gray-600">Total Fare Price: <span class="text-red-500"><?php echo '₱' . $_SESSION['totalFarePrice']; ?></span></span>
                         </div>
                         <div class="flex justify-start mt-5">
                             <input type="text" name="payment" id="payment" class="text-lg border border-gray-300 rounded-lg w-52 px-1 py-3 transition-all duration-200 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Amount to Pay" required>
