@@ -39,10 +39,10 @@
 
         $userId = $_SESSION['user_id']; //RETRIEVE USER ID FROM SESSION BASE ON USER'S LOGIN
 
-        $sql = "INSERT INTO process_buyticket (user_id, firstName, lastName, email, phoneNumber, dateAndTime, passengersCount, PassengersWithDiscount, optionOrigin, optionDestinations, ticketNumber, farePrice, totalFarePrice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO process_buyticket (user_id, firstName, lastName, email, phoneNumber, dateAndTime, passengersCount, PassengersWithDiscount, optionOrigin, optionDestinations, ticketNumber, farePrice, regularPrice, discountedPrice, totalFarePrice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $insertData = $connection->prepare($sql);
-        $insertData->bind_param("issssssssssss", $userId, $firstName, $lastName, $email, $phoneNumber, $dateAndTime, $passengersCount, $PassengersWithDiscount, $optionOrigin, $optionDestinations, $ticketNumber, $farePrice, $totalFarePrice);
+        $insertData->bind_param("issssssssssssss", $userId, $firstName, $lastName, $email, $phoneNumber, $dateAndTime, $passengersCount, $PassengersWithDiscount, $optionOrigin, $optionDestinations, $ticketNumber, $farePrice, $regularPrice, $discountedPrice, $totalFarePrice);
 
         if ($insertData->execute()) {
   ?>
