@@ -26,6 +26,9 @@
         $numberPassengerDiscount = $_POST['numberPassengerDiscount'];
         $passengerTicketNumber = $_POST['passengerTicketNumber'];
         $farePrice = $_POST['farePrice'];
+        $regularPrice = $_POST['regularPrice'];
+        $discountedPrice = $_POST['discountedPrice'];
+        $totalFarePrice = $_POST['totalFarePrice'];
 
         $_SESSION['passengerFirstName'] = $passengerFirstName;
         $_SESSION['passengerLastName'] = $passengerLastName;
@@ -38,6 +41,9 @@
         $_SESSION['numberPassengerDiscount'] = $numberPassengerDiscount;
         $_SESSION['passengerTicketNumber'] = $passengerTicketNumber;
         $_SESSION['farePrice'] = $farePrice;
+        $_SESSION['regularPrice'] = $regularPrice;
+        $_SESSION['discountedPrice'] = $discountedPrice;        
+        $_SESSION['totalFarePrice'] = $totalFarePrice;
     }
 
 
