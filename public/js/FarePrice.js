@@ -17,7 +17,11 @@
         const passengersCount = document.getElementById('passengersCount');
         const PassengersWithDiscount = document.getElementById('PassengersWithDiscount');
         const storeTotalFarePrice = document.getElementById('storeTotalFarePrice');
-        
+        const storeRegularPrice = document.getElementById('storeRegularPrice');
+        const storeDiscountedPrice = document.getElementById('storeDiscountedPrice');
+        const regularPrice = document.getElementById('regularPrice');
+        const discountedPrice = document.getElementById('discountedPrice');
+
         //Store price fare
         const farePriceData = {baclaranTerminal : 70, rectoTerminal : 40, sanjuanTerminal : 55};
         const locations = {baclaranTerminal : 'Baclaran Terminal', rectoTerminal : 'Recto Terminal', sanjuanTerminal : 'SanJuan GreenHills Terminal'};
@@ -68,6 +72,8 @@
             const discountedFare = (discount * fare) * 0.80; // Discounted fare price with 20% discount
             const total = noDiscountedFare + discountedFare;
 
+            storeRegularPrice.textContent = noDiscountedFare;
+            storeDiscountedPrice.textContent = discountedFare;
             storeTotalFarePrice.textContent = total;
         }
         
@@ -83,6 +89,8 @@
             inputSelectDestinations.value = selectDestinations.textContent;
             farePrice.value = PriceFare.textContent;
             totalFarePrice.value = storeTotalFarePrice.textContent;
+            regularPrice.value = storeRegularPrice.textContent;
+            discountedPrice.value = storeDiscountedPrice.textContent;
         });
 
         // MAPS
