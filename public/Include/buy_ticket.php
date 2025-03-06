@@ -121,7 +121,7 @@ function randomTicketNumber()
               <div>
                 <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Origin">Origin</label>
                 <select name="optionOrigin" id="optionOrigin" class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 text-lg">
-                  <option value="Monumento">Monumento Terminal</option>
+                  <option value="Monumento Terminal">Monumento Terminal</option>
                 </select>
                 <div class="text-red-500"><?php echo $buyticketErrors['optionOrigin']; ?></div>
               </div>
@@ -167,6 +167,11 @@ function randomTicketNumber()
               <!-- TOTAL FARE PRICE -->
               <span class="hidden" id="storeTotalFarePrice"></span> <!--STORE THE TOTAL FARE PRICE-->
               <input type="hidden" name="totalFarePrice" id="totalFarePrice"> <!--GET THE TOTAL FARE PRICE TO THE SPAN-->
+              <!-- REGULAR PRICE AND DISCOUNTED PRICE -->
+              <span class="hidden" id="storeRegularPrice"></span>
+              <input type="hidden" name="regularPrice" id="regularPrice">
+              <span class="hidden" id="storeDiscountedPrice"></span>
+              <input type="hidden" name="discountedPrice" id="discountedPrice">
             </div>
           </div>
           <script src="../js/FarePrice.js"></script>
