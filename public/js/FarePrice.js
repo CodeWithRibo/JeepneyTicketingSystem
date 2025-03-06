@@ -15,6 +15,7 @@
         const farePrice = document.getElementById('farePrice');
         const totalFarePrice = document.getElementById('totalFarePrice');
         const passengersCount = document.getElementById('passengersCount');
+        const PassengersWithDiscount = document.getElementById('PassengersWithDiscount');
         const storeTotalFarePrice = document.getElementById('storeTotalFarePrice');
         
         //Store price fare
@@ -56,14 +57,24 @@
             
         })
         
-        //Total Price Fare
+        //TOTAL FARE PRICE CALCULATION
         function updateTotalFare() {
-            const fare = parseInt(PriceFare.textContent.replace('₱', ''));
-            const passengers = parseInt(passengersCount.value);
-            const total = fare * passengers;
+            const fare = parseFloat(PriceFare.textContent.replace('₱', ''));
+            const passengers = parseInt(passengersCount.value,10);
+            const discount = parseInt(PassengersWithDiscount.value,10);
+
+            if (isNaN(fare) || isNaN(passengers) || isNaN(discount)) {
+                console.error("Invalid input values. Ensure all input fields contain valid numbers.");
+                storeTotalFarePrice.textContent = "Invalid input";
+                return;
+            }
+
+            const noDiscountedFare = (passengers - discount) * fare; //REGULAR FARE PRICE WITHOUT DISCOUNT
+            const discountedFare = Math.floor((discount * fare) * 0.80); //DISCOUNTED FARE PRICE 20 % DISCOUNT FOR PWD, STUDENT, SENIOR
+            const total = noDiscountedFare + discountedFare;
             storeTotalFarePrice.textContent = total;
         }
-        
+        //TRIGGER EVENT THAT WILL UPDATE THE TOTAL FARE PRICE REAL TIME
         passengersCount.addEventListener('input', updateTotalFare);
         baclaranTerminal.addEventListener('click', updateTotalFare);
         rectoTerminal.addEventListener('click', updateTotalFare);
