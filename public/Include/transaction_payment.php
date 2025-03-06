@@ -140,6 +140,9 @@ include '../handler/transaction_payment_process.php';
                         <input type='hidden' name='numberPassengerDiscount' value='{$row['PassengersWithDiscount']}'>
                         <input type='hidden' name='passengerTicketNumber' value='{$row['ticketNumber']}'>
                         <input type='hidden' name='farePrice' value='{$row['farePrice']}'>
+                        <input type='hidden' name='regularPrice' value='{$row['regularPrice']}'>
+                        <input type='hidden' name='discountedPrice' value='{$row['discountedPrice']}'>
+                        <input type='hidden' name='totalFarePrice' value='{$row['totalFarePrice']}'>
                       <button onclick='myFunction()' type='submit' id='paymentButton' name='paynow' value='paynow' class='md:text-base lg:text-lg py-1 md:px-3 lg:px-4 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Paynow</button>
                   </form>
                         </td>
