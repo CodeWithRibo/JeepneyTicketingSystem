@@ -82,43 +82,50 @@ include '../handler/payment_process.php';
     </header>
     <script src="../js/index.js"></script>
     <!-- End Header section -->
-    <section class="main_container">
-        <div class="flex flex-col  items-center pt-24">
-            <div class="bg-[#f4f4f4ca] px-20 py-5  rounded-lg shadow-lg">
+    <section class="main_container pb-32">
+        <div class="flex flex-col  items-center pt-5 md:pt-16">
+            <div class="">
                 <div class="flex justify-center">
                     <h1 class="text-3xl text-textColor">PASSENGER DETAILS</h1>
                 </div>
                 <!-- INFORMATIONS -->
-                <div class="pt-5">
-                    <form action="payment.php" method="POST">
-                        <div class="flex flex-col text-2xl space-y-2 ">
-
-                            <span class="text-gray-600">Passenger's Name: <span class="text-red-500"><?php echo $_SESSION['passengerFirstName'] . ' ' . $_SESSION['passengerLastName']; ?></span></span>
-                            <span class="text-gray-600">Passenger's Email: <span class="text-red-500"><?php echo $_SESSION['passengerEmail']; ?></span></span>
-                            <span class="text-gray-600">Passenger's PhoneNumber: <span class="text-red-500"><?php echo $_SESSION['passengerPhonenumber']; ?></span></span>
-                            <span class="text-gray-600">Passenger's Origin: <span class="text-red-500"><?php echo $_SESSION['passengerOrigin']; ?></span></span>
-                            <span class="text-gray-600">Passenger's Destinations: <span class="text-red-500"><?php echo $_SESSION['passengerDestination']; ?></span></span>
-                            <span class="text-gray-600">Book Date and Time: <span class="text-red-500"><?php echo $_SESSION['passengerDateAndTime']; ?></span></span>
-                            <span class="text-gray-600">Passenger's Ticket Number: <span class="text-red-500"><?php echo $_SESSION['passengerTicketNumber']; ?></span></span>
-                            <span class="text-gray-600">No. Passengers: <span class="text-red-500"><?php echo $_SESSION['numberPassenger']; ?></span></span>
-                            <span class="text-gray-600">No. of Passengers with Discount: <span class="text-red-500"><?php echo $_SESSION['numberPassengerDiscount']; ?></span></span>
-                            <span class="text-gray-600">Fare Price: <span class="text-red-500"><?php echo $_SESSION['farePrice']; ?></span></span>
+                <div class="pt-5 w-full xl:w-full"></div>
+                <form action="payment.php" method="POST" class="bg-[#f4f4f4ca] px-7 sm:px-24 lg:px-32 py-5 rounded-lg shadow-lg">
+                    <div class="flex flex-col space-y-2 text-xl md:text-2xl">
+                        <span class="text-gray-600">Passenger's Name: <span class="text-red-500"><?php echo $_SESSION['passengerFirstName'] . ' ' . $_SESSION['passengerLastName']; ?></span></span>
+                        <span class="text-gray-600">Passenger's Email: <span class="text-red-500"><?php echo $_SESSION['passengerEmail']; ?></span></span>
+                        <span class="text-gray-600">Passenger's PhoneNumber: <span class="text-red-500"><?php echo $_SESSION['passengerPhonenumber']; ?></span></span>
+                        <span class="text-gray-600">Passenger's Origin: <span class="text-red-500"><?php echo $_SESSION['passengerOrigin']; ?></span></span>
+                        <span class="text-gray-600">Passenger's Destinations: <span class="text-red-500"><?php echo $_SESSION['passengerDestination']; ?></span></span>
+                        <span class="text-gray-600">Book Date and Time: <span class="text-red-500"><?php echo $_SESSION['passengerDateAndTime']; ?></span></span>
+                        <span class="text-gray-600">Passenger's Ticket Number: <span class="text-red-500"><?php echo $_SESSION['passengerTicketNumber']; ?></span></span>
+                        <span class="text-gray-600">No. Passengers: <span class="text-red-500"><?php echo $_SESSION['numberPassenger']; ?></span></span>
+                        <span class="text-gray-600">No. of Passengers with Discount: <span class="text-red-500"><?php echo $_SESSION['numberPassengerDiscount']; ?></span></span>
+                        <span class="text-gray-600">Fare Price: <span class="text-red-500"><?php echo $_SESSION['farePrice']; ?></span></span>
+                    </div>
+                    <hr class="my-5 border-gray-300">
+                    <div class="flex flex-col text-xl md:text-3xl pt-5">
+                        <span class="text-gray-600">Total Passenger's No discount: <span class="text-red-500"><?php echo '₱' . $_SESSION['regularPrice']; ?></span></span>
+                        <span class="text-gray-600">Total Passenger's With discount: <span class="text-red-500"><?php echo '₱' . $_SESSION['discountedPrice']; ?></span></span>
+                        <span class="text-gray-600">Total Fare Price: <span class="text-red-500"><?php echo '₱' . $_SESSION['totalFarePrice']; ?></span></span>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-center items-center mt-5">
+                        <div>
+                            <input type="text" name="payment" id="payment" class="text-lg border border-gray-300 rounded-lg w-52 px-1 py-2 transition-all duration-200 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Amount to Pay" required>
                         </div>
-                        <hr class="my-5 border-gray-300">
-                        <div class="flex flex-col text-2xl pt-5">
-                            <span class="text-gray-600">Total Passenger's No discount: <span class="text-red-500"><?php echo '₱' . $_SESSION['regularPrice']; ?></span></span>
-                            <span class="text-gray-600">Total Passenger's With discount: <span class="text-red-500"><?php echo '₱' . $_SESSION['discountedPrice']; ?></span></span>
-                            <span class="text-gray-600">Total Fare Price: <span class="text-red-500"><?php echo '₱' . $_SESSION['totalFarePrice']; ?></span></span>
+                        <div>
+                            <button id='paymentButton' name="paymentButton" class=' text-lg lg:text-lg  bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white ml-2 py-2 px-10 mt-2 md:mt-0 sm:px-10 md:px-8 lg:px-8'>Submit Pay</button>
                         </div>
-                        <div class="flex justify-start mt-5">
-                            <input type="text" name="payment" id="payment" class="text-lg border border-gray-300 rounded-lg w-52 px-1 py-3 transition-all duration-200 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Amount to Pay" required>
-                            <button id='paymentButton' name="paymentButton" class='md:text-base lg:text-lg py-1 px-8 sm:px-6 lg:px-8 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg ml-2'>Submit Pay</button>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="flex justify-center pt-5">
+                    <h1 class=" text-xl  md:text-3xl text-textColor">PWD, STUDENT, SENIOR CITIZEN DISCOUNT 20%</h1>
                 </div>
+                </form>
             </div>
         </div>
+        </div>
     </section>
+    <?php include '../components/footer.php'; ?>
 </body>
 
 </html>

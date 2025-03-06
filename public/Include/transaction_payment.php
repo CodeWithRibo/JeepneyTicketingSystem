@@ -83,7 +83,7 @@ include '../handler/transaction_payment_process.php';
   <script src="../js/index.js"></script>
   <!-- End Header section -->
   <!-- TRANSACTION PAYMENT -->
-  <section class="main_container">
+  <section class="main_container ">
     <div class="pt-12">
       <div class="flex flex-col items-center justify-center pb-10">
         <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Transaction Payment</h1>
@@ -166,7 +166,6 @@ include '../handler/transaction_payment_process.php';
         ?>
       </div>
     </div>
-
   </section>
 </body>
 
