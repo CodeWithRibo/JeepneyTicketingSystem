@@ -25,6 +25,7 @@
         $numberPassenger = $_POST['numberPassenger'];
         $numberPassengerDiscount = $_POST['numberPassengerDiscount'];
         $passengerTicketNumber = $_POST['passengerTicketNumber'];
+        $farePrice = $_POST['farePrice'];
 
         $_SESSION['passengerFirstName'] = $passengerFirstName;
         $_SESSION['passengerLastName'] = $passengerLastName;
@@ -36,6 +37,7 @@
         $_SESSION['numberPassenger'] = $numberPassenger;
         $_SESSION['numberPassengerDiscount'] = $numberPassengerDiscount;
         $_SESSION['passengerTicketNumber'] = $passengerTicketNumber;
+        $_SESSION['farePrice'] = $farePrice;
     }
 
 
