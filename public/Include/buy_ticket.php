@@ -165,7 +165,7 @@ function randomTicketNumber()
               <span id="PriceFare"></span>
               <input type="hidden" name="farePrice" id="farePrice">
               <!-- TOTAL FARE PRICE -->
-              <span class="text-5xl" id="storeTotalFarePrice"></span> <!--STORE THE TOTAL FARE PRICE-->
+              <span class="hidden" id="storeTotalFarePrice"></span> <!--STORE THE TOTAL FARE PRICE-->
               <input type="hidden" name="totalFarePrice" id="totalFarePrice"> <!--GET THE TOTAL FARE PRICE TO THE SPAN-->
             </div>
           </div>

@@ -2,7 +2,6 @@
 include '../handler/payment_process.php';
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,19 +101,18 @@ include '../handler/payment_process.php';
                             <span class="text-gray-600">Book Date and Time: <span class="text-red-500"><?php echo $_SESSION['passengerDateAndTime']; ?></span></span>
                             <span class="text-gray-600">No. Passengers: <span class="text-red-500"><?php echo $_SESSION['numberPassenger']; ?></span></span>
                             <span class="text-gray-600">No. of Passengers with Discount: <span class="text-red-500"><?php echo $_SESSION['numberPassengerDiscount']; ?></span></span>
-                            <span class="text-gray-600">Passenger's Ticket Number: <span class="text-red-500"><?php echo $_SESSION['numberPassengerDiscount']; ?></span></span>
-                            <span class="text-gray-600">Fare Price: <span class="text-red-500"><?php echo $_SESSION['passengerTicketNumber']; ?></span></span>
+                            <span class="text-gray-600">Passenger's Ticket Number: <span class="text-red-500"><?php echo $_SESSION['passengerTicketNumber']; ?></span></span>
+                            <span class="text-gray-600">Fare Price: <span class="text-red-500"><?php echo $_SESSION['farePrice']; ?></span></span>
 
 
                         </div>
                         <hr class="my-5 border-gray-300">
                         <div class="flex flex-col text-2xl pt-5">
                             <span class="text-gray-600">Total No. Passenger: <span class="text-red-500">3</span></span>
-                            <span class="text-gray-600">Total No. of Passenger with Discount: <span class="text-red-500">4</span></span>
                             <span class="text-gray-600">Total Fare Price: <span class="text-red-500">100</span></span>
                         </div>
                         <div class="flex justify-start mt-5">
-                            <input type="text" name="payment" id="payment" class="text-lg border border-gray-300 rounded-lg w-52 py-3 transition-all duration-200 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input type="text" name="payment" id="payment" class="text-lg border border-gray-300 rounded-lg w-52 px-1 py-3 transition-all duration-200 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Amount to Pay" required>
                             <button id='paymentButton' name="paymentButton" class='md:text-base lg:text-lg py-1 px-8 sm:px-6 lg:px-8 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg ml-2'>Submit Pay</button>
                         </div>
                     </form>
