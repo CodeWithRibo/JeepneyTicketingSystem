@@ -59,23 +59,21 @@
         
         //TOTAL FARE PRICE CALCULATION
         function updateTotalFare() {
-            const fare = parseFloat(PriceFare.textContent.replace('₱', ''));
+            // CONVERT STRING TO NUMBER
+            const fare= parseFloat(PriceFare.textContent.replace('₱', ''));
             const passengers = parseInt(passengersCount.value,10);
             const discount = parseInt(PassengersWithDiscount.value,10);
 
-            if (isNaN(fare) || isNaN(passengers) || isNaN(discount)) {
-                console.error("Invalid input values. Ensure all input fields contain valid numbers.");
-                storeTotalFarePrice.textContent = "Invalid input";
-                return;
-            }
-
-            const noDiscountedFare = (passengers - discount) * fare; //REGULAR FARE PRICE WITHOUT DISCOUNT
-            const discountedFare = Math.floor((discount * fare) * 0.80); //DISCOUNTED FARE PRICE 20 % DISCOUNT FOR PWD, STUDENT, SENIOR
+            const noDiscountedFare = (passengers - discount) * fare; // Regular fare price without discount
+            const discountedFare = (discount * fare) * 0.80; // Discounted fare price with 20% discount
             const total = noDiscountedFare + discountedFare;
+
             storeTotalFarePrice.textContent = total;
         }
+        
         //TRIGGER EVENT THAT WILL UPDATE THE TOTAL FARE PRICE REAL TIME
         passengersCount.addEventListener('input', updateTotalFare);
+        PassengersWithDiscount.addEventListener('input', updateTotalFare);
         baclaranTerminal.addEventListener('click', updateTotalFare);
         rectoTerminal.addEventListener('click', updateTotalFare);
         sanjuanTerminal.addEventListener('click', updateTotalFare);
