@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                     'amount' => $_SESSION['convertTotalFarePrice'],
                     'description' => "Payment for " . $_SESSION['passengerFirstName'] . ' ' . $_SESSION['passengerLastName'],
                     'remarks' => "TESTING",
-                    'success_redirect' => 'http://localhost/JTS/public/include/home_page.php'
+                    'success_redirect' => 'http://localhost/JTS/public/include/home_page.php' //fixing tomorrow
                 ]
             ]
         ]),
