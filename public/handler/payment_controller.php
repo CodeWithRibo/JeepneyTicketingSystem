@@ -3,49 +3,51 @@
 include '../Database/dbconfig.php';
 session_start();
 
-if($_SERVER["REQUEST_METHOD"] == 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+
+
     // PAYMONGO API
-$curl = curl_init();
+    $curl = curl_init();
 
-curl_setopt_array($curl, [
-    CURLOPT_URL => "https://api.paymongo.com/v1/links", // API KEY for Paymongo
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => "",
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 30,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "POST",
-    CURLOPT_POSTFIELDS => json_encode([
-        'data' => [
-            'attributes' => [
-                'amount' => $_SESSION['convertTotalFarePrice'],
-                'description' => "Payment for " . $_SESSION['passengerFirstName'] . ' ' . $_SESSION['passengerLastName'],
-                'remarks' => "TESTING"
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://api.paymongo.com/v1/links", // API KEY for Paymongo
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => json_encode([
+            'data' => [
+                'attributes' => [
+                    'amount' => $_SESSION['convertTotalFarePrice'],
+                    'description' => "Payment for " . $_SESSION['passengerFirstName'] . ' ' . $_SESSION['passengerLastName'],
+                    'remarks' => "TESTING",
+                    'success_redirect' => 'http://localhost/JTS/public/include/home_page.php'
+                ]
             ]
-        ]
-    ]),
-    CURLOPT_HTTPHEADER => [
-        "accept: application/json",
-        "authorization: Basic c2tfdGVzdF9CU3RRYWtSZG5Fb255RHdjcWNrREYyNXk6",
-        "content-type: application/json"
-    ],
-]);
+        ]),
+        CURLOPT_HTTPHEADER => [
+            "accept: application/json",
+            "authorization: Basic c2tfdGVzdF9CU3RRYWtSZG5Fb255RHdjcWNrREYyNXk6",
+            "content-type: application/json"
+        ],
+    ]);
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
 
-curl_close($curl);
+    curl_close($curl);
 
-if ($err) {
-    echo json_encode(['Error' => "cURL Error #;" . $err]);
-} else {
-    $responseData = json_decode($response, true);
-    if (isset($responseData['data']['attributes']['checkout_url'])) {
-        $checkout_url = $responseData['data']['attributes']['checkout_url'];
-        echo "<script>window.location.href = '$checkout_url';</script>";
+    if ($err) {
+        echo json_encode(['Error' => "cURL Error #;" . $err]);
     } else {
-        echo json_encode(['Error' => "No URL found"]);
+        $responseData = json_decode($response, true);
+        if (isset($responseData['data']['attributes']['checkout_url'])) {
+            $checkout_url = $responseData['data']['attributes']['checkout_url'];
+            echo "<script>window.location.href = '$checkout_url';</script>";
+        } else {
+            echo json_encode(['Error' => "No URL found"]);
+        }
     }
-}
-
 }
