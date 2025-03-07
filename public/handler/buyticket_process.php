@@ -43,7 +43,7 @@
 
         $insertData = $connection->prepare($sql);
         $insertData->bind_param("issssssssssssss", $userId, $firstName, $lastName, $email, $phoneNumber, $dateAndTime, $passengersCount, $PassengersWithDiscount, $optionOrigin, $optionDestinations, $ticketNumber, $farePrice, $regularPrice, $discountedPrice, $totalFarePrice);
-
+      
         if ($insertData->execute()) {
   ?>
           <script>
@@ -64,6 +64,7 @@
       $stmt->close();
       $connection->close();
     }
+    
   }
   ?>
 </body>
