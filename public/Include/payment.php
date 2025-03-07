@@ -110,18 +110,20 @@ include '../handler/payment_process.php';
                         <span class="text-gray-600">Total Fare Price: <span class="text-red-500"><?php echo '₱' . $_SESSION['totalFarePrice']; ?></span></span>
                     </div>
                     <div class="flex flex-col md:flex-row justify-center items-center mt-5">
-                        <div>
+                        <!-- <div>
                             <input type="text" name="payment" id="payment" class="text-lg border border-gray-300 rounded-lg w-52 px-1 py-2 transition-all duration-200 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Amount to Pay" required>
-                        </div>
-                        <div>
-                            <button id='paymentButton' name="paymentButton" class=' text-lg lg:text-lg  bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white ml-2 py-2 px-10 mt-2 md:mt-0 sm:px-10 md:px-8 lg:px-8'>Submit Pay</button>
-                        </div>
+                        </div> -->
+                </form>
+                <form action="../handler/payment_controller.php" method="POST">
+                    <div>
+                        <button id='paymentButton' name="paymentButton" class=' text-lg lg:text-lg  bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white ml-2 py-2 px-10 mt-2 md:mt-0 sm:px-10 md:px-8 lg:px-8'>Submit Pay</button>
                     </div>
-                    <div class="flex justify-center pt-5">
-                    <h1 class=" text-xl  md:text-3xl text-textColor">PWD, STUDENT, SENIOR CITIZEN DISCOUNT 20%</h1>
-                </div>
                 </form>
             </div>
+            <div class="flex justify-center pt-5">
+                <h1 class=" text-xl  md:text-3xl text-textColor">PWD, STUDENT, SENIOR CITIZEN DISCOUNT 20%</h1>
+            </div>
+        </div>
         </div>
         </div>
     </section>
