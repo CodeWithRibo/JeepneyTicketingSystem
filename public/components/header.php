@@ -52,7 +52,7 @@ $isLogin = isset($_SESSION["user_id"]);
         <div class="hidden md:block">
             <span class="flex gap-10 transition-all">
                 <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="../logout/home_page.php">Home</a>
-                <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="../include/select_terminal.php">Terminals</a>
+                <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="../logout/select_terminal.php">Terminals</a>
                 <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="../logout/home_page.php #about">About</a>
                 <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="../logout/home_page.php #contact">Contact Us</a>
                 <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl" href="../Login/login.php">Login</a>
@@ -62,7 +62,7 @@ $isLogin = isset($_SESSION["user_id"]);
     <!-- MOBILE DESIGN HEADER -->
     <div class="grid hidden grid-rows-5 justify-center gap-6 border-2 bg-white text-center shadow-lg transition-all md:hidden" id="mobile-menu">
         <a class="pt-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="#home">Home</a>
-        <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="../include/buy_ticket.php">Terminals</a>
+        <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="../logout/select_terminal.php">Terminals</a>
         <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="../logout/home_page.php #about">About</a>
         <a class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="../logout/home_page.php #contact">Contact Us</a>
         <a class="pb-3 text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm md:font-semibold lg:text-xl" href="../login/login.php">Login</a>
@@ -75,7 +75,7 @@ $isLogin = isset($_SESSION["user_id"]);
     <div class="static left-0 right-0 top-0 z-10 flex h-20 items-center justify-between bg-white shadow-lg sm:px-5 md:fixed md:px-10 lg:px-20">
         <div class="flex w-full items-center justify-center md:w-auto">
             <span class="mx-2">
-                <img class="h-[70px] w-[230px] object-cover px-5" src="/jts/image/main_logo.png" alt="JTS logo" />
+               <a href="../Include/home_page.php" class="cursor-pointer"><img class="h-[70px] w-[230px] object-cover px-5" src="/jts/image/main_logo.png" alt="JTS logo"/></a>
             </span>
         </div>
         <div class="navbar items-center justify-between">

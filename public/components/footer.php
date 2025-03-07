@@ -75,7 +75,7 @@ if (!$isLogin) {
        <div class="main_container mx-auto min-h-full items-start justify-evenly py-20 text-center md:grid md:grid-cols-3 md:gap-10 md:px-20 md:text-start xl:flex xl:gap-44">
          <div class="m-0 mb-5 flex w-full flex-col gap-2 md:col-start-1 md:m-0 md:gap-5">
            <h1 class="animation_wrap font-semibold text-primary md:text-xl lg:text-2xl xl:text-[26px] 2xl:text-3xl">QUICK LINKS</h1>
-           <a href="#home"><span class="text_wrap">Home</span></a>
+           <a href="../include/home_page.php"><span class="text_wrap">Home</span></a>
            <a href="../include/select_terminal.php #terminals"><span class="text_wrap">Terminals</span></a>
            <a href="../include/buy_ticket.php"><span class="text_wrap">Buy Ticket</span></a>
            <a href="../include/home_page.php #about"><span class="text_wrap">About</span></a>
