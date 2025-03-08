@@ -4,6 +4,7 @@ include '../Database/dbconfig.php';
 
 session_start();
 
+
 $rows = [];
 
 $userId = $_SESSION['user_id'];
@@ -19,29 +20,24 @@ while ($row = $result->fetch_assoc()) {
     $rows[] = $row;
 }
 
-?> 
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
-<?php 
+
+    <?php
     foreach ($rows as $row) {
         echo $row['firstName'];
-        echo $row['lastName'];
-        echo $row['dateAndTime'];
-        echo $row['optionOrigin'];
-        echo $row['optionDestinations'];
-        echo $row['ticketNumber'];
-        echo $row['farePrice'];
-        echo $row['totalFarePrice'];
-        echo $row['status'];
     }
 
-?> 
+    ?>
 </body>
+
 </html>
