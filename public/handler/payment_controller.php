@@ -47,9 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             $checkout_url = $responseData['data']['attributes']['checkout_url'];
             echo "<script>window.location.href = '$checkout_url';</script>";
             $userId = $_SESSION['user_id'];
-            $updateStatus = "UPDATE process_buyticket SET status = 'Paid' WHERE user_id = ?";
+            $ticketNumber = $_SESSION['passengerTicketNumber'];
+            $updateStatus = "UPDATE process_buyticket SET status = 'Paid'  WHERE user_id = ? AND ticketNumber  = ?";
             $stmt = $connection->prepare($updateStatus);
-            $stmt->bind_param('i',  $userId);
+            $stmt->bind_param('is',  $userId, $ticketNumber);
             $stmt->execute();
         } else {
             echo json_encode(['Error' => "No URL found"]);
