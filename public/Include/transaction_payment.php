@@ -113,40 +113,48 @@ include '../handler/transaction_payment_process.php';
             $dateAndTime = new DateTime($row['dateAndTime']);
             $dateAndTime = date_default_timezone_set('Asia/Manila');
             $formattedDateAndTime = date('F j, Y g:i:a');
-            echo "<tr class='border-2 border-gray-400'>
-                        <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'>{$row['firstName']} {$row['lastName']}</td>
-                      <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'>{$row['optionOrigin']} - {$row['optionDestinations']}</td>
-                      <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'>{$formattedDateAndTime}</td>
-                      <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'>{$row['ticketNumber']}</td>
-                        <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'>{$row['farePrice']}</td>
-                      <td class='border-2 border-gray-400'>
-                        <button class='py-1 px-3 md:text-base lg:text-lg text-white bg-yellow-500 rounded-lg cursor-default'>NOT PAID</button>
-                      </td>
-                      <td class='py-3 flex flex-col justify-center sm:flex-col md:flex-col lg:flex-row'>
-                        <form action='transaction_payment.php' method='POST'>
-                      <input type='hidden' name='id_to_delete' value='{$row['id']} ?>'>
-                    <button type='submit' name='delete' value='delete' class='md:text-base lg:text-lg py-1 px-2 md:px-3 lg:px-5 bg-red-500 hover:bg-red-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Delete</button>
-                    </form>
-                    <form action='payment.php' method='POST'>
-                        <input type='hidden' id='id_to_pay' value='{$row['id']}'>
-                        <input type='hidden' name='passengerNameFirstname' value='{$row['firstName']}'>
-                        <input type='hidden' name='passengerNameLastname' value='{$row['lastName']}'>
-                        <input type='hidden' name='passengerEmail' value='{$row['email']}'>
-                        <input type='hidden' name='passengerPhonenumber' value='{$row['phoneNumber']}'>
-                        <input type='hidden' name='passengerOrigin' value='{$row['optionOrigin']}'>
-                        <input type='hidden' name='passengerDestination' value='{$row['optionDestinations']}'>
-                        <input type='hidden' name='passengerDateAndTime' value='{$row['dateAndTime']}'>
-                        <input type='hidden' name='numberPassenger' value='{$row['passengersCount']}'>
-                        <input type='hidden' name='numberPassengerDiscount' value='{$row['PassengersWithDiscount']}'>
-                        <input type='hidden' name='passengerTicketNumber' value='{$row['ticketNumber']}'>
-                        <input type='hidden' name='farePrice' value='{$row['farePrice']}'>
-                        <input type='hidden' name='regularPrice' value='{$row['regularPrice']}'>
-                        <input type='hidden' name='discountedPrice' value='{$row['discountedPrice']}'>
-                        <input type='hidden' name='totalFarePrice' value='{$row['totalFarePrice']}'>
-                      <button onclick='myFunction()' type='submit' id='paymentButton' name='paynow' value='paynow' class='md:text-base lg:text-lg py-1 md:px-3 lg:px-4 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Paynow</button>
-                  </form>
-                        </td>
-                    </tr>";
+          ?>
+            <tr class='border-2 border-gray-400'>
+              <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
+              <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'><?php echo $row['optionOrigin'] . ' - ' . $row['optionDestinations']; ?></td>
+              <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'><?php echo $formattedDateAndTime; ?></td>
+              <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'><?php echo $row['ticketNumber']; ?></td>
+              <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'><?php echo $row['farePrice']; ?></td>
+              <td class='border-2 border-gray-400'>
+                <?php
+                if ($row['status'] != 'Paid') {
+                  echo '<span class="bg-red-500 py-1 px-3 md:text-base lg:text-lg text-white rounded-lg cursor-default">Not Paid</span>';
+                } else {
+                  echo '<span class="bg-green-500 py-1 px-3 md:text-base lg:text-lg text-white rounded-lg cursor-default">Paid</span>';
+                }
+                ?>
+              </td>
+              <td class='py-3 flex flex-col justify-center sm:flex-col md:flex-col lg:flex-row'>
+                <form action='transaction_payment.php' method='POST'>
+                  <input type='hidden' name='id_to_delete' value='<?php echo $row['id']; ?>'>
+                  <button type='submit' name='delete' value='delete' class='md:text-base lg:text-lg py-1 px-2 md:px-3 lg:px-5 bg-red-500 hover:bg-red-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Delete</button>
+                </form>
+                <form action='payment.php' method='POST'>
+                  <input type='hidden' id='id_to_pay' value='<?php echo $row['id']; ?>'>
+                  <input type='hidden' name='passengerNameFirstname' value='<?php echo $row['firstName']; ?>'>
+                  <input type='hidden' name='passengerNameLastname' value='<?php echo $row['lastName']; ?>'>
+                  <input type='hidden' name='passengerEmail' value='<?php echo $row['email']; ?>'>
+                  <input type='hidden' name='passengerPhonenumber' value='<?php echo $row['phoneNumber']; ?>'>
+                  <input type='hidden' name='passengerOrigin' value='<?php echo $row['optionOrigin']; ?>'>
+                  <input type='hidden' name='passengerDestination' value='<?php echo $row['optionDestinations']; ?>'>
+                  <input type='hidden' name='passengerDateAndTime' value='<?php echo $row['dateAndTime']; ?>'>
+                  <input type='hidden' name='numberPassenger' value='<?php echo $row['passengersCount']; ?>'>
+                  <input type='hidden' name='numberPassengerDiscount' value='<?php echo $row['PassengersWithDiscount']; ?>'>
+                  <input type='hidden' name='passengerTicketNumber' value='<?php echo $row['ticketNumber']; ?>'>
+                  <input type='hidden' name='farePrice' value='<?php echo $row['farePrice']; ?>'>
+                  <input type='hidden' name='regularPrice' value='<?php echo $row['regularPrice']; ?>'>
+                  <input type='hidden' name='discountedPrice' value='<?php echo $row['discountedPrice']; ?>'>
+                  <input type='hidden' name='totalFarePrice' value='<?php echo $row['totalFarePrice']; ?>'>
+                  <button onclick='myFunction()' type='submit' id='paymentButton' name='paynow' value='paynow' class='md:text-base lg:text-lg py-1 md:px-3 lg:px-4 bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer hover:opacity-80 transition duration-300 text-white text-lg mr-2'>Paynow</button>
+                </form>
+              </td>
+            </tr>
+          <?php
           };
           ?>
         </table>
