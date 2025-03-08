@@ -52,6 +52,19 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             $stmt = $connection->prepare($updateStatus);
             $stmt->bind_param('is',  $userId, $ticketNumber);
             $stmt->execute();
+
+            // AFTER STATUS PAID THEN MOVE TO THE TRANSCATION HISTORY
+            $transactionHistory = "INSERT INTO transaction_history (user_id, firstName, lastName, dateAndTime, optionOrigin, optionDestinations, ticketNumber, farePrice, totalFarePrice, status) 
+            SELECT user_id, firstName, lastName, dateAndTime, optionOrigin, optionDestinations, ticketNumber, farePrice, totalFarePrice, status FROM process_buyticket WHERE user_id ? AND ticketNumber = ?";
+            $stmtTransactionHistory = $connection -> prepare($transactionHistory);
+            $stmtTransactionHistory -> bind_param('is', $userId, $ticketNumber);
+            $stmtTransactionHistory -> execute();
+
+            // DELETING RECORD FROM process_buyticket onces the status is paid
+            $deleteTransaction = "DELETE FROM process_buyticket WHERE user_id = ? AND ticketNumber = ?";
+            $stmtDeleteTransaction = $connection -> prepare($deleteTransaction);
+            $stmtDeleteTransaction -> bind_param('is', $userId, $ticketNumber);
+            $stmtDeleteTransaction -> execute();
         } else {
             echo json_encode(['Error' => "No URL found"]);
         }
