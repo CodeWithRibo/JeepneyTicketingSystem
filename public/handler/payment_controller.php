@@ -47,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             $checkout_url = $responseData['data']['attributes']['checkout_url'];
             echo "<script>window.location.href = '$checkout_url';</script>";
             $userId = $_SESSION['user_id'];
+            // UPDATE STATUS TO PAID
             $ticketNumber = $_SESSION['passengerTicketNumber'];
             $updateStatus = "UPDATE process_buyticket SET status = 'Paid'  WHERE user_id = ? AND ticketNumber  = ?";
             $stmt = $connection->prepare($updateStatus);
@@ -55,15 +56,15 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
             // AFTER STATUS PAID THEN MOVE TO THE TRANSCATION HISTORY
             $transactionHistory = "INSERT INTO transaction_history (user_id, firstName, lastName, dateAndTime, optionOrigin, optionDestinations, ticketNumber, farePrice, totalFarePrice, status) 
-            SELECT user_id, firstName, lastName, dateAndTime, optionOrigin, optionDestinations, ticketNumber, farePrice, totalFarePrice, status FROM process_buyticket WHERE user_id ? AND ticketNumber = ?";
+            SELECT user_id, firstName, lastName, dateAndTime, optionOrigin, optionDestinations, ticketNumber, farePrice, totalFarePrice, status FROM process_buyticket WHERE user_id = ? AND ticketNumber = ?";
             $stmtTransactionHistory = $connection -> prepare($transactionHistory);
-            $stmtTransactionHistory -> bind_param('is', $userId, $ticketNumber);
+            $stmtTransactionHistory -> bind_param('is', $_SESSION['user_id'],$_SESSION['passengerTicketNumber']);
             $stmtTransactionHistory -> execute();
 
             // DELETING RECORD FROM process_buyticket onces the status is paid
             $deleteTransaction = "DELETE FROM process_buyticket WHERE user_id = ? AND ticketNumber = ?";
             $stmtDeleteTransaction = $connection -> prepare($deleteTransaction);
-            $stmtDeleteTransaction -> bind_param('is', $userId, $ticketNumber);
+            $stmtDeleteTransaction -> bind_param('is', $_SESSION['user_id'], $_SESSION['passengerTicketNumber']);
             $stmtDeleteTransaction -> execute();
         } else {
             echo json_encode(['Error' => "No URL found"]);
