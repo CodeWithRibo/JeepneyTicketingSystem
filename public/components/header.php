@@ -85,7 +85,7 @@ $isLogin = isset($_SESSION["user_id"]);
                     <span class="flex gap-10 transition-all">
                         <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="../include/home_page.php">Home</a></span>
                         <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="../include/select_terminal.php">Terminals</a></span>
-                        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="#">Transaction History</a></span>
+                        <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="../include/transaction_history.php">Transaction History</a></span>
                         <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="../include/home_page.php #about">About</a></span>
                         <span class="text-primary duration-300 ease-in hover:text-[#e6ce20] md:text-sm lg:text-xl"><a href="../include/home_page.php #contact">Contact Us</a></span>
                     </span>
