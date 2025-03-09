@@ -1,46 +1,5 @@
 <?php
-
-include '../Database/dbconfig.php';
-session_start();
-
-//CHECK IS USER IS LOGGED IN
-if (!isset($_SESSION['user_id'])) {
-    header('Location: ../Logout/home_page.php');
-    exit();
-}
-
-    if(isset($_SESSION['user_id'])) {
-        $isLogin = $_SESSION['user_id'];
-    }
-
-    $selectData = "SELECT firstName, lastName FROM jts_users WHERE id = ?";
-    $stmt = $connection -> prepare($selectData);
-    $stmt -> bind_param('i', $isLogin);
-    $stmt -> execute();
-    $result = $stmt -> get_result();
-
-    if($result-> num_rows > 0) {
-        $row = $result -> fetch_assoc();
-        $_SESSION['firstName'] = $row['firstName'];
-        $_SESSION['lastName'] = $row['lastName'];
-    }
-
-
-$rows = [];
-$userId = $_SESSION['user_id'];
-
-$sql = "SELECT * FROM transaction_history WHERE user_id = ?";
-$stmt = $connection->prepare($sql);
-$stmt->bind_param('i', $userId);
-$stmt->execute();
-$result = $stmt->get_result();
-
-while ($row = $result->fetch_assoc()) {
-    $rows[] = $row;
-}
-
-$connection->close();
-$stmt->close();
+include '../handler/transaction_history_process.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,14 +85,6 @@ $stmt->close();
         <div class="pt-12">
             <div class="flex flex-col items-center justify-center pb-10">
                 <h1 class="text-2xl font-semibold text-textColor md:text-3xl"> Welcome, <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>! Here is your Transaction History.</h1>
-            </div>
-            <div class="flex pb-10">
-                <a href="buy_ticket.php" id="lugar_terminal" class="under_construction mt-4 flex flex-row-reverse items-center rounded-xl bg-[#d5c812] px-6 py-1 text-lg text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:mt-0 sm:px-8 sm:py-2 sm:text-xl md:px-3 md:text-xl lg:px-5 lg:py-2">
-                    Buy Ticket Again
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                    </svg>
-                </a>
             </div>
             <div class="pb-18">
                 <table class="table-auto w-full text-center border-collapse ">
