@@ -55,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             $stmt->execute();
 
             // AFTER STATUS PAID THEN MOVE TO THE TRANSCATION HISTORY
-            $transactionHistory = "INSERT INTO transaction_history (user_id, firstName, lastName, dateAndTime, optionOrigin, optionDestinations, ticketNumber, farePrice, totalFarePrice, status) 
-            SELECT user_id, firstName, lastName, dateAndTime, optionOrigin, optionDestinations, ticketNumber, farePrice, totalFarePrice, status FROM process_buyticket WHERE user_id = ? AND ticketNumber = ?";
+            $transactionHistory = "INSERT INTO transaction_history (user_id, firstName, lastName, dateAndTime, optionOrigin, optionDestinations, ticketNumber, farePrice, totalFarePrice, status,created_at) 
+            SELECT user_id, firstName, lastName, dateAndTime, optionOrigin, optionDestinations, ticketNumber, farePrice, totalFarePrice, status, created_at FROM process_buyticket WHERE user_id = ? AND ticketNumber = ?";
             $stmtTransactionHistory = $connection -> prepare($transactionHistory);
             $stmtTransactionHistory -> bind_param('is', $_SESSION['user_id'],$_SESSION['passengerTicketNumber']);
             $stmtTransactionHistory -> execute();
