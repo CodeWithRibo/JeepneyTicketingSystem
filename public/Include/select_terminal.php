@@ -1,13 +1,12 @@
 <?php
 include '../Database/dbconfig.php';
 session_start();
-$isLogin = isset($_SESSION['user_id']);
 
 if (!isset($_SESSION["user_id"])) {
   header('Location: ../Logout/home_page.php');
 }
 
-if ($isLogin) {
+if (isset($_SESSION['user_id'])) {
   $isLogin = $_SESSION['user_id'];
 }
 $sql = "SELECT userName FROM jts_users WHERE id = ?";
