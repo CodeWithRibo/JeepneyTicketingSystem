@@ -84,7 +84,13 @@ include '../handler/transaction_history_process.php';
     <section class="main_container">
         <div class="pt-12">
             <div class="flex flex-col items-center justify-center pb-10">
-                <h1 class="text-2xl font-semibold text-textColor md:text-3xl"> Welcome, <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>! Here is your Transaction History.</h1>
+                <?php
+                if (!empty($rows)) {
+                ?>
+                    <h1 class="text-2xl font-semibold text-textColor md:text-3xl"> Welcome, <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>! Here is your Transaction History.</h1>
+                <?php
+                }
+                ?>
             </div>
             <div class="pb-18">
                 <table class="table-auto w-full text-center border-collapse ">
@@ -95,6 +101,7 @@ include '../handler/transaction_history_process.php';
                         <th class="py-3  md:text-base lg:text-xl bg-yellow-100 text-yellow-800">TICKET NUMBER</th>
                         <th class="py-3  md:text-base lg:text-xl bg-emerald-100 text-emerald-500">FARE PRICE</th>
                         <th class="py-3  md:text-base lg:text-xl bg-purple-100 text-purple-800">STATUS</th>
+                        <th class="py-3  md:text-base lg:text-xl bg-red-100 text-slate-800">RECEIPT</th>
                     </tr>
                     <?php
                     foreach ($rows as $row) {
@@ -110,15 +117,33 @@ include '../handler/transaction_history_process.php';
                             <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'><?php echo $row['ticketNumber']; ?></td>
                             <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'><?php echo $row['farePrice']; ?></td>
                             <td class='border-2 border-gray-400'>
-                            <?php
-                            if ($row['status'] != 'Paid') {
-                                echo '<span class="bg-red-500 py-1 px-3 md:text-base lg:text-lg text-white rounded-lg cursor-default">Not Paid</span>';
-                            } else {
-                                echo '<span class="bg-green-500 py-1 px-3 md:text-base lg:text-lg text-white rounded-lg cursor-default">Paid</span>';
-                            }
-                        }
-                            ?>
+                                <?php
+                                if ($row['status'] != 'Paid') {
+                                    echo '<span class="bg-red-500 py-1 px-3 md:text-base lg:text-lg text-white rounded-lg cursor-default">Not Paid</span>';
+                                } else {
+                                    echo '<span class="bg-green-500 py-1 px-3 md:text-base lg:text-lg text-white rounded-lg cursor-default">Paid</span>';
+                                }
+                                ?>
+                            <td>
+                                <button onclick="printReceipt('<?php echo $row['ticketNumber']; ?>')" class='bg-blue-500 py-1 px-3 md:text-base lg:text-lg text-white rounded-lg'>Print Receipt</button>
+                                <script src="../js/receipt.js"></script>
                             </td>
+                        <?php
+                    };
+                        ?>
+                        </td>
+
+                        </tr>
+                </table>
+                <?php
+                if (empty($rows)) {
+                ?>
+                    <div class="flex items-center justify-center pt-10">
+                        <h1 class="text-textColor text-3xl">NO TRANSACTION HISTORY RECORD</h1>
+                    </div>
+                <?php
+                }
+                ?>
     </section>
 </body>
 
