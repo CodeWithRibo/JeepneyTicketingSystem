@@ -25,7 +25,7 @@ if (isset($_GET['ticketNumber'])) {
             'optionOrigin' => $row['optionOrigin'],
             'optionDestinations' => $row['optionDestinations'],
             'ticketNumber' => $row['ticketNumber'],
-            'farePrice' => $row['farePrice'],
+            'totalFarePrice' => $row['totalFarePrice'],
             'status' => $row['status']
         ];
 
