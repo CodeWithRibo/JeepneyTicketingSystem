@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+if (!isset($_SESSION["user_id"])) {  //if the user's not loggin in, redirect to home-page logout page
+    header('Location: ../Logout/home_page.php');
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +22,8 @@
 </head>
 
 <body class="font-sanscalp">
-    <div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 xl:mx-auto">
+    <?php include '../Components/header.php'; ?>
+    <div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 xl:mx-auto pt-28">
         <h1 class="border-b py-6 text-4xl font-semibold">Settings</h1>
         <div class="grid grid-cols-8 pt-3 sm:grid-cols-10">
             <div class="relative my-4 w-56 sm:hidden">
@@ -23,21 +33,15 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
                 <ul class="max-h-0 select-none flex-col overflow-hidden rounded-b-lg shadow-md transition-all duration-300 peer-checked:max-h-56 peer-checked:py-3">
-                    <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">Accounts</li>
-                    <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">Team</li>
-                    <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">Others</li>
+                    <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-primary hover:text-white">Accounts</li>
+                    <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-primary hover:text-white">Profile</li>
                 </ul>
             </div>
 
             <div class="col-span-2 hidden sm:block">
                 <ul>
-                    <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Teams</li>
-                    <li class="mt-5 cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700">Accounts</li>
-                    <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Users</li>
-                    <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Profile</li>
-                    <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Billing</li>
-                    <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Notifications</li>
-                    <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Integrations</li>
+                    <li class="mt-5 cursor-pointer border-l-2 border-l-primary px-2 py-2 font-semibold text-primary transition hover:border-l-primary hover:text-primary">Accounts</li>
+                    <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-primary hover:text-primary">Profile</li>
                 </ul>
             </div>
 
