@@ -78,7 +78,7 @@ function randomTicketNumber()
                     <span class="badge">New</span>
                   </a>
                 </li>
-                <li><a>Settings</a></li>
+                <li><a href="settings.php">Settings</a></li>
                 <li><a href="../Logout/logout_destroy.php">Logout</a></li>
               </ul>
             </div>
