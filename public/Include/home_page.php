@@ -32,7 +32,6 @@ if (!isset($_SESSION["user_id"])) {  //if the user's not loggin in, redirect to 
     }
   </style>
 </head>
-
 <body class="m-0 box-border bg-background p-0 font-sanscalp">
   <!-- Header Section -->
   <?php include '../Components/header.php'; ?>
