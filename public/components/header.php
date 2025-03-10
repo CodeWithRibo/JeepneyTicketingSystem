@@ -115,7 +115,7 @@ $isLogin = isset($_SESSION["user_id"]);
                                 <span class="badge">New</span>
                             </a>
                         </li>
-                        <li><a onclick="alert("Under Construction");">Settings</a></li>
+                        <li><a href="../include/settings.php">Settings</a></li>
                         <li><a href="../Logout/logout_destroy.php">Logout</a></li>
                         </ul>
                     </div>
