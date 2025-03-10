@@ -92,6 +92,7 @@ if (!$isLogin) {
          <a href="https://www.facebook.com/carljohn2818" target="_blank"><span class="text_wrap"><i class="fa-brands fa-facebook pr-2"></i>Facebook</span></a>
          <a href="https://www.instagram.com/carljohn_16" target="_blank"><span class="text_wrap"><i class="fa-brands fa-instagram pr-2"></i>Instagram</span></a>
            <a href="https://github.com/CodeWithRibo" target="_blank"><span class="text_wrap"><i class="fa-brands fa-github pr-2"></i>Github</span></a>
+           <a href="https://discord.gg/2XKtPa5p" target="_blank"><span class="text_wrap"><i class="fa-brands fa-discord pr-2"></i>Discord</span></a>
          </div>
        </div>
        <!-- ^All Rights reserved -->
