@@ -99,7 +99,7 @@ include '../handler/transaction_history_process.php';
                         <th class="py-3  md:text-base lg:text-xl bg-blue-100 text-blue-800">ORIGIN & DESTINATION</th>
                         <th class="py-3  md:text-base lg:text-xl bg-green-100 text-green-800">BOOK DATE & TIME</th>
                         <th class="py-3  md:text-base lg:text-xl bg-yellow-100 text-yellow-800">TICKET NUMBER</th>
-                        <th class="py-3  md:text-base lg:text-xl bg-emerald-100 text-emerald-500">FARE PRICE</th>
+                        <th class="py-3  md:text-base lg:text-xl bg-emerald-100 text-emerald-500">TOTAL FARE PRICE</th>
                         <th class="py-3  md:text-base lg:text-xl bg-purple-100 text-purple-800">STATUS</th>
                         <th class="py-3  md:text-base lg:text-xl bg-red-100 text-slate-800">RECEIPT</th>
                     </tr>
@@ -115,7 +115,7 @@ include '../handler/transaction_history_process.php';
                             <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'><?php echo $row['optionOrigin'] . ' - ' . $row['optionDestinations']; ?></td>
                             <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-gray-900'><?php echo $formattedDateAndTime; ?></td>
                             <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'><?php echo $row['ticketNumber']; ?></td>
-                            <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'><?php echo $row['farePrice']; ?></td>
+                            <td class='py-3 sm:text-[13px] md:text-base lg:text-xl border-gray-400 border-2 text-red-400 font-bold'>₱<?php echo $row['totalFarePrice']; ?></td>
                             <td class='border-2 border-gray-400'>
                                 <?php
                                 if ($row['status'] != 'Paid') {
@@ -132,7 +132,6 @@ include '../handler/transaction_history_process.php';
                     };
                         ?>
                         </td>
-
                         </tr>
                 </table>
                 <?php
