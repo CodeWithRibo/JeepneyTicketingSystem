@@ -68,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             $stmtDeleteTransaction -> execute();
         } else {
             echo json_encode(['Error' => "No URL found"]);
+            
         }
     }
 }
