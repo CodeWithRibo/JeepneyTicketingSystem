@@ -1,10 +1,27 @@
 <?php
+include '../Database/dbconfig.php';
 
 session_start();
 if (!isset($_SESSION["user_id"])) {  //if the user's not loggin in, redirect to home-page logout page
     header('Location: ../Logout/home_page.php');
     exit();
 }
+
+if (isset($_SESSION['user_id'])) {
+    $isLogin = $_SESSION['user_id'];
+}
+
+$sql = "SELECT email FROM jts_users WHERE id = ?";
+$stmt = $connection->prepare($sql);
+$stmt->bind_param('i', $isLogin);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $_SESSION['email'] = $row['email'];
+}
+include '../handler/settings_process.php';
 
 ?>
 <!DOCTYPE html>
@@ -18,6 +35,8 @@ if (!isset($_SESSION["user_id"])) {  //if the user's not loggin in, redirect to 
     <link rel="stylesheet" href="/jts/src/input.css" />
     <link rel="stylesheet" href="/jts/src/plugin.css" />
     <link rel="stylesheet" href="/jts/src/custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Settings</title>
 </head>
 
@@ -48,14 +67,21 @@ if (!isset($_SESSION["user_id"])) {  //if the user's not loggin in, redirect to 
             <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
                 <div class="pt-4">
                     <h1 class="py-2 text-2xl font-semibold">Account settings</h1>
-                    <!-- <p class="font- text-slate-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> -->
                 </div>
                 <hr class="mt-4 mb-8" />
-                <p class="py-2 text-xl font-semibold">Email Address</p>
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                    <p class="text-gray-600">Your email address is <strong>john.doe@company.com</strong></p>
-                    <button class="inline-flex text-sm font-semibold text-blue-600 underline decoration-2">Change</button>
-                </div>
+                <!-- CHANGE EMAIL ADDRESS -->
+                <form action="settings.php" method="POST" class="flex md:flex-col flex-col-reverse ">
+                    <p class="py-2 text-xl font-semibold">Email Address</p>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <p class="text-gray-600">Your email address is <strong><?php echo $_SESSION['email']; ?></strong></p>
+                        <button class="inline-flex text-sm font-semibold text-blue-600 underline decoration-2">Change</button>
+                    </div>
+                    <label for="#" class="pt-5">New Email Address</label>
+                    <div class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600">
+                        <input type="text" name="newEmail" id="" class="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none" placeholder="" />
+                    </div>
+                    <div class="text-red-500"><?php echo $validateEmail['email']; ?></div>
+                </form>
                 <hr class="mt-4 mb-8" />
                 <p class="py-2 text-xl font-semibold">Password</p>
                 <div class="flex items-center">
