@@ -154,7 +154,7 @@ if (isset($_SESSION["user_id"])) {
               name="confirmPassword"
               id="confirmPassword"
               value="<?php echo $confirmPassword; ?>" ; />
-            <div class=" text-red-500"><?php echo $errors['confirmPassword'];; ?></div>
+            <div class=" text-red-500"><?php echo $errors['confirmPassword']; ?></div>
           </div>
           <div class="text-center">
             <!-- SUBMIT BUTTON -->

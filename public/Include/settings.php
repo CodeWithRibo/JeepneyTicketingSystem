@@ -21,6 +21,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $_SESSION['email'] = $row['email'];
 }
+include '../handler/settings_error_handler.php';
 include '../handler/settings_process.php';
 
 ?>
@@ -41,7 +42,7 @@ include '../handler/settings_process.php';
 </head>
 
 <body class="font-sanscalp">
-    <?php include '../Components/header.php'; ?>
+    <?php #include '../Components/header.php'; ?>
     <div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 xl:mx-auto pt-28">
         <h1 class="border-b py-6 text-4xl font-semibold">Settings</h1>
         <div class="grid grid-cols-8 pt-3 sm:grid-cols-10">
@@ -56,14 +57,12 @@ include '../handler/settings_process.php';
                     <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-primary hover:text-white">Profile</li>
                 </ul>
             </div>
-
             <div class="col-span-2 hidden sm:block">
                 <ul>
                     <li class="mt-5 cursor-pointer border-l-2 border-l-primary px-2 py-2 font-semibold text-primary transition hover:border-l-primary hover:text-primary">Accounts</li>
                     <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-primary hover:text-primary">Profile</li>
                 </ul>
             </div>
-
             <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
                 <div class="pt-4">
                     <h1 class="py-2 text-2xl font-semibold">Account settings</h1>
@@ -74,14 +73,13 @@ include '../handler/settings_process.php';
                     <p class="py-2 text-xl font-semibold">Email Address</p>
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                         <p class="text-gray-600">Your email address is <strong><?php echo $_SESSION['email']; ?></strong></p>
-                        <button class="inline-flex text-sm font-semibold text-blue-600 underline decoration-2">Change</button>
+                        <button name="changeEmail" class="inline-flex text-sm font-semibold text-blue-600 underline decoration-2">Change</button>
                     </div>
                     <label for="#" class="pt-5">New Email Address</label>
                     <div class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600">
                         <input type="text" name="newEmail" id="" class="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none" placeholder="Type your email address" />
                     </div>
-                    <div class="text-red-500"><?php echo $validateEmail['email']; ?></div>
-                </form>
+                    <div class="text-red-500"><?php echo $validation['email']; ?></div>
                 <hr class="mt-4 mb-8" />
                 <p class="py-2 text-xl font-semibold">Password</p>
                 <div class="flex items-center">
@@ -94,6 +92,7 @@ include '../handler/settings_process.php';
                                     <input type="password" name="currentPassword" id="login-password" class="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none" placeholder="***********" />
                                 </div>
                             </label>
+                            <div class="text-red-500"><?php echo $validation['currentPassword']; ?></div>
                         </div>
                         <!-- NEW PASSWORD -->
                         <div class="mr-2">
@@ -103,6 +102,7 @@ include '../handler/settings_process.php';
                                     <input type="password" name="newPassword" id="login-password" class="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none" placeholder="***********" />
                                 </div>
                             </label>
+                            <div class="text-red-500"><?php echo $validation['newPassword']; ?></div>
                         </div>
                         <!-- CONFIRM PASSWORD -->
                         <div>
@@ -112,6 +112,7 @@ include '../handler/settings_process.php';
                                     <input type="password" name="confirmPassword" id="login-password" class="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none" placeholder="***********" />
                                 </div>
                             </label>
+                            <div class="text-red-500"><?php echo $validation['confirmPassword']; ?></div>
                         </div>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" class="mt-5 ml-2 h-6 w-6 cursor-pointer text-sm font-semibold text-gray-600 underline decoration-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -119,7 +120,9 @@ include '../handler/settings_process.php';
                     </svg>
                 </div>
                 <p class="mt-2">Can't remember your current password. <a class="text-sm font-semibold text-blue-600 underline decoration-2" href="#">Recover Account</a></p>
-                <button class="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-white">Save Password</button>
+                <button name="changePassword" class="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-white">Save Password</button>
+                </form>
+                
                 <hr class="mt-4 mb-8" />
 
                 <div class="mb-10">

@@ -1,4 +1,13 @@
 {
   "liveServer.settings.port": 5501,
-  "discord.enabled": true
+  "discord.enabled": true,
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascript",
+    "html": "html"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }
+
+ 
