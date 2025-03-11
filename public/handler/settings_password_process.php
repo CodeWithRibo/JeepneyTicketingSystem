@@ -15,7 +15,6 @@
     if (isset($_SESSION['user_id'])) {
         $isLogin = $_SESSION['user_id'];
     }
-
     $validationPassword = ['currentPassword' => "", 'newPassword' => "", 'confirmPassword' => ""];
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -33,10 +32,17 @@
 
             if ($currentPassword != $userPassword['password']) {
                 $validationPassword['currentPassword'] = "Please match to the current password";
-            } else if(empty($newPassword)) {
-                $validationPassword['newPassword'] = "Password is required";
-            } else if(empty($confirmPassword)) {
-                $validationPassword['confirmPassword'] = "Confirm Password is required";
+            } 
+            if(empty($newPassword)) {
+                $validationPassword['newPassword'] = 'New Password is required';
+            } else if ($newPassword != $confirmPassword) {
+                $validationPassword['matchPassword'] = 'New Password must match to Confirm Password';
+            }
+
+            if(empty($confirmPassword)) {
+                $validationPassword['confirmPassword'] = 'Confirm Password is required';
+            }else if ($confirmPassword != $newPassword) {
+                $validationPassword['matchConfirmPassword'] = 'Confirm Password must match to New Password';
             }
 
                 if(!array_filter($validationPassword)) {
