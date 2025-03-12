@@ -41,8 +41,6 @@
         }
         $stmt->close();
         $connection->close();
-    } else {
-        echo 'Check error';
     }
     ?>
 </body>
