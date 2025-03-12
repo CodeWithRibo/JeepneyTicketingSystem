@@ -2,7 +2,7 @@
 session_start();
 session_destroy();
 
-
+//CLEAR THE SESSION ON YOUR BROWSER
 $_SESSION = array();
 
 
