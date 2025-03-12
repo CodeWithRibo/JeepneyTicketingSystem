@@ -35,8 +35,8 @@
             } 
             if(empty($newPassword)) {
                 $validationPassword['newPassword'] = 'New Password is required';
-            } else if(!preg_match("/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/", $newPassword)) {
-                $validationPassword['newPassword'] = 'New Password must be 8-12 characters long and contain at least one number and one letter';
+            } else if(!preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,16}$/", $newPassword)) {
+                $validationPassword['newPassword'] = 'Password must be 8-16 characters, including lowercase, uppercase, digit, and special sign (@#-_$%^&+=§!?)';
             }
 
             if(empty($confirmPassword)) {
