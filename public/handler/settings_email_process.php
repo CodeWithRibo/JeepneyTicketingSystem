@@ -32,7 +32,6 @@
                 $sql = "UPDATE jts_users SET email = ? WHERE id = ?";
                 $stmt = $connection->prepare($sql);
                 $stmt->bind_param('si', $newEmail, $isLogin);
-
                 if ($stmt->execute()) {
     ?>
                     <script>
