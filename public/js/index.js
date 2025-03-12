@@ -8,12 +8,4 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileDeviceHeader.classList.toggle("hidden");
   });
 
-  // 
-  // const terminals = document.getElementById("lugar_terminal");
-  
-  // terminals.addEventListener('click', (e) => {
-  //   alert('You need to login');
-  //   window.location.href ="../Login/login.php";
-  // });
-
 });
