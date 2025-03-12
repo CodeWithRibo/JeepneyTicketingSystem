@@ -35,14 +35,12 @@
             } 
             if(empty($newPassword)) {
                 $validationPassword['newPassword'] = 'New Password is required';
-            } else if ($newPassword != $confirmPassword) {
-                $validationPassword['matchPassword'] = 'New Password must match to Confirm Password';
+            } else if(!preg_match("/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/", $newPassword)) {
+                $validationPassword['newPassword'] = 'New Password must be 8-12 characters long and contain at least one number and one letter';
             }
 
             if(empty($confirmPassword)) {
                 $validationPassword['confirmPassword'] = 'Confirm Password is required';
-            }else if ($confirmPassword != $newPassword) {
-                $validationPassword['matchConfirmPassword'] = 'Confirm Password must match to New Password';
             }
 
                 if(!array_filter($validationPassword)) {
