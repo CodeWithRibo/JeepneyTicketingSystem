@@ -13,34 +13,34 @@
 
     include '../Database/dbconfig.php';
 
-
     if (isset($_SESSION['user_id'])) {
         $isLogin = $_SESSION['user_id'];
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        if (isset($_POST['deleteAccount'])) {
+            $sql = "DELETE FROM jts_users WHERE id = ?";
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param('i', $isLogin);
 
-        $sql = "DELETE FROM jts_users WHERE id = ?";
-        $stmt = $connection->prepare($sql);
-        $stmt->bind_param('i', $isLogin);
-
-        if ($stmt->execute()) {
+            if ($stmt->execute()) {
     ?>
-            <script>
-                Swal.fire({
-                    title: "Successfully Delete",
-                    text: "Your Account has been successfully deleted",
-                    icon: "success"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = "../Logout/logout_destroy.php";
-                    }
-                });
-            </script>
+                <script>
+                    Swal.fire({
+                        title: "Successfully Delete",
+                        text: "Your Account has been successfully deleted",
+                        icon: "success"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "../Logout/logout_destroy.php";
+                        }
+                    });
+                </script>
     <?php
+            }
+            $stmt->close();
+            $connection->close();
         }
-        $stmt->close();
-        $connection->close();
     }
     ?>
 </body>
