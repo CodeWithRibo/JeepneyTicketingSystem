@@ -87,7 +87,7 @@ include '../handler/transaction_history_process.php';
                 <?php
                 if (!empty($rows)) {
                 ?>
-                    <h1 class="text-2xl font-semibold text-textColor md:text-3xl"> Welcome, <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>! Here is your Transaction History.</h1>
+                    <h1 class="text-2xl font-semibold text-textColor md:text-3xl"> Hello, <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>! Here is your Transaction History.</h1>
                 <?php
                 }
                 ?>
