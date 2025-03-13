@@ -130,20 +130,21 @@ if (isset($_SESSION["user_id"])) {
               value="<?php echo $phoneNumber; ?>" ; />
             <div class=" text-red-500"><?php echo $errors['phoneNumber'];; ?></div>
           </div>
-          <div class="flex flex-col">
+          <div class="flex flex-col relative">
             <label
               class="text-base text-textColor mb-2  sm:mb-2 sm:text-xl"
               for="password">Password</label>
             <!-- PASSWORD -->
             <input
-              class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
+              class="rounded-[5px] relative border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
               type="password"
               name="password"
               id="password"
               value="<?php echo $password; ?>" ; />
+            <i class=" absolute right-0 top-10 fa-solid fa-eye mt-3 mr-2"></i>
             <div class=" text-red-500"><?php echo $errors['password'];; ?></div>
           </div>
-          <div class="flex flex-col">
+          <div class="flex flex-col relative">
             <!-- CONFIRM PASSWORD -->
             <label
               class="text-base text-textColor mb-2  sm:mb-2 sm:text-xl"
@@ -154,8 +155,10 @@ if (isset($_SESSION["user_id"])) {
               name="confirmPassword"
               id="confirmPassword"
               value="<?php echo $confirmPassword; ?>" ; />
-            <div class=" text-red-500"><?php echo $errors['confirmPassword']; ?></div>
+              <i class=" absolute right-0 top-10 fa-solid fa-eye mt-3 mr-2"></i>
+              <div class=" text-red-500"><?php echo $errors['confirmPassword']; ?></div>
           </div>
+          <script src="../js/ToggleList.js"></script>
           <div class="text-center">
             <!-- SUBMIT BUTTON -->
             <button class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base  text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl" type="submit" value="submit" name="submit">Submit</button>
