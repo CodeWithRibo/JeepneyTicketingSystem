@@ -1,8 +1,6 @@
 <?php
-include_once '../Database/dbconfig.php';
-include_once '../handler/logic_handler.php';
-
-// Email
+include '../Database/dbconfig.php';
+include '../handler/signup_logic_handler.php';
 
 function existEmail()
 {
