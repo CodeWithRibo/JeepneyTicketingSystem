@@ -93,9 +93,9 @@ if ($result->num_rows > 0) {
                 <form action="settings.php" method="post">
                     <p class="py-2 text-xl font-semibold">Password</p>
                     <div class="flex items-center">
-                        <div class="grid grid-cols-4 ">
+                        <div class="grid md:grid-cols-4 grid-cols-3 ">
                             <!-- CURRENT PASSWORD -->
-                            <div class="col-span-2">
+                            <div class="col-start-1 col-end-4">
                                 <label for="login-password">
                                     <span class="text-sm text-gray-500">Current Password</span>
                                     <div class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600">
@@ -106,7 +106,7 @@ if ($result->num_rows > 0) {
                                 <div class="text-red-500"><?php echo $validationPassword['currentPassword']; ?></div>
                             </div>
                             <!-- NEW PASSWORD -->
-                            <div class="mr-2">
+                            <div class="mr-2 md:col-span-2 col-span-2 ">
                                 <label for="login-password">
                                     <span class="text-sm text-gray-500">New Password</span>
                                     <div class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600">
@@ -118,7 +118,7 @@ if ($result->num_rows > 0) {
                                 </div>
                             </div>
                             <!-- CONFIRM PASSWORD -->
-                            <div>
+                            <div class="md:col-auto  row-start-3 ">
                                 <label for="login-password">
                                     <span class="text-sm text-gray-500">Confirm Password</span>
                                     <div class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600">
