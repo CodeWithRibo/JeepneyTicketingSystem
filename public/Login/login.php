@@ -1,13 +1,11 @@
 
 <?php 
-
-include '../Login/login_process.php';
+include 'login_process.php';
 if (isset($_SESSION["user_id"])) {
     header("Location: ../include/home_page.php");
     exit();
 }
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -101,6 +99,12 @@ if (isset($_SESSION["user_id"])) {
               >
                 Submit
               </button>
+            </div>
+            <div class=" text-textColor text-2xl gap-2 hover:text-primary w-full transition-all duration-300 cursor-pointer ">
+            <a href="../Conductor/conductor_login.php" class="flex items-center text-start justify-center md:justify-start  gap-2 py-2 px-3 ">
+            <p class="">Conductor Login</p>
+            <i class="fa-solid fa-arrow-left "></i>
+            </a>
             </div>
           </form>
         </div>
