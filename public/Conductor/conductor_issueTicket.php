@@ -20,15 +20,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-        .font-family-karla { font-family: karla; }
-        .bg-sidebar { background: #3d68ff; }
-        .cta-btn { color: #3d68ff; }
-        .upgrade-btn { background: #1947ee; }
-        .upgrade-btn:hover { background: #0038fd; }
-        .active-nav-link { background: #1947ee; }
-        .nav-item:hover { background: #1947ee; }
-        .account-link:hover { background: #3d68ff; }
-    </style>
+    .font-family-karla { font-family: karla; }
+    .bg-sidebar { background: #3d68ff; }
+    .cta-btn { color: #3d68ff; }
+    .upgrade-btn { background: #1947ee; }
+    .upgrade-btn:hover { background: #0038fd; }
+    .active-nav-link { background: #1947ee; }
+    .nav-item:hover { background: #1947ee; }
+    .account-link:hover { background: #3d68ff; }
+    .overflow-y-auto { overflow-y: auto; }
+</style>
 </head>
 <body class="bg-gray-100 font-family-karla flex">
   <!-- SIDE BAR -->
@@ -64,7 +65,7 @@
         </a>
     </aside>
 
-    <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
+    <div class="relative w-full flex flex-col h-screen overflow-y-auto">
        <!-- Desktop Header -->
        <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
         <div class="w-1/2"></div>
@@ -128,147 +129,62 @@
         </nav>
     </header>
     
-        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
-            <main class="w-full flex-grow p-6">
-                <h1 class="text-3xl text-black pb-6">Issue Ticket</h1>
-                <form action="buy_ticket.php" method="POST" class="mb-14" id="ticketForm">
-                    <!-- Destinations -->
-                    <section class="main_container">
-                      <div class="flex flex-col items-center px-10 pt-32 md:items-start md:px-0">
-                        <div class="flex justify-center py-12 ml-5 2xl:ml-0">
-                          <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Destinations</h1>
-                        </div>
-                        <div class="w-full">
-                          <div class="space-y-4 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg mt-0">
-                            <!-- DESTINATIONS -->
-                            <div class="flex flex-col sm:flex-row  items-start md:items-center justify-between space-y-4 md:space-y-0  lg:flex-row  xl:space-x-5 xl:space-y-0">
-                              <div>
-                                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Origin">Origin</label>
-                                <select name="optionOrigin" id="optionOrigin" class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 text-lg">
-                                  <option value="Monumento Terminal">Monumento Terminal</option>
-                                </select>
-                                <div class="text-red-500"><?php echo $buyticketErrors['optionOrigin']; ?></div>
-                              </div>
-                              <div class="">
-                                <!-- ORIGIN AND DESTINATIONS -->
-                                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="Destinations">Destinations</label>
-                                <select name="optionDestinations" id="optionDestinations" aria-valuetext="<?php echo $optionDestinations ?>" class="optionDestinations rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 text-lg">
-                                  <option disabled selected>Select Destinations</option>
-                                  <option value="Baclaran Terminal" id="baclaranTerminal">Baclaran Terminal</option>
-                                  <option value="Recto Terminal" id="rectoTerminal">Recto Terminal</option>
-                                  <option value="SanJuan GreenHills Terminal" id="sanjuanTerminal">SanJuan GreenHills Terminal</option>
-                                </select>
-                                <div class="text-red-500"><?php echo $buyticketErrors['optionDestinations']; ?></div>
-                              </div>
-                              <div>
-                                <!-- RANDOM TICKET NUMBER -->
-                                <span class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl">Generated Ticket Number: </span>
-                                <span class="text-red-400 text-base font-semibold" id="ticketNumberSpan"><?php randomTicketNumber() ?></span>
-                                <input type="hidden" id="randomTicketNumber" name="randomTicketNumber">
-                                <script src="../Js/RandomTicket.js"></script>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                    <!-- PRICE FARE -->
-                    <section class="main_container">
-                      <div class="px-10 md:px-0">
-                        <div class=" flex flex-col items-center px-10 md:items-start md:px-0 py-12 ml-5 2xl:ml-0">
-                          <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Price Fare</h1>
-                        </div>
-                        <div class=" relative flex flex-row justify-center items-center border-2 bg-[#f4f4f4ca] px-0 sm:px-10 py-9   shadow-lg xl:rounded-l-lg">
-                          <div class="font-semibold lg:text-3xl md:text-2xl sm:text-2xl ">
-                            <div class="absolute top-0 left-[42%]  "><img src="/jts/image/jeep.png" class="w-[5rem] " alt=""></div>
-                            <span class="text-textColor">Monumento Terminal <span class=" text-green-950 ">---------------------- </span></span>
-                            <span class="text-textColor" id="selectDestinations">Select Destinations</span>
-                            <input type="hidden" name="selectDestinations" id="inputSelectDestinations">
-                            <div class="flex flex-row justify-center">
-                              <span id="farePriceText" class="mr-2"></span>
-                              <span id="PriceFare"></span>
-                              <input type="hidden" name="farePrice" id="farePrice">
-                              <!-- TOTAL FARE PRICE -->
-                              <span class="hidden" id="storeTotalFarePrice"></span> <!--STORE THE TOTAL FARE PRICE-->
-                              <input type="hidden" name="totalFarePrice" id="totalFarePrice"> <!--GET THE TOTAL FARE PRICE TO THE SPAN-->
-                              <!-- REGULAR PRICE AND DISCOUNTED PRICE -->
-                              <span class="hidden" id="storeRegularPrice"></span>
-                              <input type="hidden" name="regularPrice" id="regularPrice">
-                              <span class="hidden" id="storeDiscountedPrice"></span>
-                              <input type="hidden" name="discountedPrice" id="discountedPrice">
-                            </div>
-                          </div>
-                          <script src="../js/FarePrice.js"></script>
-                        </div>
-                      </div>
-                    </section>
-                    <!-- End Destinations -->
-                    <!-- Passenger Details -->
-                    <section class="main_container">
-                      <div class="flex flex-col items-center px-10 pt-16 md:items-start md:px-0">
-                        <div class="flex justify-center py-14 ml-5 2xl:ml-0">
-                          <h1 class="text-2xl font-semibold text-textColor md:text-3xl">Passenger Details</h1>
-                        </div>
-                        <div class="w-full">
-                          <div class="space-y-4 border-2 bg-[#f4f4f4ca] px-10 py-5 shadow-lg md:space-y-7 xl:space-y-7 xl:rounded-l-lg">
-                            <div class="flex flex-col items-center space-y-4 md:space-y-7 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0">
-                              <span class="flex w-full flex-col">
-                                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="FirstName">First Name</label>
-                                <div class="text-red-500"><?php echo $buyticketErrors['firstName']; ?></div>
-                                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="firstName" id="firstName" value="<?php echo $firstName ?>" />
-                              </span>
-                              <span class="flex w-full flex-col">
-                                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="LastName">Last Name</label>
-                                <div class="text-red-500"><?php echo $buyticketErrors['lastName']; ?></div>
-                                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="lastName" id="lastName" value="<?php echo $lastName ?>" />
-                              </span>
-                            </div>
-                            <div class="flex flex-col items-center space-y-4 md:space-y-7 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0">
-                              <span class="flex w-full flex-col">
-                                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="EmailAddress">Email Address</label>
-                                <div class="text-red-500"><?php echo $buyticketErrors['email']; ?></div>
-                                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="email" id="emailAddress" value="<?php echo $email ?>" />
-                              </span>
-                              <span class="flex w-full flex-col">
-                                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="PhoneNumber">Phone Number</label>
-                                <div class="text-red-500"><?php echo $buyticketErrors['phoneNumber']; ?></div>
-                                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="phoneNumber" id="phoneNumber" value="<?php echo $phoneNumber ?>" />
-                              </span>
-                              <span class="flex w-full flex-col">
-                                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="DateAndTime">Book Date and Time</label>
-                                <div class="text-red-500"><?php echo $buyticketErrors['dateAndTime']; ?></div>
-                                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]"
-                                  type="datetime-local" id="DateAndTime" name="dateAndTime" value="<?php echo $dateAndTime ?>" />
-                
-                              </span>
-                            </div>
-                            <div class="flex flex-col items-center space-y-4 md:space-y-7 lg:flex-col xl:flex-row xl:space-x-5 xl:space-y-0">
-                              <span class="flex w-full flex-col">
-                                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="PassengersWithOutDiscount">How many Passenger are their?</label>
-                                <div class="text-red-500"><?php echo $buyticketErrors['passengersCount']; ?></div>
-                                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="passengersCount" id="passengersCount" value="<?php echo $passengersCount ?>" />
-                              </span>
-                              <span class="flex w-full flex-col">
-                                <label class="mb-2 text-base text-textColor sm:mb-2 sm:text-xl" for="PassengersWithDiscount">How many Passenger's Discount are Their?</label>
-                                <div class="text-red-500"><?php echo $buyticketErrors['PassengersWithDiscount']; ?></div>
-                                <input class="rounded-[5px] border border-[#949494] py-[4.5px] pl-2 text-[15px] text-[#222422] transition-all duration-100 ease-in hover:border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2 xl:text-[18px]" type="text" name="PassengersWithDiscount" id="PassengersWithDiscount" value=" <?php echo $PassengersWithDiscount ?>" />
-                              </span>
-                            </div>
-                            <div class="text-center">
-                              <button class="cursor-pointer rounded-[5px] bg-button px-10 py-2 text-base  text-white transition-all duration-300 ease-in hover:bg-primary hover:opacity-85 sm:text-xl" value="submit" type="submit">Submit</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                    <!-- End Passenger Details-->
-                  </form>
-            </main>
-    
-        </div>
-        
-    </div>
+    <div class="max-w-7xl mx-auto">
+    <div class="border-b border-gray-900/10 pb-12 bg-slate-100 border-2 px-10 py-10">
+      <h2 class="text-base/7 font-semibold text-gray-900">Personal Information</h2>
+      <p class="mt-1 text-sm/6 text-gray-600">Use a permanent address where you can receive mail.</p>
 
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-3">
+          <label for="first-name" class="block text-sm/6 font-medium text-gray-900">First name</label>
+          <div class="mt-2">
+            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm/6 font-medium text-gray-900">Last name</label>
+          <div class="mt-2">
+            <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+
+        <div class="sm:col-span-4">
+          <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
+          <div class="mt-2">
+            <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+        <div class="col-span-full">
+          <label for="street-address" class="block text-sm/6 font-medium text-gray-900">Street address</label>
+          <div class="mt-2">
+            <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+
+        <div class="sm:col-span-2 sm:col-start-1">
+          <label for="city" class="block text-sm/6 font-medium text-gray-900">City</label>
+          <div class="mt-2">
+            <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="region" class="block text-sm/6 font-medium text-gray-900">State / Province</label>
+          <div class="mt-2">
+            <input type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="postal-code" class="block text-sm/6 font-medium text-gray-900">ZIP / Postal code</label>
+          <div class="mt-2">
+            <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
