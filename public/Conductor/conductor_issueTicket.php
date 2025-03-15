@@ -128,11 +128,12 @@
             </a>
         </nav>
     </header>
-    
+    <h1 class="text-3xl text-gray-700 pb-6 font-semibold pl-5">Issue Ticket</h1>
     <div class="max-w-7xl mx-auto">
+ 
     <div class="border-b border-gray-900/10 pb-12 bg-slate-100 border-2 px-10 py-10">
-      <h2 class="text-base/7 font-semibold text-gray-900">Personal Information</h2>
-      <p class="mt-1 text-sm/6 text-gray-600">Use a permanent address where you can receive mail.</p>
+      <h2 class="text-base/7 font-semibold text-gray-900">Issue a Ticket</h2>
+      <p class="mt-1 text-sm/6 text-gray-600">Fill out the form to complete the ticket-issuing process.</p>
 
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="sm:col-span-3">
