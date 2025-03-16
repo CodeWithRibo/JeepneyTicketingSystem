@@ -85,6 +85,7 @@
                                 <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Ticket Number</th>
                                 <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Status</th>
                                 <th class="text-left py-3 px-4 uppercase font-semibold text-sm">View Ticket Details</th>
+                                <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Action</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-700">
@@ -97,6 +98,7 @@
                                 <td class="text-left py-3 px-4"><a class="text-red-500 font-semibold">NPM32288</a></td>
                                 <td class="text-left py-3 px-4"><a class="px-4 py-2 bg-red-500 font-semibold text-white rounded-lg truncate">Not Paid</a></td>
                                 <td class="text-left py-3 px-4"><a class="bg-green-100 hover:bg-green-400 transition-all duration-300 px-5 py-2 rounded-lg truncate"><button><i class="fa-solid fa-eye pr-2" ></i>View Details</button></a></td>
+                                <td class="text-left py-3 px-4"><a class="bg-red-600 hover:bg-red-700 text-white transition-all duration-300 px-5 py-2 rounded-lg truncate"><button>Delete</button></a></td>
                             </tr>
                         </tbody>
                     </table>
