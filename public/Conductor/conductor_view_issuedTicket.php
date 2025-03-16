@@ -84,7 +84,7 @@
                             <th class=" w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">Full Name</th>
                             <th class=" text-left py-3 px-4 uppercase font-semibold text-sm">Origin</th>
                             <th class=" text-left py-3 px-4 uppercase font-semibold text-sm">Destination</th>
-                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Total Fare</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Fare Amount</th>
                             <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Ticket Number</th>
                             <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Status</th>
                             <th class="text-left py-3 px-4 uppercase font-semibold text-sm">View Ticket Details</th>
@@ -95,18 +95,16 @@
                             <td class="text-left py-3 px-4"><a class="">Lein Smith</a></td>
                             <td class="text-left py-3 px-4"><a class="">Monumento Terminal</a></td>
                             <td class="text-left py-3 px-4"><a class="">Baclaran Terminal</a></td>
-                            <td class="text-left py-3 px-4"><a class="text-red-500 font-semibold">₱320</a></td>
+                            <td class="text-left py-3 px-4"><a class="text-red-500 font-semibold">₱75</a></td>
                             <td class="text-left py-3 px-4"><a class="text-red-500 font-semibold">NPM32288</a></td>
                             <td class="text-left py-3 px-4"><a class="px-4 py-2 bg-green-500 font-semibold text-white rounded-lg">Paid</a></td>
-                            <td class="text-left py-3 px-4"><a class="bg-green-100 hover:bg-green-400 transition-all duration-300 px-5 py-2 rounded-lg"><button>View Details</button></a></td>
+                            <td class="text-left py-3 px-4"><a class="bg-green-100 hover:bg-green-400 transition-all duration-300 px-5 py-2 rounded-lg truncate"><button><i class="fa-solid fa-eye pr-2"></i>View Details</button></a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
         </main>
-    </div>
-
     </div>
 
     <!-- AlpineJS -->
