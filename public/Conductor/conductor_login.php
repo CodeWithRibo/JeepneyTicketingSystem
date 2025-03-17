@@ -4,7 +4,7 @@
 <body>
 <?php
 
-include '../Database/dbconfig.php';
+include '../Database/dbconfig_conductor.php';
 
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
