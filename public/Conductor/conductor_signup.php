@@ -1,5 +1,5 @@
 <?php
-include_once '../Database/dbconfig.php';
+include'../Database/dbconfig_conductor.php';
 
 // if (isset($_SESSION["user_id"])) {
 //     header("Location: ../Include/home_page.php");
