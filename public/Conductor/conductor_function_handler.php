@@ -1,6 +1,5 @@
 <?php
-include '../Database/dbconfig.php';
-include 'conductor_signup_logic_handler.php';
+include '../Database/dbconfig_conductor.php';
 
 // Username
 function existUserName()
