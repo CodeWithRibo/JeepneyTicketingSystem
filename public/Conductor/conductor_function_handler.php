@@ -31,7 +31,6 @@ function existUserName()
         exit();
     }
 }
-
 function existPhoneNumber()
 {
     global $connection;
