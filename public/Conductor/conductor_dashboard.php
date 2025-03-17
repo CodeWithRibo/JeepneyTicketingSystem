@@ -1,28 +1,39 @@
 <?php
 
 include '../Database/dbconfig.php';
-session_start();
-if (isset($_SESSION['user_id'])) {
-    $isExist = $_SESSION['user_id'];
-}
 
-$sql = "SELECT * FROM transaction_history WHERE user_id = ?";
-$stmt = $connection->prepare($sql);
-$stmt->bind_param('i', $isExist);
-$stmt->execute();
-$result = $stmt->get_result();
 
-$rows = [];
+//TOTAL REGISTERED USERS
+$sqlRegistered = "SELECT COUNT(*) FROM jts_users";
+$stmtRegistered = $connection -> prepare($sqlRegistered);
+$stmtRegistered -> execute();
+$stmtRegistered -> bind_result($totalRegistered);
+$stmtRegistered ->fetch();
 
-while ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $rows[] = $row;
-}
 
-foreach($rows as $key) {
-    echo $key['firstName'];
-}
-//FIXING DATABASE AND MERGING
+$stmtRegistered -> close();
+
+
+//TOTAL ALL TRANSACTION HISTORY 
+$sqlTransaction = "SELECT COUNT(*) FROM transaction_history";
+$stmtTranscation = $connection -> prepare($sqlTransaction);
+$stmtTranscation -> execute();
+$stmtTranscation -> bind_result($totalAllTransaction);
+$stmtTranscation ->fetch();
+
+
+$stmtTranscation -> close();
+
+// TOTAL ISSUED TICKET 
+$sqlIssuedTicket = "SELECT COUNT(*) FROM process_buyticket";
+$stmtIssuedTicket = $connection -> prepare($sqlIssuedTicket);
+$stmtIssuedTicket -> execute();
+$stmtIssuedTicket -> bind_result($totalIssuedTicket);
+$stmtIssuedTicket ->fetch();
+
+$connection -> close();
+$stmtIssuedTicket -> close();
+
 ?>
 
 <!DOCTYPE html>
@@ -88,12 +99,6 @@ foreach($rows as $key) {
     <?php include '../Components/conductor_header.php'; 
     ?>
 
-    <?php
-foreach ($rows as $key) {
-    echo $key['firstName'];
-}
-
-    ?>
     <div class="w-full overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
             <h1 class="text-3xl text-gray-700 pb-6 font-semibold">Jeepney System Dashboard</h1>
@@ -101,7 +106,7 @@ foreach ($rows as $key) {
                 <!-- TOTAL ISSUED TICKET -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-red-500 hover:bg-red-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight">25</span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php echo htmlspecialchars($totalIssuedTicket); ?></span>
                         <span class="uppercase font-semibold text-white text-base leading-tight">total issued ticket</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -111,7 +116,7 @@ foreach ($rows as $key) {
                 <!-- TOTAL ALL TRANSACTION HISTORY -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-green-500 hover:bg-green-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight">25</span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php echo htmlspecialchars($totalAllTransaction); ?></span>
                         <span class="uppercase font-semibold text-white text-base leading-tight">total all transcation</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -121,7 +126,7 @@ foreach ($rows as $key) {
                 <!-- Total REGISTERED PASSENGERS  -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-green-500 hover:bg-green-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight">25</span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php echo htmlspecialchars($totalRegistered);?></span>
                         <span class="uppercase font-semibold text-white text-base leading-tight">Total Registered Passengers</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
