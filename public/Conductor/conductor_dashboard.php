@@ -1,7 +1,28 @@
 <?php
 
+include '../Database/dbconfig.php';
+session_start();
+if (isset($_SESSION['user_id'])) {
+    $isExist = $_SESSION['user_id'];
+}
 
+$sql = "SELECT * FROM transaction_history WHERE user_id = ?";
+$stmt = $connection->prepare($sql);
+$stmt->bind_param('i', $isExist);
+$stmt->execute();
+$result = $stmt->get_result();
 
+$rows = [];
+
+while ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $rows[] = $row;
+}
+
+foreach($rows as $key) {
+    echo $key['firstName'];
+}
+//FIXING DATABASE AND MERGING
 ?>
 
 <!DOCTYPE html>
@@ -64,8 +85,15 @@
 
 <body class="bg-gray-100 font-sanscalp flex">
 
-    <?php include '../Components/conductor_header.php'; ?>
+    <?php include '../Components/conductor_header.php'; 
+    ?>
 
+    <?php
+foreach ($rows as $key) {
+    echo $key['firstName'];
+}
+
+    ?>
     <div class="w-full overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
             <h1 class="text-3xl text-gray-700 pb-6 font-semibold">Jeepney System Dashboard</h1>
