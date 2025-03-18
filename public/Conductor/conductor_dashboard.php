@@ -24,15 +24,31 @@ $stmtTranscation ->fetch();
 
 $stmtTranscation -> close();
 
-// TOTAL ISSUED TICKET 
-$sqlIssuedTicket = "SELECT COUNT(*) FROM process_buyticket";
-$stmtIssuedTicket = $connection -> prepare($sqlIssuedTicket);
-$stmtIssuedTicket -> execute();
-$stmtIssuedTicket -> bind_result($totalIssuedTicket);
-$stmtIssuedTicket ->fetch();
+// TOTAL PROCESS TICKET 
+$sqlProcessTicket = "SELECT COUNT(*) FROM process_buyticket";
+$stmtProcessTicket = $connection -> prepare($sqlProcessTicket);
+$stmtProcessTicket-> execute();
+$stmtProcessTicket -> bind_result($totalProcessTicket);
+$stmtProcessTicket ->fetch();
+
+
+$stmtProcessTicket -> close();
+
+
+//TOTAL REVENUE
+$sqlTotalRevenue = "SELECT totalFarePrice FROM transaction_history";
+$stmtTotalRevenue = $connection -> prepare($sqlTotalRevenue);
+$stmtTotalRevenue -> execute();
+$rows = [];
+
+while($stmtTotalRevenue -> fetch()) {
+    $stmtTotalRevenue->bind_result($totalFarePrice);
+    $rows[] = $totalFarePrice;
+}
+
+$stmtTotalRevenue -> close();
 
 $connection -> close();
-$stmtIssuedTicket -> close();
 
 ?>
 
@@ -103,10 +119,10 @@ $stmtIssuedTicket -> close();
         <main class="w-full flex-grow p-6">
             <h1 class="text-3xl text-gray-700 pb-6 font-semibold">Jeepney System Dashboard</h1>
             <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-y-8 gap-x-5 max-w-7xl mx-auto w-full">
-                <!-- TOTAL ISSUED TICKET -->
+                <!-- TOTAL PROCESS TICKET -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-red-500 hover:bg-red-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php echo htmlspecialchars($totalIssuedTicket); ?></span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php echo htmlspecialchars($totalProcessTicket); ?></span>
                         <span class="uppercase font-semibold text-white text-base leading-tight">total process ticket</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -136,7 +152,13 @@ $stmtIssuedTicket -> close();
                 <!-- TOTAL REVENUE  -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight">₱100,000</span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php 
+                        $sum = 0;
+                            foreach($rows as $row) {
+                                $sum += $row;
+                            }
+                        echo "₱{$sum}";
+                        ?></span>
                         <span class="uppercase font-semibold text-white text-base leading-tight">total REVENUE</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
