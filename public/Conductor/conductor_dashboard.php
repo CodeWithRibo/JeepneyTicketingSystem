@@ -107,7 +107,7 @@ $stmtIssuedTicket -> close();
                 <div class="flex flex-row items-center justify-between gap-5 bg-red-500 hover:bg-red-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
                         <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php echo htmlspecialchars($totalIssuedTicket); ?></span>
-                        <span class="uppercase font-semibold text-white text-base leading-tight">total issued ticket</span>
+                        <span class="uppercase font-semibold text-white text-base leading-tight">total process ticket</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
                         <i class="fa-solid fa-ticket text-yellow-200 text-3xl"></i>
