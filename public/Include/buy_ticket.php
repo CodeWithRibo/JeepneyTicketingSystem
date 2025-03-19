@@ -133,6 +133,8 @@ function randomTicketNumber()
                   <option value="Baclaran Terminal" id="baclaranTerminal">Baclaran Terminal</option>
                   <option value="Recto Terminal" id="rectoTerminal">Recto Terminal</option>
                   <option value="SanJuan GreenHills Terminal" id="sanjuanTerminal">SanJuan GreenHills Terminal</option>
+                  <option value="Lawton Manila Terminal" id="lawtonTerminal">Lawton Manila Terminal</option>
+
                 </select>
                 <div class="text-red-500"><?php echo $buyticketErrors['optionDestinations']; ?></div>
               </div>
