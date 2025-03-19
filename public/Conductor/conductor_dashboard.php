@@ -171,7 +171,7 @@ $connection->close();
                                                 foreach ($rows as $row) {
                                                     $sum += intval($row);
                                                 }
-                                                echo "₱{$sum}";
+                                                echo '₱' .number_format($sum);
                                                 ?></span>
                         <span class="uppercase font-semibold text-white text-base leading-tight">total REVENUE</span>
                     </div>
@@ -187,8 +187,8 @@ $connection->close();
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
                         <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php
-                                    echo "₱{$destinationReveneu['Baclaran']}";
-                                    ?></span>
+                                                echo '₱' .number_format($destinationReveneu['Baclaran']);
+                                                ?></span>
                         <span class="uppercase font-semibold text-white text-sm lg:text-base xl:text-base leading-tight">Baclaran Terminal</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -199,8 +199,8 @@ $connection->close();
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
                         <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php
-                                    echo "₱{$destinationReveneu['Recto']}";
-                                    ?> </span>
+                                                echo '₱' .number_format($destinationReveneu['Recto']);
+                                                ?> </span>
                         <span class="uppercase font-semibold text-white text-sm lg:text-base xl:text-base leading-tight">Recto Terminal</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -211,8 +211,8 @@ $connection->close();
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
                         <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php
-                                    echo "₱{$destinationReveneu['SanJuan']}";
-                                    ?></span>
+                                                echo '₱' .number_format($destinationReveneu['SanJuan']);
+                                                ?></span>
                         <span class="uppercase font-semibold text-white text-sm lg:text-base xl:text-base leading-tight">SanJuan GreenHills Terminal</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
