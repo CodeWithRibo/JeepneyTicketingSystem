@@ -36,19 +36,22 @@ $stmtProcessTicket -> close();
 
 
 //TOTAL REVENUE
-$sqlTotalRevenue = "SELECT totalFarePrice FROM transaction_history";
+$sqlTotalRevenue = "SELECT totalFarePrice, optionDestinations FROM transaction_history";
 $stmtTotalRevenue = $connection -> prepare($sqlTotalRevenue);
 $stmtTotalRevenue -> execute();
+$stmtTotalRevenue->bind_result($totalFarePrice, $earningRoutes);
 $rows = [];
+$rowsEarningRoutes = [];
 
 while($stmtTotalRevenue -> fetch()) {
-    $stmtTotalRevenue->bind_result($totalFarePrice);
     $rows[] = $totalFarePrice;
 }
 
 $stmtTotalRevenue -> close();
 
 $connection -> close();
+
+$destinationName = ['Baclaran' => 'Baclaran Terminal','Recto' => 'Recto Terminal' , 'SanJuan' => 'SanJuan GreenHills Terminal'];
 
 ?>
 
@@ -155,7 +158,7 @@ $connection -> close();
                         <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php 
                         $sum = 0;
                             foreach($rows as $row) {
-                                $sum += $row;
+                                $sum += intval($row);
                             }
                         echo "₱{$sum}";
                         ?></span>
@@ -172,7 +175,15 @@ $connection -> close();
                 <!-- BACLARAN TERMINAL -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight">₱100,000</span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php
+                            $baclaranEarningRoutes = 0;
+                            if($earningRoutes === $destinationName['Recto']) {
+                                $baclaranEarningRoutes+=$totalFarePrice;
+                                echo $baclaranEarningRoutes;
+                            }
+                            
+                        
+                        ?></span>
                         <span class="uppercase font-semibold text-white text-sm lg:text-base xl:text-base leading-tight">Baclaran Terminal</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -182,7 +193,9 @@ $connection -> close();
                 <!-- RECTO TERMINAL -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight">₱125,000</span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php 
+
+                        ?> </span>
                         <span class="uppercase font-semibold text-white text-sm lg:text-base xl:text-base leading-tight">Recto Terminal</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -192,7 +205,9 @@ $connection -> close();
                 <!-- SanJuan GreenHills TERMINAL -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight">₱500,000</span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php 
+                        
+                        ?></span>
                         <span class="uppercase font-semibold text-white text-sm lg:text-base xl:text-base leading-tight">SanJuan GreenHills Terminal</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
