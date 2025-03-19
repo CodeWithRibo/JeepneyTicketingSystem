@@ -44,8 +44,8 @@ $rows = [];
 $rowsEarningRoutes = [];
 
 
-$destinationName = ['Baclaran' => 'Baclaran Terminal', 'Recto' => 'Recto Terminal', 'SanJuan' => 'SanJuan GreenHills Terminal'];
-$destinationReveneu = [ 'Baclaran' => 0, 'Recto' => 0, 'SanJuan' => 0 ];
+$destinationName = ['Baclaran' => 'Baclaran Terminal', 'Recto' => 'Recto Terminal', 'SanJuan' => 'SanJuan GreenHills Terminal', 'Lawton' => 'Lawton Manila Terminal'];
+$destinationReveneu = [ 'Baclaran' => 0, 'Recto' => 0, 'SanJuan' => 0, 'Lawton' => 0 ];
 
 while ($stmtTotalRevenue->fetch()) {
     $rows[] = $totalFarePrice;
@@ -57,7 +57,6 @@ while ($stmtTotalRevenue->fetch()) {
     }
     
 }
-
 $stmtTotalRevenue->close();
 $connection->close();
 
@@ -222,7 +221,9 @@ $connection->close();
                 <!-- Manila Lawton TERMINAL -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight">₱250,000</span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php 
+                                echo '₱' .number_format($destinationReveneu['Lawton']);
+                        ?></span>
                         <span class="uppercase font-semibold text-white text-sm lg:text-base xl:text-base leading-tight">Manila Lawton Terminal</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
