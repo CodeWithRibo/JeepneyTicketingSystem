@@ -5,53 +5,64 @@ include '../Database/dbconfig.php';
 
 //TOTAL REGISTERED USERS
 $sqlRegistered = "SELECT COUNT(*) FROM jts_users";
-$stmtRegistered = $connection -> prepare($sqlRegistered);
-$stmtRegistered -> execute();
-$stmtRegistered -> bind_result($totalRegistered);
-$stmtRegistered ->fetch();
+$stmtRegistered = $connection->prepare($sqlRegistered);
+$stmtRegistered->execute();
+$stmtRegistered->bind_result($totalRegistered);
+$stmtRegistered->fetch();
 
 
-$stmtRegistered -> close();
+$stmtRegistered->close();
 
 
 //TOTAL ALL TRANSACTION HISTORY 
 $sqlTransaction = "SELECT COUNT(*) FROM transaction_history";
-$stmtTranscation = $connection -> prepare($sqlTransaction);
-$stmtTranscation -> execute();
-$stmtTranscation -> bind_result($totalAllTransaction);
-$stmtTranscation ->fetch();
+$stmtTranscation = $connection->prepare($sqlTransaction);
+$stmtTranscation->execute();
+$stmtTranscation->bind_result($totalAllTransaction);
+$stmtTranscation->fetch();
 
 
-$stmtTranscation -> close();
+$stmtTranscation->close();
 
 // TOTAL PROCESS TICKET 
 $sqlProcessTicket = "SELECT COUNT(*) FROM process_buyticket";
-$stmtProcessTicket = $connection -> prepare($sqlProcessTicket);
-$stmtProcessTicket-> execute();
-$stmtProcessTicket -> bind_result($totalProcessTicket);
-$stmtProcessTicket ->fetch();
+$stmtProcessTicket = $connection->prepare($sqlProcessTicket);
+$stmtProcessTicket->execute();
+$stmtProcessTicket->bind_result($totalProcessTicket);
+$stmtProcessTicket->fetch();
 
 
-$stmtProcessTicket -> close();
+$stmtProcessTicket->close();
 
 
 //TOTAL REVENUE
 $sqlTotalRevenue = "SELECT totalFarePrice, optionDestinations FROM transaction_history";
-$stmtTotalRevenue = $connection -> prepare($sqlTotalRevenue);
-$stmtTotalRevenue -> execute();
+$stmtTotalRevenue = $connection->prepare($sqlTotalRevenue);
+$stmtTotalRevenue->execute();
 $stmtTotalRevenue->bind_result($totalFarePrice, $earningRoutes);
 $rows = [];
 $rowsEarningRoutes = [];
 
-while($stmtTotalRevenue -> fetch()) {
+
+$destinationName = ['Baclaran' => 'Baclaran Terminal', 'Recto' => 'Recto Terminal', 'SanJuan' => 'SanJuan GreenHills Terminal'];
+$destinationReveneu = [ 'Baclaran' => 0, 'Recto' => 0, 'SanJuan' => 0 ];
+
+while ($stmtTotalRevenue->fetch()) {
     $rows[] = $totalFarePrice;
+    
+    foreach ($destinationName as $key => $value) {
+        if ($earningRoutes === $value) {
+            $destinationReveneu[$key] += $totalFarePrice;
+        }
+    }
+    
 }
 
-$stmtTotalRevenue -> close();
+$stmtTotalRevenue->close();
+$connection->close();
 
-$connection -> close();
 
-$destinationName = ['Baclaran' => 'Baclaran Terminal','Recto' => 'Recto Terminal' , 'SanJuan' => 'SanJuan GreenHills Terminal'];
+
 
 ?>
 
@@ -115,7 +126,7 @@ $destinationName = ['Baclaran' => 'Baclaran Terminal','Recto' => 'Recto Terminal
 
 <body class="bg-gray-100 font-sanscalp flex">
 
-    <?php include '../Components/conductor_header.php'; 
+    <?php include '../Components/conductor_header.php';
     ?>
 
     <div class="w-full overflow-x-hidden border-t flex flex-col">
@@ -145,7 +156,7 @@ $destinationName = ['Baclaran' => 'Baclaran Terminal','Recto' => 'Recto Terminal
                 <!-- Total REGISTERED PASSENGERS  -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-green-500 hover:bg-green-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php echo htmlspecialchars($totalRegistered);?></span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php echo htmlspecialchars($totalRegistered); ?></span>
                         <span class="uppercase font-semibold text-white text-base leading-tight">Total Registered Passengers</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -155,13 +166,13 @@ $destinationName = ['Baclaran' => 'Baclaran Terminal','Recto' => 'Recto Terminal
                 <!-- TOTAL REVENUE  -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php 
-                        $sum = 0;
-                            foreach($rows as $row) {
-                                $sum += intval($row);
-                            }
-                        echo "₱{$sum}";
-                        ?></span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php
+                                                $sum = 0;
+                                                foreach ($rows as $row) {
+                                                    $sum += intval($row);
+                                                }
+                                                echo "₱{$sum}";
+                                                ?></span>
                         <span class="uppercase font-semibold text-white text-base leading-tight">total REVENUE</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -176,14 +187,8 @@ $destinationName = ['Baclaran' => 'Baclaran Terminal','Recto' => 'Recto Terminal
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
                         <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php
-                            $baclaranEarningRoutes = 0;
-                            if($earningRoutes === $destinationName['Recto']) {
-                                $baclaranEarningRoutes+=$totalFarePrice;
-                                echo $baclaranEarningRoutes;
-                            }
-                            
-                        
-                        ?></span>
+
+                                    ?></span>
                         <span class="uppercase font-semibold text-white text-sm lg:text-base xl:text-base leading-tight">Baclaran Terminal</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -193,9 +198,9 @@ $destinationName = ['Baclaran' => 'Baclaran Terminal','Recto' => 'Recto Terminal
                 <!-- RECTO TERMINAL -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php 
-
-                        ?> </span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php
+                                    
+                                        ?> </span>
                         <span class="uppercase font-semibold text-white text-sm lg:text-base xl:text-base leading-tight">Recto Terminal</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
@@ -205,9 +210,9 @@ $destinationName = ['Baclaran' => 'Baclaran Terminal','Recto' => 'Recto Terminal
                 <!-- SanJuan GreenHills TERMINAL -->
                 <div class="flex flex-row items-center justify-between gap-5 bg-yellow-500 hover:bg-yellow-600 hover:opacity-80 cursor-pointer transition-all duration-300 w-full shadow-lg py-2 px-3 rounded-md">
                     <div class="flex flex-col justify-center h-full">
-                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php 
-                        
-                        ?></span>
+                        <span class="uppercase text-start font-semibold text-white text-xl leading-tight"><?php
+
+                                                                                                            ?></span>
                         <span class="uppercase font-semibold text-white text-sm lg:text-base xl:text-base leading-tight">SanJuan GreenHills Terminal</span>
                     </div>
                     <div class="flex items-center justify-center h-full">
