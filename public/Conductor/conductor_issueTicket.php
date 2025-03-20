@@ -2,9 +2,22 @@
 
 include '../Database/dbconfig.php';
 
+$rows = [];
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    include 'conductor_search_name.php';
+  $searchName = $_POST['search'];
+
+  $sql = "SELECT id, firstName, lastName FROM jts_users WHERE firstName LIKE ? OR lastName LIKE ?  OR id = ?";
+  $stmt = $connection->prepare($sql);
+  $searchTerm = "%$searchName%";
+  $stmt->bind_param('ssi', $searchTerm, $searchTerm, $searchName);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+    while ($row = $result->fetch_assoc()) {
+      $rows[] = $row;
+  }
 
 }
 
@@ -81,8 +94,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
           <!-- SEARCH BAR -->
           <div class="flex items-center justify-center ">
+                <form action="conductor_issueTicket.php" method="post">
                 <div class="flex rounded-full border-2 border-blue-500 overflow-hidden font-[sans-serif] max-w-lg mx-auto w-full">
-                    <input type="email" placeholder="SEARCH NAME OR ID"
+                    <input type="text" name="search" id="search" placeholder="SEARCH NAME OR ID"
                         class="w-full outline-none bg-white text-sm px-5 py-3" />
                     <button type='button' class="flex items-center justify-center bg-blue-500 hover:bg-blue-600 px-6">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="18px" class="fill-white">
@@ -92,6 +106,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </svg>
                     </button>
                 </div>
+                <?php 
+                foreach($rows as $row) {
+                  ?> 
+                    <span class="text-red-500 text-2xl flex justify-center"> <?php echo "{$row['firstName']} {$row['lastName']}"; ?></span>
+                  <?php 
+                  echo "<a href='conductor_search_name.php?user_id=" . $row['id'] . "'>Issue Ticket</a>";
+                }
+                ?>
+                </form>
             </div>
       <div class="flex pt-5 items-center gap-2">
         <h1 class="text-2xl text-gray-700">Ticker Number: </h1>
