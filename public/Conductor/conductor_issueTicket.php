@@ -7,7 +7,7 @@ $rows = [];
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $searchName = $_POST['search'];
-
+  //SEARCHING ACCOUNT USING  NAME OR ID
   $sql = "SELECT id, firstName, lastName FROM jts_users WHERE firstName LIKE ? OR lastName LIKE ?  OR id = ?";
   $stmt = $connection->prepare($sql);
   $searchTerm = "%$searchName%";
@@ -18,6 +18,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     while ($row = $result->fetch_assoc()) {
       $rows[] = $row;
   }
+
+  //REFLECT THE ISSUE TICKET BASE ON SEARCH ACCOUNT
+
+  $user_id = $_POST['user_id'];
 
 }
 
@@ -109,13 +113,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php 
                 foreach($rows as $row) {
                   ?> 
+                  <!-- <span class="bg-red-500 hover:bg-red-700 transition-all duration-300 text-white text-xl py-2 px-8 rounded-lg shadow-lg cursor-pointer">tite</span> -->
                     <span class="text-red-500 text-2xl flex justify-center"> <?php echo "{$row['firstName']} {$row['lastName']}"; ?></span>
                   <?php 
-                  echo "<a href='conductor_search_name.php?user_id=" . $row['id'] . "'>Issue Ticket</a>";
+                  echo "<a href='conductor_issueTicket.php?user_id=" . $row['id'] . "' class='bg-red-500 hover:bg-red-700 flex justify-center transition-all duration-300 text-white text-xl py-2 px-8 rounded-lg shadow-lg cursor-pointer'>Issue Ticket</a>";
                 }
-                ?>
+                if(isset($_GET['user_id'])) {
+                  $user_id = $_GET['user_id'];
+                }
+                          ?>
                 </form>
             </div>
+            <form action="conductor_issueTicket.php" method="POST">
+              <input type="hidden" name="user_id" value="<?php echo $user_Id; ?>">
       <div class="flex pt-5 items-center gap-2">
         <h1 class="text-2xl text-gray-700">Ticker Number: </h1>
         <span class=" text-xl font-semibold text-red-500">N2P423M</span>
@@ -145,50 +155,51 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="pt-5">
         <span class="text-red-500 font-semibold text-xl">Price Fare: 70PHP</span>
       </div>
-      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="sm:col-span-3 w-full h-auto ">
           <label for="first-name" class="block text-sm/6 font-medium text-gray-900">First name</label>
           <div class="mt-2">
-            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-2 border-slate-400 bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+            <input type="text" name="firstName" id="firstName"  class="block w-full rounded-md border-2 border-slate-400 bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
           </div>
         </div>
 
         <div class="sm:col-span-3 w-full h-auto ">
           <label for="last-name" class="block text-sm/6 font-medium text-gray-900">Last name</label>
           <div class="mt-2">
-            <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-2 border-slate-400 bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+            <input type="text" name="lastName" id="lastName"  class="block w-full rounded-md border-2 border-slate-400 bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
           </div>
         </div>
 
         <div class="sm:col-span-3 w-full h-auto ">
           <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
           <div class="mt-2">
-            <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-2 border-slate-400 bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+            <input id="email" name="email" type="email"  class="block w-full rounded-md border-2 border-slate-400 bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
           </div>
         </div>
         <div class="sm:col-span-3 w-full h-auto  sm:col-start-4">
           <label for="email" class="block text-sm/6 font-medium text-gray-900">Phone Number</label>
           <div class="mt-2">
-            <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-2 border-slate-400  bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+            <input id="email" name="phoneNumber" type="email"  class="block w-full rounded-md border-2 border-slate-400  bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
           </div>
         </div>
         <div class="sm:col-span-3 w-full h-auto ">
           <label for="Passenger" class="block text-sm/6 font-medium text-gray-900">Number of Passenger's</label>
           <div class="mt-2">
-            <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-2 border-slate-400  bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+            <input type="text" name="passengersCount" id="passengersCount" class="block w-full rounded-md border-2 border-slate-400  bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
           </div>
         </div>
         <div class="sm:col-span-3 w-full h-auto  sm:col-start-4">
           <label for="Passenger" class="block text-sm/6 font-medium text-gray-900">Number of Passenger's With Discount</label>
           <div class="mt-2">
-            <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-2 border-slate-400  bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+            <input type="text" name="PassengersWithDiscount" id="PassengersWithDiscount" class="block w-full rounded-md border-2 border-slate-400  bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
           </div>
         </div>
       </div>
       <div class="flex items-center justify-center pt-5">
         <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Submit Ticket</button>
       </div>
+      </form>
     </div>
   </div>
   <!-- AlpineJS -->
