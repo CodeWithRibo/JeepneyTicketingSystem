@@ -19,9 +19,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $rows[] = $row;
   }
 
-  //REFLECT THE ISSUE TICKET BASE ON SEARCH ACCOUNT
-
-  $user_id = $_POST['user_id'];
+  $stmt -> close();
+  $connection -> close();
 
 }
 
@@ -124,9 +123,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                           ?>
                 </form>
             </div>
-            <form action="conductor_issueTicket.php" method="POST">
-              <input type="hidden" name="user_id" value="<?php echo $user_Id; ?>">
-      <div class="flex pt-5 items-center gap-2">
+            <form action="conductor_save_ticket.php" method="POST">
+            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+          <div class="flex pt-5 items-center gap-2">
         <h1 class="text-2xl text-gray-700">Ticker Number: </h1>
         <span class=" text-xl font-semibold text-red-500">N2P423M</span>
       </div>
@@ -178,9 +177,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>
         </div>
         <div class="sm:col-span-3 w-full h-auto  sm:col-start-4">
-          <label for="email" class="block text-sm/6 font-medium text-gray-900">Phone Number</label>
+          <label for="phoneNumber" class="block text-sm/6 font-medium text-gray-900">Phone Number</label>
           <div class="mt-2">
-            <input id="email" name="phoneNumber" type="email"  class="block w-full rounded-md border-2 border-slate-400  bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+            <input id="phoneNumber" name="phoneNumber" type="text"  class="block w-full rounded-md border-2 border-slate-400  bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
           </div>
         </div>
         <div class="sm:col-span-3 w-full h-auto ">
@@ -197,7 +196,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
       </div>
       <div class="flex items-center justify-center pt-5">
-        <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Submit Ticket</button>
+        <button type="submit" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Submit Ticket</button>
       </div>
       </form>
     </div>
