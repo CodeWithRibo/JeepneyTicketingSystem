@@ -91,9 +91,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   <div class="mx-auto max-w-screen-xl w-full">
     <div class="border-b border-gray-900/10 bg-slate-100 border-2 px-10 py-10">
-      <div class="relative flex items-center lg:flex-row flex-col">
+      <div class="relative flex items-center xl:flex-row flex-col">
         <p class="mt-1 text-xl text-gray-600">Fill out the form to complete the ticket-issuing process.</p>
-        <img src="/jts/image/main_logo.png" alt="" class="lg:absolute lg:right-0 h-auto">
+        <img src="/jts/image/main_logo.png" alt="" class="xl:absolute xl:right-0 h-auto">
       </div>
           <!-- SEARCH BAR -->
           <div class="flex items-center justify-center ">
