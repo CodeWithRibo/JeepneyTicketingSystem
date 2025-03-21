@@ -33,9 +33,9 @@
                 <i class="fas fa-sticky-note mr-3"></i>
                 Issue Ticket
             </a>
-            <a href="conductor_view_issuedTicket.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="conductor_view_processticket.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fa-solid fa-ticket mr-3"></i>
-                View Issued Ticket
+                All Process Ticket
             </a>
             <a href="conductor_transaction_history.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-align-left mr-3"></i>
@@ -48,7 +48,7 @@
         </a>
     </aside>
 
-    <div class="w-full flex flex-col h-screen overflow-y-hidden">
+    <div class="w-full flex flex-col h-screen overflow-y-auto">
         <!-- Desktop Header -->
         <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
             <div class="w-1/2"></div>
@@ -85,10 +85,10 @@
                     <i class="fas fa-sticky-note mr-3"></i>
                     Issue Ticket
                 </a>
-                <a href="conductor_view_issuedTicket.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="conductor_view_processticket.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-table mr-3"></i>
-                    View Issued Ticket
-                </a>
+                    All Process Ticket
+                    </a>
                 <a href="conductor_transaction_history.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-align-left mr-3"></i>
                     All Transaction History
