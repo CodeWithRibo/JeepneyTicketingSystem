@@ -7,7 +7,6 @@ $validateSearch = ['search' => "", 'noResult' => ""];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-  if(isset($_POST['sumbitSearch'])) {
     $searchName = trim($_POST['search']);
 
     if(empty($searchName)) {
@@ -33,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
   $connection -> close();
-  }
+
 
 }
 
