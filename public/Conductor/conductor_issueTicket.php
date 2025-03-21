@@ -3,24 +3,37 @@
 include '../Database/dbconfig.php';
 
 $rows = [];
+$validateSearch = ['search' => "", 'noResult' => ""];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-  $searchName = $_POST['search'];
-  //SEARCHING ACCOUNT USING  NAME OR ID
-  $sql = "SELECT id, firstName, lastName FROM jts_users WHERE firstName LIKE ? OR lastName LIKE ?  OR id = ?";
-  $stmt = $connection->prepare($sql);
-  $searchTerm = "%$searchName%";
-  $stmt->bind_param('ssi', $searchTerm, $searchTerm, $searchName);
-  $stmt->execute();
-  $result = $stmt->get_result();
+  if(isset($_POST['sumbitSearch'])) {
+    $searchName = trim($_POST['search']);
 
-    while ($row = $result->fetch_assoc()) {
-      $rows[] = $row;
-  }
+    if(empty($searchName)) {
+      $validateSearch['search'] = "Search required"; 
+    } else {
+ //SEARCHING ACCOUNT USING  NAME OR ID
+    $sql = "SELECT id, firstName, lastName FROM jts_users WHERE firstName LIKE ? OR lastName LIKE ?  OR id = ?";
+    $stmt = $connection->prepare($sql);
+    $searchTerm = "%$searchName%";
+    $stmt->bind_param('ssi', $searchTerm, $searchTerm, $searchName);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-  $stmt -> close();
+      if($result -> num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          $rows[] = $row;
+      }
+      } else {
+        $validateSearch['noResult'] = "No search found";
+      }
+
+    $stmt -> close();
+    }
+
   $connection -> close();
+  }
 
 }
 
@@ -96,7 +109,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
               <div class="flex rounded-full border-2 border-blue-500 overflow-hidden font-[sans-serif] max-w-lg mx-auto w-full">
                   <input type="text" name="search" id="search" placeholder="SEARCH NAME OR ID"
                       class="w-full outline-none bg-white text-sm px-5 py-3" />
-                  <button type='button' class="flex items-center justify-center bg-blue-500 hover:bg-blue-600 px-6">
+                  <button type='submit' class="flex items-center justify-center bg-blue-500 hover:bg-blue-600 px-6" name="sumbitSearch">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="18px" class="fill-white">
                           <path
                               d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z">
@@ -104,14 +117,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                       </svg>
                   </button>
               </div>
+              <div class="text-gray-400 pt-5 text-3xl flex justify-center"><?php echo $validateSearch['search'];?></div>
               <?php 
-              foreach($rows as $row) {
-                ?> 
-                <!-- <span class="bg-red-500 hover:bg-red-700 transition-all duration-300 text-white text-xl py-2 px-8 rounded-lg shadow-lg cursor-pointer">tite</span> -->
-                  <span class="text-red-500 text-2xl flex justify-center"> <?php echo "{$row['firstName']} {$row['lastName']}"; ?></span>
-                <?php 
-                echo "<a href='conductor_issueTicket.php?user_id=" . $row['id'] . "' class='bg-red-500 hover:bg-red-700 flex justify-center transition-all duration-300 text-white text-xl py-2 px-8 rounded-lg shadow-lg cursor-pointer'>Issue Ticket</a>";
+
+              if(!empty($validateSearch['noResult'])) {
+                  echo "<span class='text-gray-400 text-3xl flex justify-center'> {$validateSearch['noResult']}</span>";
               }
+
+                  foreach($rows as $row) {
+                    echo "<span class='text-red-500 text-2xl flex justify-center'>{$row['firstName']} {$row['lastName']}</span>";
+                    echo "<a href='conductor_issueTicket.php?user_id=" . $row['id'] . "' class='bg-red-500 hover:bg-red-700 flex justify-center transition-all duration-300 text-white text-xl py-2 px-8 rounded-lg shadow-lg cursor-pointer'>Issue Ticket</a>";
+                  }
+              
               if(isset($_GET['user_id'])) {
                 $user_id = $_GET['user_id'];
               }
