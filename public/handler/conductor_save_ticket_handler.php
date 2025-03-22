@@ -11,7 +11,7 @@ $email = $_POST['email'];
 $phoneNumber = $_POST['phoneNumber'];
 $passengersCount = $_POST['passengersCount'];
 $PassengersWithDiscount = $_POST['PassengersWithDiscount'];
-
+$randomTicketNumber = $_POST['randomTicketNumber'];
 
 if (empty($firstName)) {
     $ticketValidation['firstName'] = "First Name is required";
