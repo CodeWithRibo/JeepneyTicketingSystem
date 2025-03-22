@@ -60,8 +60,11 @@ while ($stmtTotalRevenue->fetch()) {
 $stmtTotalRevenue->close();
 $connection->close();
 
-
-
+session_start();
+if (!isset($_SESSION["conductor_user_id"])) {
+    header("Location: ../Logout/home_page.php");
+    exit();
+}
 
 ?>
 

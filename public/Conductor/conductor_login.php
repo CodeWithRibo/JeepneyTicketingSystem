@@ -68,8 +68,9 @@ $connection->close();
 
 <?php 
 
+session_start();
 if (isset($_SESSION["conductor_user_id"])) {
-    header("Location: ../include/home_page.php");
+    header("Location: conductor_dashboard.php");
     exit();
 }
 

@@ -1,3 +1,13 @@
+<?php 
+
+session_start();
+if (!isset($_SESSION["conductor_user_id"])) {
+    header("Location: ../Logout/home_page.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
