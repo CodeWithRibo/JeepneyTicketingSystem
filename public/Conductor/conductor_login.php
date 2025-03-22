@@ -7,6 +7,11 @@
 include '../Database/dbconfig_conductor.php';
 
 session_start();
+if (isset($_SESSION["conductor_user_id"])) {
+    header("Location: conductor_dashboard.php");
+    exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userName = $_POST["userName"];
     $password = $_POST["password"];
@@ -66,15 +71,10 @@ $connection->close();
 </body>
 </html>
 
-<?php 
 
-session_start();
-if (isset($_SESSION["conductor_user_id"])) {
-    header("Location: conductor_dashboard.php");
-    exit();
-}
 
-?>
+
+
 <!doctype html>
 <html lang="en">
 
