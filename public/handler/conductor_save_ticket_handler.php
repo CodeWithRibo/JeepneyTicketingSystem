@@ -1,8 +1,7 @@
 <?php
 
 include '../Database/dbconfig.php';
-
-$ticketValidation = ['firstName' => "", 'lastName' => "", 'email' =>"", 'phoneNumber' => "", 'passengersCount' => "", 'PassengersWithDiscount' => ""];
+include 'conductor_save_ticket_error_handler.php';
 
 //REFLECT THE ISSUE TICKET BASE ON SEARCH ACCOUNT
 $user_id = $_POST['user_id'];
