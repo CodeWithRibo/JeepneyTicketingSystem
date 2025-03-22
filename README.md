@@ -6,7 +6,7 @@ The Jeepney Ticketing System, inspired by the innovative practices on Karuhatan 
  
 **_Here's the quick overview of the website_**
 
-_USER CLIENT SIDE_
+<p class='font-size:30px;'>_USER CLIENT SIDE_</p>
 
 **TERMINAL**
 ![image](https://github.com/user-attachments/assets/40e4397d-fbdd-4f4d-b000-09e6c01271bd)
