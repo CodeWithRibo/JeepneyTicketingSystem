@@ -33,9 +33,9 @@
             <?php
             exit;
         } else {
-            $sql = "INSERT INTO process_buyticket (user_id, firstName, lastName, email, phoneNumber, passengersCount, PassengersWithDiscount) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO process_buyticket (user_id, firstName, lastName, email, phoneNumber, passengersCount, PassengersWithDiscount, ticketNumber) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             $stmtData = $connection->prepare($sql);
-            $stmtData->bind_param('issssss', $user_id, $firstName, $lastName, $email, $phoneNumber, $passengersCount, $PassengersWithDiscount);
+            $stmtData->bind_param('isssssss', $user_id, $firstName, $lastName, $email, $phoneNumber, $passengersCount, $PassengersWithDiscount, $randomTicketNumber);
             $stmtData->execute();
 
 

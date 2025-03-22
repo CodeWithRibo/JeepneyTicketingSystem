@@ -134,12 +134,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         ?>
               </form>
           </div>
-
+            <?php
+            function randomTicketNumber()
+{
+  function generateRandomString($length = 2)
+  {
+    return substr(str_shuffle(str_repeat($x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 2, $length);
+  }
+  $ticketNumber = rand(20000, 30000);
+  $customerRfId = generateRandomString() . $ticketNumber;
+  echo $customerRfId;
+}
+            ?>
           <form action="conductor_save_ticket.php" method="POST">
           <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
         <div class="flex pt-5 items-center gap-2">
       <h1 class="text-2xl text-gray-700">Ticker Number: </h1>
-      <span class=" text-xl font-semibold text-red-500">N2P423M</span>
+      <span class=" text-xl font-semibold text-red-500"><?php randomTicketNumber();?></span>
+      <input type="hidden" id="randomTicketNumber" name="randomTicketNumber">
+      <script src="../Js/RandomTicket.js"></script>
     </div>
 
     <!-- DESTINATIONS -->
