@@ -14,38 +14,45 @@
     include '../Database/dbconfig.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //REFLECT THE ISSUE TICKET BASE ON SEARCH ACCOUNT
-        $user_id = $_POST['user_id'];
-        $firstName = $_POST['firstName'];
-        $lastName = $_POST['lastName'];
-        $email = $_POST['email'];
-        $phoneNumber = $_POST['phoneNumber'];
-        $passengersCount = $_POST['passengersCount'];
-        $PassengersWithDiscount = $_POST['PassengersWithDiscount'];
-        //TODO
-        //! FIX VALIDATION FOR SUBMITING TICKET
-        if (empty($user_id) || empty($firstName) || empty($lastName) || empty($email) || empty($phoneNumber) || empty($passengersCount) || empty($PassengersWithDiscount)) {
 
+        include '../handler/conductor_save_ticket_handler.php';
+
+        if (array_filter($ticketValidation)) {
     ?>
             <script>
                 Swal.fire({
-                    title: "",
-                    text: "That thing is still around?",
-                    icon: "question"
-                })
+                    title: "Please fillout all fields",
+                    text: "Fill all the blank",
+                    icon: "error"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = 'conductor_issueTicket.php';
+                    }
+                });
             </script>
-    <?php
-
+            <?php
             exit;
         } else {
             $sql = "INSERT INTO process_buyticket (user_id, firstName, lastName, email, phoneNumber, passengersCount, PassengersWithDiscount) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmtData = $connection->prepare($sql);
-            $stmtData->bind_param('issssss', $user_id, $fistName, $lastName, $email, $phoneNumber, $passengersCount, $PassengersWithDiscount);
+            $stmtData->bind_param('issssss', $user_id, $firstName, $lastName, $email, $phoneNumber, $passengersCount, $PassengersWithDiscount);
             $stmtData->execute();
 
 
             if ($stmtData->affected_rows > 0) {
-                echo 'Succesfully addded ticket ' . $user_id;
+            ?>
+                <script>
+                    Swal.fire({
+                        title: "Added Sucess",
+                        text: "Successfully issue a ticket",
+                        icon: "success"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location = 'conductor_issueTicket.php';
+                        }
+                    });
+                </script>
+    <?php
             } else {
                 echo 'not added';
             }

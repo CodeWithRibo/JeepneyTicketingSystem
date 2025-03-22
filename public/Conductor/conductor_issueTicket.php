@@ -134,6 +134,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         ?>
               </form>
           </div>
+
           <form action="conductor_save_ticket.php" method="POST">
           <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
         <div class="flex pt-5 items-center gap-2">
@@ -172,6 +173,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="mt-2">
           <input type="text" name="firstName" id="firstName"  class="block w-full rounded-md border-2 border-slate-400 bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
         </div>
+        <?php #echo $ticketValidation['firstName']; ?>
       </div>
 
       <div class="sm:col-span-3 w-full h-auto ">
